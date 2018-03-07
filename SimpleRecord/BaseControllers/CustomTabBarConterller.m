@@ -7,31 +7,42 @@
 //
 
 #import "CustomTabBarConterller.h"
+#import "CustomNavigationController.h"
+#import "AppSkinColorManger.h"
 
 @interface CustomTabBarConterller ()
-
+@property(nonatomic,strong) CustomNavigationController *calendarNav;
+@property(nonatomic,strong) CustomNavigationController *recodNav;
+@property(nonatomic,strong) CustomNavigationController *mineNav;
 @end
 
 @implementation CustomTabBarConterller
+
+#pragma mark - life cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
+#pragma mark getters and setters
+
+-(void)createTabBarItemWithTitle:(NSString *)title withUnSelectedImage:(NSString *)unSelectedImage withSelectedImage:(NSString *)selectedImage withTag:(NSInteger)tag
+{
+    UIImage *image1_0 = [UIImage imageNamed:unSelectedImage];
+    UIImage *image1_1 = [UIImage imageNamed:selectedImage];
+    
+    (void)[[self.tabBar.items objectAtIndex:tag] initWithTitle:title image:image1_0 selectedImage:image1_1];
+    
+    [[self.tabBar.items objectAtIndex:tag] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                                   [AppSkinColorManger sharedInstance].themeColor, NSForegroundColorAttributeName,
+                                                                   nil] forState:UIControlStateSelected];
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

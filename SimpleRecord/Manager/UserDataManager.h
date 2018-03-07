@@ -10,4 +10,10 @@
 
 @interface UserDataManager : NSObject
 
++ (instancetype)sharedInstance;
+
+- (void)createDefaltDatabase;
+
+- (void)loadUser;
+
 @end
