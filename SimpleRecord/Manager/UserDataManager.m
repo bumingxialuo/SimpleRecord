@@ -48,6 +48,10 @@
     
 }
 
+- (void)loadUser {
+    
+}
+
 - (FMDatabase *)createDataBaseWithName: (NSString *)DBNameStr{
     //APP所在路径
     NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(
