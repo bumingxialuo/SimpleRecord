@@ -20,6 +20,11 @@
 		161DDC0F204FC030000B195B /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC0E204FC030000B195B /* CustomNavigationController.m */; };
 		161DDC13204FC2BB000B195B /* AppSkinColorManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC12204FC2BB000B195B /* AppSkinColorManger.m */; };
 		161DDC16204FCBBF000B195B /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC15204FCBBF000B195B /* UserDataManager.m */; };
+		1696E82C20522D130022B670 /* UIImage+color.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E82B20522D130022B670 /* UIImage+color.m */; };
+		1696E832205254D50022B670 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E831205254D50022B670 /* CalendarViewController.m */; };
+		1696E835205254E10022B670 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E834205254E10022B670 /* RecordViewController.m */; };
+		1696E838205254FB0022B670 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E837205254FB0022B670 /* MineViewController.m */; };
+		1696E83C205258C80022B670 /* SRRouterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E83B205258C80022B670 /* SRRouterManager.m */; };
 		D1EE085C8543542AB9067104 /* libPods-SimpleRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73104B1B8A13EF0DFCFECDBC /* libPods-SimpleRecord.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +72,17 @@
 		161DDC12204FC2BB000B195B /* AppSkinColorManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSkinColorManger.m; sourceTree = "<group>"; };
 		161DDC14204FCBBF000B195B /* UserDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
 		161DDC15204FCBBF000B195B /* UserDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
+		1696E82A20522D130022B670 /* UIImage+color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+color.h"; sourceTree = "<group>"; };
+		1696E82B20522D130022B670 /* UIImage+color.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+color.m"; sourceTree = "<group>"; };
+		1696E830205254D50022B670 /* CalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		1696E831205254D50022B670 /* CalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		1696E833205254E10022B670 /* RecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
+		1696E834205254E10022B670 /* RecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		1696E836205254FB0022B670 /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		1696E837205254FB0022B670 /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		1696E83A205258C80022B670 /* SRRouterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRRouterManager.h; sourceTree = "<group>"; };
+		1696E83B205258C80022B670 /* SRRouterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRRouterManager.m; sourceTree = "<group>"; };
+		1696E83D20525A310022B670 /* SRRouterUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRRouterUrl.h; sourceTree = "<group>"; };
 		68EBA188898C1E0630CE17CC /* Pods-SimpleRecord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleRecord.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleRecord/Pods-SimpleRecord.release.xcconfig"; sourceTree = "<group>"; };
 		73104B1B8A13EF0DFCFECDBC /* libPods-SimpleRecord.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimpleRecord.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C72DB3D72D1082653B5233D /* Pods-SimpleRecord.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleRecord.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleRecord/Pods-SimpleRecord.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,8 +148,13 @@
 		161DDBD6204FB4E7000B195B /* SimpleRecord */ = {
 			isa = PBXGroup;
 			children = (
+				1696E839205258820022B670 /* Tool */,
+				1696E82920522C590022B670 /* Category */,
 				161DDC10204FC284000B195B /* Manager */,
 				161DDC09204FBB57000B195B /* BaseControllers */,
+				1696E82D20523C150022B670 /* Calendar */,
+				1696E82E20523CCD0022B670 /* Record */,
+				1696E82F20523CDE0022B670 /* Mine */,
 				161DDBD7204FB4E7000B195B /* AppDelegate.h */,
 				161DDBD8204FB4E7000B195B /* AppDelegate.m */,
 				161DDBDA204FB4E7000B195B /* ViewController.h */,
@@ -185,8 +206,54 @@
 				161DDC12204FC2BB000B195B /* AppSkinColorManger.m */,
 				161DDC14204FCBBF000B195B /* UserDataManager.h */,
 				161DDC15204FCBBF000B195B /* UserDataManager.m */,
+				1696E83A205258C80022B670 /* SRRouterManager.h */,
+				1696E83B205258C80022B670 /* SRRouterManager.m */,
+				1696E83D20525A310022B670 /* SRRouterUrl.h */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		1696E82920522C590022B670 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				1696E82A20522D130022B670 /* UIImage+color.h */,
+				1696E82B20522D130022B670 /* UIImage+color.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		1696E82D20523C150022B670 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				1696E830205254D50022B670 /* CalendarViewController.h */,
+				1696E831205254D50022B670 /* CalendarViewController.m */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		1696E82E20523CCD0022B670 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				1696E833205254E10022B670 /* RecordViewController.h */,
+				1696E834205254E10022B670 /* RecordViewController.m */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		1696E82F20523CDE0022B670 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				1696E836205254FB0022B670 /* MineViewController.h */,
+				1696E837205254FB0022B670 /* MineViewController.m */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		1696E839205258820022B670 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		E243B23DCB35EE8DC39A01B2 /* Frameworks */ = {
@@ -390,11 +457,16 @@
 			files = (
 				161DDC13204FC2BB000B195B /* AppSkinColorManger.m in Sources */,
 				161DDC0C204FBD80000B195B /* CustomTabBarConterller.m in Sources */,
+				1696E83C205258C80022B670 /* SRRouterManager.m in Sources */,
+				1696E82C20522D130022B670 /* UIImage+color.m in Sources */,
+				1696E838205254FB0022B670 /* MineViewController.m in Sources */,
 				161DDC0F204FC030000B195B /* CustomNavigationController.m in Sources */,
 				161DDC16204FCBBF000B195B /* UserDataManager.m in Sources */,
 				16132660204FEE2600CDE1EB /* UserDBOperationManager.m in Sources */,
 				161DDBDC204FB4E7000B195B /* ViewController.m in Sources */,
+				1696E835205254E10022B670 /* RecordViewController.m in Sources */,
 				161DDBE7204FB4E7000B195B /* main.m in Sources */,
+				1696E832205254D50022B670 /* CalendarViewController.m in Sources */,
 				161DDBD9204FB4E7000B195B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

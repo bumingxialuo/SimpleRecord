@@ -29,6 +29,12 @@
 
 @interface UserDataManager()
 
+/**
+ *  默认数据库
+ */
+@property (nonatomic, strong) FMDatabase *defaultDataBase;
+
+
 @end
 
 @implementation UserDataManager
@@ -44,14 +50,15 @@
 }
 
 - (void)createDefaltDatabase {
-    [self createDataBaseWithName:SimpleRecordDB];
-    
+    _defaultDataBase = [self createDataBaseWithName:SimpleRecordDB];
+    [self createInitDatabase];
 }
 
 - (void)loadUser {
     
 }
 
+#pragma mark - 创建数据库
 - (FMDatabase *)createDataBaseWithName: (NSString *)DBNameStr{
     //APP所在路径
     NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(
@@ -67,6 +74,21 @@
     FMDatabase *dataBase=[FMDatabase databaseWithPath:dbFilePath];
     
     return dataBase;
+}
+#pragma mark - 创建表
+- (void)createInitDatabase {
+    if ([_defaultDataBase open]) {
+        if (![_defaultDataBase executeUpdate:CreateUserInfo]) {
+            NSLog(@"创建用户信息表失败");
+        }
+        if (![_defaultDataBase executeUpdate:CreateSecretInfo]) {
+            NSLog(@"创建日记存储表失败");
+        }
+        if (![_defaultDataBase executeUpdate:CreateArticleTable]) {
+            NSLog(@"创建文章存储表失败");
+        }
+        [_defaultDataBase close];
+    }
 }
 
 @end

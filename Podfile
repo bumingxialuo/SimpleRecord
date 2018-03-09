@@ -3,7 +3,7 @@ target 'SimpleRecord' do
 #三方开源
     pod 'SVProgressHUD'
     pod 'FMDB'
-    pod 'HHRouter'
+    pod 'HHRouter', '~> 0.1.8'
     pod 'MJRefresh'
     pod 'HMSegmentedControl'
     pod 'ChameleonFramework'

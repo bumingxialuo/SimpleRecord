@@ -9,6 +9,8 @@
 #import "CustomTabBarConterller.h"
 #import "CustomNavigationController.h"
 #import "AppSkinColorManger.h"
+#import <HHRouter/HHRouter.h>
+#import "SRRouterUrl.h"
 
 @interface CustomTabBarConterller ()
 @property(nonatomic,strong) CustomNavigationController *calendarNav;
@@ -23,16 +25,47 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self createSubVC];
 }
 
-#pragma mark getters and setters
+- (void)settingStyle {
+    
+}
+
+- (void)createSubVC {
+    _calendarNav = [[CustomNavigationController alloc] init];
+    _recodNav = [[CustomNavigationController alloc] init];
+    _mineNav = [[CustomNavigationController alloc] init];
+    self.viewControllers = @[_calendarNav,_recodNav,_mineNav];
+    [self createTabBarItemWithTitle:@"日历" withUnSelectedImage:@"calendar_unSelect" withSelectedImage:@"calendar_select" withTag:0];
+    [self createTabBarItemWithTitle:@"记录" withUnSelectedImage:@"record_unSelect" withSelectedImage:@"record_select" withTag:1];
+    [self createTabBarItemWithTitle:@"我的" withUnSelectedImage:@"mine_unSelect" withSelectedImage:@"mine_select" withTag:2];
+    if (_calendarNav) {
+        UIViewController *vc = [[HHRouter shared] matchController:SR_Calendar];
+        _calendarNav.viewControllers = @[vc];
+    }
+    if (_recodNav) {
+        UIViewController *vc = [[HHRouter shared] matchController:SR_Record];
+        _recodNav.viewControllers = @[vc];
+    }
+    if (_mineNav) {
+        UIViewController *vc = [[HHRouter shared] matchController:SR_Mine];
+        _mineNav.viewControllers = @[vc];
+    }
+    
+}
+
+#pragma mark - getters and setters
 
 -(void)createTabBarItemWithTitle:(NSString *)title withUnSelectedImage:(NSString *)unSelectedImage withSelectedImage:(NSString *)selectedImage withTag:(NSInteger)tag
 {
     UIImage *image1_0 = [UIImage imageNamed:unSelectedImage];
     UIImage *image1_1 = [UIImage imageNamed:selectedImage];
     
-    (void)[[self.tabBar.items objectAtIndex:tag] initWithTitle:title image:image1_0 selectedImage:image1_1];
+    UIImage *unSelectImage_handle = [image1_0 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *selectImage_handle = [image1_1 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    (void)[[self.tabBar.items objectAtIndex:tag] initWithTitle:title image:unSelectImage_handle selectedImage:selectImage_handle];
     
     [[self.tabBar.items objectAtIndex:tag] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                                    [AppSkinColorManger sharedInstance].themeColor, NSForegroundColorAttributeName,

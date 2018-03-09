@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "UserDataManager.h"
+#import "SRRouterManager.h"
+#import "CustomTabBarConterller.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +19,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [self setUpDataBase];
+    [self setRouterController];
+    
+    _window = [[UIWindow alloc] init];
+    _window.rootViewController = [[CustomTabBarConterller alloc] init];
+    
     return YES;
+}
+
+- (void)setUpDataBase {
+    [[UserDataManager sharedInstance] createDefaltDatabase];
+}
+
+- (void)setRouterController {
+    [[SRRouterManager shardInstance] createAllRouterController];
 }
 
 

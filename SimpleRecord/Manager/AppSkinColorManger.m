@@ -23,7 +23,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _themeColor = [UIColor flatYellowColor];
+        _themeColor = [UIColor colorWithHexString:@"f44528"];
         _secondColor = [UIColor flatOrangeColor];
         _backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
         _textColor = [UIColor colorWithHexString:@"#666"];
