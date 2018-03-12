@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecordTableView : UITableView
+@protocol RecordTableViewDelegate<NSObject>
 
+@end
+
+@interface RecordTableView : UITableView
+@property(nonatomic,weak) id<RecordTableViewDelegate> tableDelegate;
 @end

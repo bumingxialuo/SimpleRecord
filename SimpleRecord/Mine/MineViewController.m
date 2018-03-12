@@ -19,6 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
+    self.navigationItem.title = @"我的";
 }
 
 - (void)didReceiveMemoryWarning {

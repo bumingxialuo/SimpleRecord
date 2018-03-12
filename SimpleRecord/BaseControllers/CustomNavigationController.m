@@ -26,8 +26,8 @@
 - (void)showNormalNavigationBarTintColor:(UIColor *)tintColor
 {
     self.navigationBar.tintColor = tintColor;
-    [self setNavigationBarBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithHexString:@"FFFFFF"]]];
-    NSDictionary *dict=[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[UIColor colorWithHexString:@"333333"],[UIFont systemFontOfSize:20.0],[[NSShadow alloc] init],nil]forKeys:[NSArray arrayWithObjects:NSForegroundColorAttributeName,NSFontAttributeName,NSShadowAttributeName,nil]];
+    [self setNavigationBarBackgroundImage:[UIImage createImageWithColor:[AppSkinColorManger sharedInstance].themeColor]];
+    NSDictionary *dict=[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[UIColor whiteColor],[UIFont systemFontOfSize:20.0],[[NSShadow alloc] init],nil]forKeys:[NSArray arrayWithObjects:NSForegroundColorAttributeName,NSFontAttributeName,NSShadowAttributeName,nil]];
     self.navigationBar.titleTextAttributes = dict;
     self.navigationBar.tintColor = [UIColor colorWithHexString:@"333333"];
 }

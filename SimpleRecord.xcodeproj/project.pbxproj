@@ -20,11 +20,14 @@
 		161DDC0F204FC030000B195B /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC0E204FC030000B195B /* CustomNavigationController.m */; };
 		161DDC13204FC2BB000B195B /* AppSkinColorManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC12204FC2BB000B195B /* AppSkinColorManger.m */; };
 		161DDC16204FCBBF000B195B /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC15204FCBBF000B195B /* UserDataManager.m */; };
+		1637FFD9205624650086F176 /* RecordTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1637FFD8205624650086F176 /* RecordTableHeadView.m */; };
+		1637FFDD20564D890086F176 /* RecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1637FFDC20564D890086F176 /* RecordTableViewCell.m */; };
 		1696E82C20522D130022B670 /* UIImage+color.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E82B20522D130022B670 /* UIImage+color.m */; };
 		1696E832205254D50022B670 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E831205254D50022B670 /* CalendarViewController.m */; };
 		1696E835205254E10022B670 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E834205254E10022B670 /* RecordViewController.m */; };
 		1696E838205254FB0022B670 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E837205254FB0022B670 /* MineViewController.m */; };
 		1696E83C205258C80022B670 /* SRRouterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E83B205258C80022B670 /* SRRouterManager.m */; };
+		16F2932B205290550094F490 /* RecordTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2932A205290550094F490 /* RecordTableView.m */; };
 		D1EE085C8543542AB9067104 /* libPods-SimpleRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73104B1B8A13EF0DFCFECDBC /* libPods-SimpleRecord.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +75,11 @@
 		161DDC12204FC2BB000B195B /* AppSkinColorManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSkinColorManger.m; sourceTree = "<group>"; };
 		161DDC14204FCBBF000B195B /* UserDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
 		161DDC15204FCBBF000B195B /* UserDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
+		1637FFD7205624650086F176 /* RecordTableHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordTableHeadView.h; sourceTree = "<group>"; };
+		1637FFD8205624650086F176 /* RecordTableHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordTableHeadView.m; sourceTree = "<group>"; };
+		1637FFDA205627640086F176 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		1637FFDB20564D890086F176 /* RecordTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordTableViewCell.h; sourceTree = "<group>"; };
+		1637FFDC20564D890086F176 /* RecordTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordTableViewCell.m; sourceTree = "<group>"; };
 		1696E82A20522D130022B670 /* UIImage+color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+color.h"; sourceTree = "<group>"; };
 		1696E82B20522D130022B670 /* UIImage+color.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+color.m"; sourceTree = "<group>"; };
 		1696E830205254D50022B670 /* CalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
@@ -83,6 +91,8 @@
 		1696E83A205258C80022B670 /* SRRouterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRRouterManager.h; sourceTree = "<group>"; };
 		1696E83B205258C80022B670 /* SRRouterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRRouterManager.m; sourceTree = "<group>"; };
 		1696E83D20525A310022B670 /* SRRouterUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRRouterUrl.h; sourceTree = "<group>"; };
+		16F29329205290550094F490 /* RecordTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordTableView.h; sourceTree = "<group>"; };
+		16F2932A205290550094F490 /* RecordTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordTableView.m; sourceTree = "<group>"; };
 		68EBA188898C1E0630CE17CC /* Pods-SimpleRecord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleRecord.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleRecord/Pods-SimpleRecord.release.xcconfig"; sourceTree = "<group>"; };
 		73104B1B8A13EF0DFCFECDBC /* libPods-SimpleRecord.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimpleRecord.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C72DB3D72D1082653B5233D /* Pods-SimpleRecord.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleRecord.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleRecord/Pods-SimpleRecord.debug.xcconfig"; sourceTree = "<group>"; };
@@ -234,6 +244,7 @@
 		1696E82E20523CCD0022B670 /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				16F293282052902B0094F490 /* Record Table */,
 				1696E833205254E10022B670 /* RecordViewController.h */,
 				1696E834205254E10022B670 /* RecordViewController.m */,
 			);
@@ -252,8 +263,22 @@
 		1696E839205258820022B670 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				1637FFDA205627640086F176 /* Macro.h */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		16F293282052902B0094F490 /* Record Table */ = {
+			isa = PBXGroup;
+			children = (
+				16F29329205290550094F490 /* RecordTableView.h */,
+				16F2932A205290550094F490 /* RecordTableView.m */,
+				1637FFDB20564D890086F176 /* RecordTableViewCell.h */,
+				1637FFDC20564D890086F176 /* RecordTableViewCell.m */,
+				1637FFD7205624650086F176 /* RecordTableHeadView.h */,
+				1637FFD8205624650086F176 /* RecordTableHeadView.m */,
+			);
+			path = "Record Table";
 			sourceTree = "<group>";
 		};
 		E243B23DCB35EE8DC39A01B2 /* Frameworks */ = {
@@ -455,11 +480,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16F2932B205290550094F490 /* RecordTableView.m in Sources */,
 				161DDC13204FC2BB000B195B /* AppSkinColorManger.m in Sources */,
+				1637FFDD20564D890086F176 /* RecordTableViewCell.m in Sources */,
 				161DDC0C204FBD80000B195B /* CustomTabBarConterller.m in Sources */,
 				1696E83C205258C80022B670 /* SRRouterManager.m in Sources */,
 				1696E82C20522D130022B670 /* UIImage+color.m in Sources */,
 				1696E838205254FB0022B670 /* MineViewController.m in Sources */,
+				1637FFD9205624650086F176 /* RecordTableHeadView.m in Sources */,
 				161DDC0F204FC030000B195B /* CustomNavigationController.m in Sources */,
 				161DDC16204FCBBF000B195B /* UserDataManager.m in Sources */,
 				16132660204FEE2600CDE1EB /* UserDBOperationManager.m in Sources */,

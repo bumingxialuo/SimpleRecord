@@ -11,6 +11,7 @@
 #import "AppSkinColorManger.h"
 #import <HHRouter/HHRouter.h>
 #import "SRRouterUrl.h"
+#import "UIImage+color.h"
 
 @interface CustomTabBarConterller ()
 @property(nonatomic,strong) CustomNavigationController *calendarNav;
@@ -25,21 +26,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self settingStyle];
     [self createSubVC];
 }
 
 - (void)settingStyle {
-    
+    [self.tabBar setShadowImage:[UIImage createImageWithColor:[UIColor clearColor]]];
+    [self.tabBar setBackgroundImage:[UIImage createImageWithColor:[UIColor whiteColor]]];
 }
 
 - (void)createSubVC {
     _calendarNav = [[CustomNavigationController alloc] init];
     _recodNav = [[CustomNavigationController alloc] init];
     _mineNav = [[CustomNavigationController alloc] init];
-    self.viewControllers = @[_calendarNav,_recodNav,_mineNav];
-    [self createTabBarItemWithTitle:@"日历" withUnSelectedImage:@"calendar_unSelect" withSelectedImage:@"calendar_select" withTag:0];
-    [self createTabBarItemWithTitle:@"记录" withUnSelectedImage:@"record_unSelect" withSelectedImage:@"record_select" withTag:1];
-    [self createTabBarItemWithTitle:@"我的" withUnSelectedImage:@"mine_unSelect" withSelectedImage:@"mine_select" withTag:2];
+    
     if (_calendarNav) {
         UIViewController *vc = [[HHRouter shared] matchController:SR_Calendar];
         _calendarNav.viewControllers = @[vc];
@@ -52,7 +52,10 @@
         UIViewController *vc = [[HHRouter shared] matchController:SR_Mine];
         _mineNav.viewControllers = @[vc];
     }
-    
+    self.viewControllers = @[_calendarNav,_recodNav,_mineNav];
+    [self createTabBarItemWithTitle:@"日历" withUnSelectedImage:@"calendar_unSelect" withSelectedImage:@"calendar_select" withTag:0];
+    [self createTabBarItemWithTitle:@"记录" withUnSelectedImage:@"record_unSelect" withSelectedImage:@"record_select" withTag:1];
+    [self createTabBarItemWithTitle:@"我的" withUnSelectedImage:@"mine_unSelect" withSelectedImage:@"mine_select" withTag:2];
 }
 
 #pragma mark - getters and setters

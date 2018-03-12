@@ -8,23 +8,43 @@
 
 #import "RecordViewController.h"
 #import "AppSkinColorManger.h"
+#import "RecordTableView.h"
+#import <Masonry/Masonry.h>
 
-@interface RecordViewController ()
-
+@interface RecordViewController ()<RecordTableViewDelegate>
+@property(nonatomic,strong) RecordTableView *tableView;
 @end
 
 @implementation RecordViewController
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
+    self.navigationItem.title = @"记录";
+    [self createTableView];
+}
+
+- (void)createTableView {
+    _tableView = [[RecordTableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _tableView.tableDelegate = self;
+    [self.view addSubview:_tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - custom delegate
+
+#pragma mark - event response
+
+#pragma mark - getters and setters
 
 /*
 #pragma mark - Navigation

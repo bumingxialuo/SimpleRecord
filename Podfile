@@ -7,4 +7,5 @@ target 'SimpleRecord' do
     pod 'MJRefresh'
     pod 'HMSegmentedControl'
     pod 'ChameleonFramework'
+    pod 'Masonry'
 end

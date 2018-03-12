@@ -9,12 +9,12 @@
 #ifndef SRRouterUrl_h
 #define SRRouterUrl_h
 //tab-> 日历
-#define SR_Calendar               @"SR://calendar"
+#define SR_Calendar               @"YD://simpleRecord/calendar"
 
 //tab-> 记录
-#define SR_Record                 @"SR://record"
+#define SR_Record                 @"YD://simpleRecord/record"
 
 //tab-> 我的
-#define SR_Mine                   @"SR://mine"
+#define SR_Mine                   @"YD://simpleRecord/mine"
 
 #endif /* SRRouterUrl_h */

@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
+    self.navigationItem.title = @"00月00日";
 }
 
 - (void)didReceiveMemoryWarning {
