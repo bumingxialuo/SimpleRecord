@@ -17,6 +17,8 @@
 
 @property(nonatomic,strong) UIColor *secondColor;
 
+@property(nonatomic,strong) UIColor *highlightColor;
+
 @property(nonatomic,strong) UIColor *backgroundColor;
 
 @property(nonatomic,strong) UIColor *textColor;

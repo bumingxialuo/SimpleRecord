@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160634962058B2EA006EC80A /* ChangeRecordStyleCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 160634952058B2EA006EC80A /* ChangeRecordStyleCustomView.m */; };
 		16132660204FEE2600CDE1EB /* UserDBOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613265F204FEE2600CDE1EB /* UserDBOperationManager.m */; };
 		161DDBD9204FB4E7000B195B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDBD8204FB4E7000B195B /* AppDelegate.m */; };
 		161DDBDC204FB4E7000B195B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDBDB204FB4E7000B195B /* ViewController.m */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		160634942058B2EA006EC80A /* ChangeRecordStyleCustomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeRecordStyleCustomView.h; sourceTree = "<group>"; };
+		160634952058B2EA006EC80A /* ChangeRecordStyleCustomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeRecordStyleCustomView.m; sourceTree = "<group>"; };
 		1613265E204FEE2600CDE1EB /* UserDBOperationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDBOperationManager.h; sourceTree = "<group>"; };
 		1613265F204FEE2600CDE1EB /* UserDBOperationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDBOperationManager.m; sourceTree = "<group>"; };
 		161DDBD4204FB4E7000B195B /* SimpleRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -277,6 +280,8 @@
 				1637FFDC20564D890086F176 /* RecordTableViewCell.m */,
 				1637FFD7205624650086F176 /* RecordTableHeadView.h */,
 				1637FFD8205624650086F176 /* RecordTableHeadView.m */,
+				160634942058B2EA006EC80A /* ChangeRecordStyleCustomView.h */,
+				160634952058B2EA006EC80A /* ChangeRecordStyleCustomView.m */,
 			);
 			path = "Record Table";
 			sourceTree = "<group>";
@@ -480,6 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				160634962058B2EA006EC80A /* ChangeRecordStyleCustomView.m in Sources */,
 				16F2932B205290550094F490 /* RecordTableView.m in Sources */,
 				161DDC13204FC2BB000B195B /* AppSkinColorManger.m in Sources */,
 				1637FFDD20564D890086F176 /* RecordTableViewCell.m in Sources */,

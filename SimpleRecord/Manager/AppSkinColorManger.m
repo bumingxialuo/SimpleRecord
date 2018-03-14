@@ -24,7 +24,8 @@
     self = [super init];
     if (self) {
         _themeColor = [UIColor colorWithHexString:@"f44528"];
-        _secondColor = [UIColor flatOrangeColor];
+        _secondColor = [UIColor colorWithHexString:@"00B2EE"];
+        _highlightColor = [UIColor colorWithHexString:@"FFE1FF"];
         _backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
         _textColor = [UIColor colorWithHexString:@"#666"];
     }

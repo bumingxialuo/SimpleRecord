@@ -8,14 +8,16 @@
 
 #import "RecordTableView.h"
 #import "AppSkinColorManger.h"
-#import "RecordTableHeadView.h"
+#import "ChangeRecordStyleCustomView.h"
 #import "Macro.h"
 #import "RecordTableViewCell.h"
 #import <Masonry/Masonry.h>
 
 #define RecordTableViewCellID @"RecordTableViewCellID"
 
-@interface RecordTableView()<UITableViewDelegate, UITableViewDataSource>
+@interface RecordTableView()<UITableViewDelegate, UITableViewDataSource, ChangeRecordStyleCustomViewDelegate>
+
+@property(nonatomic, strong) ChangeRecordStyleCustomView *headView;
 
 @end
 
@@ -29,7 +31,6 @@
         self.dataSource = self;
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self registerTableCellClass];
-//        [self createTableHeadView];
     }
     return self;
 }
@@ -38,28 +39,25 @@
     [self registerClass:[RecordTableViewCell class] forCellReuseIdentifier:RecordTableViewCellID];
 }
 
+#pragma mark - CustomDelegate
 
-#pragma mark - UITableViewDelegate andUITableViewDataSource
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 128)];
-    RecordTableHeadView *view = [[RecordTableHeadView alloc] init];
-    [headView addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
-    }];
-    return headView;
+- (void)clickAddButton {
+//    _headView.backgroundColor = [AppSkinColorManger sharedInstance].highlightColor;
 }
 
-- (void)createTableHeadView {
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 128)];
-    headView.backgroundColor = [UIColor whiteColor];
-    RecordTableHeadView *view = [[RecordTableHeadView alloc] init];
-    [headView addSubview:view];
-    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+#pragma mark - UITableViewDelegate and UITableViewDataSource
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headContainView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 128)];
+    _headView = [[ChangeRecordStyleCustomView alloc] init];
+    _headView.viewDelegate = self;
+    _headView.layer.masksToBounds = YES;
+    _headView.layer.cornerRadius = 5.0;
+    [headContainView addSubview:_headView];
+    [_headView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
-    self.tableHeaderView = headView;
+    return headContainView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
