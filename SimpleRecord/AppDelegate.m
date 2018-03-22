@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "UserDataManager.h"
 #import "SRRouterManager.h"
+#import "SwitchConfigurationManager.h"
 #import "CustomTabBarConterller.h"
 
 @interface AppDelegate ()
@@ -22,6 +23,7 @@
     
     [self setUpDataBase];
     [self setRouterController];
+    [self setUpAppConfig];
     
     _window = [[UIWindow alloc] init];
     _window.rootViewController = [[CustomTabBarConterller alloc] init];
@@ -35,6 +37,10 @@
 
 - (void)setRouterController {
     [[SRRouterManager shardInstance] createAllRouterController];
+}
+
+- (void)setUpAppConfig {
+    [[SwitchConfigurationManager sharedInstance] initFeatures];
 }
 
 

@@ -13,6 +13,7 @@
 
 //tab-> 记录
 #define SR_Record                 @"YD://simpleRecord/record"
+#define SR_RecordStyleTwo         @"YD://simpleRecord/recordStyleTwo"
 
 //tab-> 我的
 #define SR_Mine                   @"YD://simpleRecord/mine"

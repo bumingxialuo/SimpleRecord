@@ -22,6 +22,7 @@
 - (void)createAllRouterController {
     [[HHRouter shared] map:SR_Calendar toControllerClass:NSClassFromString(@"CalendarViewController")];
     [[HHRouter shared] map:SR_Record toControllerClass:NSClassFromString(@"RecordViewController")];
+    [[HHRouter shared] map:SR_RecordStyleTwo toControllerClass:NSClassFromString(@"RecordStyleTwoViewController")];
     [[HHRouter shared] map:SR_Mine toControllerClass:NSClassFromString(@"MineViewController")];
 }
 @end
