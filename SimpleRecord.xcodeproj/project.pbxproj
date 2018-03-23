@@ -156,6 +156,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		161787E52064E772007036E7 /* Mine Table */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Mine Table";
+			sourceTree = "<group>";
+		};
 		161DDBCB204FB4E7000B195B = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +287,7 @@
 		1696E82F20523CDE0022B670 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				161787E52064E772007036E7 /* Mine Table */,
 				1696E836205254FB0022B670 /* MineViewController.h */,
 				1696E837205254FB0022B670 /* MineViewController.m */,
 			);
