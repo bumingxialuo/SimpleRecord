@@ -36,6 +36,7 @@
 		16CEFCA3206355ED004230D7 /* RecordStyleTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEFCA2206355ED004230D7 /* RecordStyleTwoViewController.m */; };
 		16CEFCA720637988004230D7 /* StyleTwoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16CEFCA620637988004230D7 /* StyleTwoCell.xib */; };
 		16F2932B205290550094F490 /* RecordTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2932A205290550094F490 /* RecordTableView.m */; };
+		64A112BD206735B7008C03C9 /* MIneTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A112BC206735B7008C03C9 /* MIneTableView.m */; };
 		D1EE085C8543542AB9067104 /* libPods-SimpleRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73104B1B8A13EF0DFCFECDBC /* libPods-SimpleRecord.a */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,8 @@
 		16CEFCA620637988004230D7 /* StyleTwoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StyleTwoCell.xib; sourceTree = "<group>"; };
 		16F29329205290550094F490 /* RecordTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordTableView.h; sourceTree = "<group>"; };
 		16F2932A205290550094F490 /* RecordTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordTableView.m; sourceTree = "<group>"; };
+		64A112BB206735B7008C03C9 /* MIneTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIneTableView.h; sourceTree = "<group>"; };
+		64A112BC206735B7008C03C9 /* MIneTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIneTableView.m; sourceTree = "<group>"; };
 		68EBA188898C1E0630CE17CC /* Pods-SimpleRecord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleRecord.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleRecord/Pods-SimpleRecord.release.xcconfig"; sourceTree = "<group>"; };
 		73104B1B8A13EF0DFCFECDBC /* libPods-SimpleRecord.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimpleRecord.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C72DB3D72D1082653B5233D /* Pods-SimpleRecord.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleRecord.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleRecord/Pods-SimpleRecord.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,13 +157,6 @@
 				68EBA188898C1E0630CE17CC /* Pods-SimpleRecord.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		161787E52064E772007036E7 /* Mine Table */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Mine Table";
 			sourceTree = "<group>";
 		};
 		161DDBCB204FB4E7000B195B = {
@@ -287,7 +283,7 @@
 		1696E82F20523CDE0022B670 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				161787E52064E772007036E7 /* Mine Table */,
+				64A112B820673575008C03C9 /* MineTable */,
 				1696E836205254FB0022B670 /* MineViewController.h */,
 				1696E837205254FB0022B670 /* MineViewController.m */,
 			);
@@ -349,6 +345,15 @@
 				16CEFCA620637988004230D7 /* StyleTwoCell.xib */,
 			);
 			path = "Record Table";
+			sourceTree = "<group>";
+		};
+		64A112B820673575008C03C9 /* MineTable */ = {
+			isa = PBXGroup;
+			children = (
+				64A112BB206735B7008C03C9 /* MIneTableView.h */,
+				64A112BC206735B7008C03C9 /* MIneTableView.m */,
+			);
+			path = MineTable;
 			sourceTree = "<group>";
 		};
 		E243B23DCB35EE8DC39A01B2 /* Frameworks */ = {
@@ -565,6 +570,7 @@
 				161DDC0F204FC030000B195B /* CustomNavigationController.m in Sources */,
 				161DDC16204FCBBF000B195B /* UserDataManager.m in Sources */,
 				16132660204FEE2600CDE1EB /* UserDBOperationManager.m in Sources */,
+				64A112BD206735B7008C03C9 /* MIneTableView.m in Sources */,
 				16CEFC9A20634920004230D7 /* UIView+Snapshot.m in Sources */,
 				161DDBDC204FB4E7000B195B /* ViewController.m in Sources */,
 				1696E835205254E10022B670 /* RecordViewController.m in Sources */,
