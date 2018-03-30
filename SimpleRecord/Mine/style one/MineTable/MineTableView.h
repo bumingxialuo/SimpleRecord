@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MIneTableView : UITableView
+@interface MineTableView : UITableView
 
 @end

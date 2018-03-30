@@ -1,14 +1,14 @@
 //
-//  MIneTableView.m
+//  MineTableHeadView.m
 //  SimpleRecord
 //
-//  Created by 不明下落 on 2018/3/25.
+//  Created by xia on 2018/3/30.
 //  Copyright © 2018年 xia. All rights reserved.
 //
 
-#import "MIneTableView.h"
+#import "MineTableHeadView.h"
 
-@implementation MIneTableView
+@implementation MineTableHeadView
 
 /*
 // Only override drawRect: if you perform custom drawing.
