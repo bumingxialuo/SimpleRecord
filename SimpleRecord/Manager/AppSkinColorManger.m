@@ -23,9 +23,9 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _themeColor = [UIColor colorWithHexString:@"f44528"];
+        _themeColor = [UIColor colorWithHexString:@"DFADE4"];
         _secondColor = [UIColor colorWithHexString:@"00B2EE"];
-        _highlightColor = [UIColor colorWithHexString:@"FFE1FF"];
+        _highlightColor = [UIColor colorWithHexString:@"A5D5E2"];
         _backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
         _textColor = [UIColor colorWithHexString:@"#666"];
     }

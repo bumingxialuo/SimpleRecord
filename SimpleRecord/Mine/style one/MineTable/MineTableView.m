@@ -9,11 +9,13 @@
 #import "MineTableView.h"
 #import "Macro.h"
 #import "AppSkinColorManger.h"
+#import "MineTableHeadView.h"
+#import "MineTableViewCell.h"
 
 #define MineTableViewCellId @"MineTableViewCellId"
 
 @interface MineTableView()<UITableViewDelegate, UITableViewDataSource>
-
+@property(nonatomic, strong) NSMutableArray *titleArray;
 @end
 
 @implementation MineTableView
@@ -25,21 +27,34 @@
         self.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
         self.delegate = self;
         self.dataSource = self;
+        [self setUpdata];
         [self createHeadView];
         [self registerTableViewCell];
     }
     return self;
 }
 
+- (void)setUpdata {
+    _titleArray = [[NSMutableArray alloc] initWithCapacity:0];
+    NSDictionary *dict1 = @{@"icon":@"\U0000e733",@"title":@"日记列表",@"click":@(YES)};
+    [_titleArray addObject:dict1];
+    NSDictionary *dict2 = @{@"icon":@"\U0000e654",@"title":@"文章列表",@"click":@(YES)};
+    [_titleArray addObject:dict2];
+    NSDictionary *dict3 = @{@"icon":@"\U0000e605",@"title":@"功能配置",@"click":@(YES)};
+    [_titleArray addObject:dict3];
+    NSDictionary *dict4 = @{@"icon":@"\U0000e6f4",@"title":@"样式设置",@"click":@(YES)};
+    [_titleArray addObject:dict4];
+    NSDictionary *dict5 = @{@"icon":@"\U0000e608",@"title":@"帐号管理",@"click":@(YES)};
+    [_titleArray addObject:dict5];
+}
+
 - (void)createHeadView {
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 180)];
-    headView.backgroundColor = [UIColor whiteColor];
-    
+    MineTableHeadView *headView = [[MineTableHeadView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 180)];
     self.tableHeaderView = headView;
 }
 
 - (void)registerTableViewCell {
-    [self registerClass:[UITableViewCell class] forCellReuseIdentifier:MineTableViewCellId];
+    [self registerClass:[MineTableViewCell class] forCellReuseIdentifier:MineTableViewCellId];
 }
 
 #pragma mark - UItableViewDelegate And UItableViewDataSource
@@ -49,11 +64,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return _titleArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 49;
+    return 55;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -65,9 +80,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MineTableViewCellId];
+    MineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MineTableViewCellId];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = @"你好啊你好啊你好啊";
+    [cell updateWithIconImageName:_titleArray[indexPath.row][@"icon"] TitleString:_titleArray[indexPath.row][@"title"]];
     return cell;
 }
 
