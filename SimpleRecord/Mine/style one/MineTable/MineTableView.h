@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MineTableView : UITableView
+@protocol MineTableViewDelegate<NSObject>
+- (void)mineTableViewDidSelectRowIndexRow:(NSInteger) index;
+@end
 
+@interface MineTableView : UITableView
+@property(nonatomic, weak) id<MineTableViewDelegate> tableViewDelegate;
 @end

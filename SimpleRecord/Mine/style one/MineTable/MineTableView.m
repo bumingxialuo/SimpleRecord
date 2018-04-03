@@ -86,4 +86,10 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_tableViewDelegate && [_tableViewDelegate respondsToSelector:@selector(mineTableViewDidSelectRowIndexRow:)]) {
+        [_tableViewDelegate mineTableViewDidSelectRowIndexRow:indexPath.row];
+    }
+}
+
 @end

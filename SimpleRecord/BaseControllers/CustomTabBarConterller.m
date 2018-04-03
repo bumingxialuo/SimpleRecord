@@ -44,14 +44,20 @@
     _mineNav = [[CustomNavigationController alloc] init];
     
     if (_calendarNav) {
-        UIViewController *vc = [[HHRouter shared] matchController:SR_Calendar];
-        _calendarNav.viewControllers = @[vc];
+        if ([SwitchConfigurationManager sharedInstance].RecordStyleValue == CalendarStyleOne) {
+            UIViewController *vc = [[HHRouter shared] matchController:SR_Calendar];
+            _calendarNav.viewControllers = @[vc];
+        } else if ([SwitchConfigurationManager sharedInstance].RecordStyleValue == CalendarStyleTwo) {
+            UIViewController *vc = [[HHRouter shared] matchController:SR_CalendarStyleTwo];
+            _calendarNav.viewControllers = @[vc];
+        }
+        
     }
     if (_recodNav) {
-        if ([SwitchConfigurationManager sharedInstance].RecordStyleValue == 1) {
+        if ([SwitchConfigurationManager sharedInstance].RecordStyleValue == RecordTypeSimpleTable) {
             UIViewController *vc = [[HHRouter shared] matchController:SR_Record];
             _recodNav.viewControllers = @[vc];
-        } else if ([SwitchConfigurationManager sharedInstance].RecordStyleValue == 2) {
+        } else if ([SwitchConfigurationManager sharedInstance].RecordStyleValue == RecordTypeAnimationTable) {
             UIViewController *vc = [[HHRouter shared] matchController:SR_RecordStyleTwo];
             _recodNav.viewControllers = @[vc];
         }

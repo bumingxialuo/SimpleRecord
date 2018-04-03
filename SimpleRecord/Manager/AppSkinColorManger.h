@@ -17,6 +17,16 @@
 
 @property(nonatomic,strong) UIColor *secondColor;
 
+@property(nonatomic,strong) UIColor *thirdColor;
+
+@property(nonatomic,strong) UIColor *animationOneColor;
+
+@property(nonatomic,strong) UIColor *animationTwoColor;
+
+@property(nonatomic,strong) UIColor *animationThreeColor;
+
+@property(nonatomic,strong) UIColor *animationFourColor;
+
 @property(nonatomic,strong) UIColor *highlightColor;
 
 @property(nonatomic,strong) UIColor *backgroundColor;

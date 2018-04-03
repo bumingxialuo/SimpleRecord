@@ -22,7 +22,7 @@ static  SwitchConfigurationManager *sharedInstance = nil;
 }
 
 - (void)initFeatures {
-    _calendarStyleValue = 1;
+    _calendarStyleValue = 2;
     _RecordStyleValue = 2;
     _SwichConfigurationRecord = 1;
 }

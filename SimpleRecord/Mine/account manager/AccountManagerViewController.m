@@ -1,24 +1,25 @@
 //
-//  CalendarViewController.m
+//  AccountManagerViewController.m
 //  SimpleRecord
 //
-//  Created by xia on 2018/3/9.
+//  Created by xia on 2018/4/3.
 //  Copyright © 2018年 xia. All rights reserved.
 //
 
-#import "CalendarViewController.h"
+#import "AccountManagerViewController.h"
 #import "AppSkinColorManger.h"
 
-@interface CalendarViewController ()
+@interface AccountManagerViewController ()
 
 @end
 
-@implementation CalendarViewController
+@implementation AccountManagerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
-    self.navigationItem.title = @"00月00日";
+    self.title = @"帐号管理";
 }
 
 - (void)didReceiveMemoryWarning {

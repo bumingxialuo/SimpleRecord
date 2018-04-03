@@ -7,6 +7,8 @@
 //
 
 #import "RippleAnimationView.h"
+#import "AppSkinColorManger.h"
+#import <ChameleonFramework/Chameleon.h>
 
 static NSInteger const pulsingCount = 3;
 static double const animationDuration = 3;
@@ -113,10 +115,10 @@ static double const animationDuration = 3;
     CAKeyframeAnimation *backgroundColorAnimation = [CAKeyframeAnimation animation];
     
     backgroundColorAnimation.keyPath = @"backgroundColor";
-    backgroundColorAnimation.values = @[(__bridge id)ColorWithAlpha(255, 216, 87, 0.5).CGColor,
-                                        (__bridge id)ColorWithAlpha(255, 231, 152, 0.5).CGColor,
-                                        (__bridge id)ColorWithAlpha(255, 241, 197, 0.5).CGColor,
-                                        (__bridge id)ColorWithAlpha(255, 241, 197, 0).CGColor];
+    backgroundColorAnimation.values = @[(__bridge id)[AppSkinColorManger sharedInstance].animationOneColor.CGColor,
+                                    (__bridge id)[AppSkinColorManger sharedInstance].animationTwoColor.CGColor,
+                                    (__bridge id)[AppSkinColorManger sharedInstance].animationThreeColor.CGColor,
+                                    (__bridge id)[AppSkinColorManger sharedInstance].animationFourColor.CGColor];
     backgroundColorAnimation.keyTimes = @[@0.3,@0.6,@0.9,@1];
     return backgroundColorAnimation;
 }
@@ -125,10 +127,14 @@ static double const animationDuration = 3;
     CAKeyframeAnimation *borderColorAnimation = [CAKeyframeAnimation animation];
     
     borderColorAnimation.keyPath = @"borderColor";
-    borderColorAnimation.values = @[(__bridge id)ColorWithAlpha(255, 216, 87, 0.5).CGColor,
-                                    (__bridge id)ColorWithAlpha(255, 231, 152, 0.5).CGColor,
-                                    (__bridge id)ColorWithAlpha(255, 241, 197, 0.5).CGColor,
-                                    (__bridge id)ColorWithAlpha(255, 241, 197, 0).CGColor];
+//    borderColorAnimation.values = @[(__bridge id)ColorWithAlpha(255, 216, 87, 0.5).CGColor,
+//                                    (__bridge id)ColorWithAlpha(255, 231, 152, 0.5).CGColor,
+//                                    (__bridge id)ColorWithAlpha(255, 241, 197, 0.5).CGColor,
+//                                    (__bridge id)ColorWithAlpha(255, 241, 197, 0).CGColor];
+    borderColorAnimation.values = @[(__bridge id)[AppSkinColorManger sharedInstance].animationOneColor.CGColor,
+                                    (__bridge id)[AppSkinColorManger sharedInstance].animationTwoColor.CGColor,
+                                    (__bridge id)[AppSkinColorManger sharedInstance].animationThreeColor.CGColor,
+                                    (__bridge id)[AppSkinColorManger sharedInstance].animationFourColor.CGColor];
     borderColorAnimation.keyTimes = @[@0.3,@0.6,@0.9,@1];
     return borderColorAnimation;
 }

@@ -10,8 +10,9 @@
 #import "AppSkinColorManger.h"
 #import "MIneTableView.h"
 #import <Masonry.h>
+#import "SRRouterManager.h"
 
-@interface MineViewController ()
+@interface MineViewController ()<MineTableViewDelegate>
 @property(nonatomic, strong) MineTableView *tableView;
 @end
 
@@ -28,10 +29,61 @@
 #pragma mark - Add SubViews
 - (void)createTableView {
     _tableView = [[MineTableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    _tableView.tableViewDelegate = self;
     [self.view addSubview:_tableView];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
+}
+
+#pragma mark - MineTableViewDelegate
+
+- (void)mineTableViewDidSelectRowIndexRow:(NSInteger)index {
+    switch (index) {
+        case 0:
+            [self turnToDiaryListView];
+            break;
+        case 1:
+            [self turnToArticleListView];
+            break;
+        case 2:
+            [self turnToFunctionConfigView];
+            break;
+        case 3:
+            [self turnToChangeStyleView];
+            break;
+        case 4:
+            [self turnToAccountManagerView];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)turnToDiaryListView {
+    UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_DiaryList];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (void)turnToArticleListView {
+    UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_ArticleList];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (void)turnToFunctionConfigView {
+    UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_FunctionConfig];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (void)turnToChangeStyleView {
+    UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_ChangeStyle];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (void)turnToAccountManagerView {
+    UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_AccountManager];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

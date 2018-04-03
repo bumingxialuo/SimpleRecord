@@ -17,6 +17,10 @@ typedef NS_ENUM(NSInteger, CalendarStyle)
      方案一
      */
     CalendarStyleOne = 1,
+    /*
+     方案二
+     */
+    CalendarStyleTwo = 2,
 };
 
 typedef NS_ENUM(NSInteger, RecordStyle)

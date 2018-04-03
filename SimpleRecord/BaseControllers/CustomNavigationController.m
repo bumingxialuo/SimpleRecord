@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationBar.translucent = NO;
-    [self createLeftItemWithImage:[UIImage imageNamed:@"back"]];
+//    [self createLeftItemWithImage:[UIImage imageNamed:@"back"]];
     [self showNormalNavigationBarTintColor:[AppSkinColorManger sharedInstance].themeColor];
 }
 
@@ -29,19 +29,34 @@
     [self setNavigationBarBackgroundImage:[UIImage createImageWithColor:[AppSkinColorManger sharedInstance].themeColor]];
     NSDictionary *dict=[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[UIColor whiteColor],[UIFont systemFontOfSize:20.0],[[NSShadow alloc] init],nil]forKeys:[NSArray arrayWithObjects:NSForegroundColorAttributeName,NSFontAttributeName,NSShadowAttributeName,nil]];
     self.navigationBar.titleTextAttributes = dict;
-    self.navigationBar.tintColor = [UIColor colorWithHexString:@"333333"];
+    self.navigationBar.tintColor = [UIColor colorWithHexString:@"fff"];
+}
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    [super pushViewController:viewController animated:animated];
+    
+    if (viewController.navigationItem.leftBarButtonItem== nil && [self.viewControllers count] > 1) {
+                viewController.navigationItem.leftBarButtonItem =[self createBackButton];
+    }
+}
+
+-(UIBarButtonItem*) createBackButton
+
+{
+    UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStyleBordered target:self action:@selector(popself)];
+    return backBtn;
 }
 
 - (void)setNavigationBarBackgroundImage:(UIImage *)bgImage
 {
     [self.navigationBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setShadowImage:bgImage];
 }
 
 - (void)createLeftItemWithImage:(UIImage *) leftImage{
-    if (self.viewControllers>0) {
+    if (self.viewControllers > 0) {
         // 自定义导航栏左侧按钮
-        UIButton * leftBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        leftBtn.frame = CGRectMake(0, 0, 32, 32);
+        UIButton * leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
         [leftBtn setImage:leftImage forState:UIControlStateNormal];
         [leftBtn addTarget:self action:@selector(onTap) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem * leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
@@ -52,6 +67,11 @@
 }
 
 - (void)onTap {
+    [self popViewControllerAnimated:YES];
+}
+
+-(void)popself
+{
     [self popViewControllerAnimated:YES];
 }
 

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		160634962058B2EA006EC80A /* ChangeRecordStyleCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 160634952058B2EA006EC80A /* ChangeRecordStyleCustomView.m */; };
+		1612CA1F207355D000B693B7 /* MineStyleTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1612CA1E207355D000B693B7 /* MineStyleTwoViewController.m */; };
+		1612CA28207365B100B693B7 /* AccountManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1612CA27207365B100B693B7 /* AccountManagerViewController.m */; };
+		1612CA2B207365DA00B693B7 /* ChageAppStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1612CA2A207365DA00B693B7 /* ChageAppStyleViewController.m */; };
+		1612CA2E207367E700B693B7 /* FunctionConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1612CA2D207367E700B693B7 /* FunctionConfigurationViewController.m */; };
+		1612CA312073683000B693B7 /* ArticleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1612CA302073683000B693B7 /* ArticleListViewController.m */; };
+		1612CA34207368BA00B693B7 /* DiaryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1612CA33207368BA00B693B7 /* DiaryListViewController.m */; };
 		16132660204FEE2600CDE1EB /* UserDBOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613265F204FEE2600CDE1EB /* UserDBOperationManager.m */; };
 		161DDBD9204FB4E7000B195B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDBD8204FB4E7000B195B /* AppDelegate.m */; };
 		161DDBDC204FB4E7000B195B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDBDB204FB4E7000B195B /* ViewController.m */; };
@@ -23,6 +29,17 @@
 		161DDC16204FCBBF000B195B /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC15204FCBBF000B195B /* UserDataManager.m */; };
 		1637FFD9205624650086F176 /* RecordTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1637FFD8205624650086F176 /* RecordTableHeadView.m */; };
 		1637FFDD20564D890086F176 /* RecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1637FFDC20564D890086F176 /* RecordTableViewCell.m */; };
+		16382BA820732FFE0097EF43 /* CalendarStyleTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16382BA720732FFE0097EF43 /* CalendarStyleTwoViewController.m */; };
+		16382BBB2073304C0097EF43 /* ZYCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16382BAA2073304A0097EF43 /* ZYCalendarManager.m */; };
+		16382BBC2073304C0097EF43 /* JTDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 16382BAC2073304A0097EF43 /* JTDateHelper.m */; };
+		16382BBD2073304C0097EF43 /* ZYDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16382BAE2073304B0097EF43 /* ZYDayView.m */; };
+		16382BBE2073304C0097EF43 /* ZYCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16382BB32073304B0097EF43 /* ZYCalendarView.m */; };
+		16382BBF2073304C0097EF43 /* backImg_end.png in Resources */ = {isa = PBXBuildFile; fileRef = 16382BB52073304B0097EF43 /* backImg_end.png */; };
+		16382BC02073304C0097EF43 /* backImg_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 16382BB62073304B0097EF43 /* backImg_start.png */; };
+		16382BC12073304C0097EF43 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 16382BB72073304B0097EF43 /* circle.png */; };
+		16382BC22073304C0097EF43 /* circle_cir.png in Resources */ = {isa = PBXBuildFile; fileRef = 16382BB82073304B0097EF43 /* circle_cir.png */; };
+		16382BC32073304C0097EF43 /* ZYMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16382BB92073304C0097EF43 /* ZYMonthView.m */; };
+		16382BC42073304C0097EF43 /* ZYWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16382BBA2073304C0097EF43 /* ZYWeekView.m */; };
 		16747AA020720C38009E21C2 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16747A9F20720C38009E21C2 /* MineTableViewCell.m */; };
 		16747AA220722305009E21C2 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16747AA120722305009E21C2 /* iconfont.ttf */; };
 		16747AA52072348E009E21C2 /* RippleAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16747AA42072348E009E21C2 /* RippleAnimationView.m */; };
@@ -32,6 +49,16 @@
 		1696E838205254FB0022B670 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E837205254FB0022B670 /* MineViewController.m */; };
 		1696E83C205258C80022B670 /* SRRouterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E83B205258C80022B670 /* SRRouterManager.m */; };
 		16AAC44E206DCF0A00068605 /* MineTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AAC44D206DCF0A00068605 /* MineTableHeadView.m */; };
+		16AB33AC207318E500358E7E /* CCPCalendarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB3397207318E500358E7E /* CCPCalendarButton.m */; };
+		16AB33AD207318E500358E7E /* CCPCalendarCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB3399207318E500358E7E /* CCPCalendarCellTableViewCell.m */; };
+		16AB33AE207318E500358E7E /* CCPCalendarHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB339B207318E500358E7E /* CCPCalendarHeader.m */; };
+		16AB33B0207318E500358E7E /* CCPCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB339F207318E500358E7E /* CCPCalendarModel.m */; };
+		16AB33B1207318E500358E7E /* CCPCalendarTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33A1207318E500358E7E /* CCPCalendarTable.m */; };
+		16AB33B2207318E500358E7E /* CCPCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33A3207318E500358E7E /* CCPCalendarView.m */; };
+		16AB33B3207318E500358E7E /* NSDate+CCPCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33A5207318E500358E7E /* NSDate+CCPCalendar.m */; };
+		16AB33B4207318E500358E7E /* NSObject+CCPObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33A7207318E500358E7E /* NSObject+CCPObjc.m */; };
+		16AB33B5207318E500358E7E /* UILabel+CCPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33A9207318E500358E7E /* UILabel+CCPLabel.m */; };
+		16AB33B6207318E500358E7E /* UIView+CCPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33AB207318E500358E7E /* UIView+CCPView.m */; };
 		16CEFC9120633D42004230D7 /* RecordStyleTwoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEFC9020633D42004230D7 /* RecordStyleTwoTableView.m */; };
 		16CEFC942063435B004230D7 /* RecordStyleTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEFC932063435B004230D7 /* RecordStyleTwoTableViewCell.m */; };
 		16CEFC9A20634920004230D7 /* UIView+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEFC9920634920004230D7 /* UIView+Snapshot.m */; };
@@ -39,6 +66,7 @@
 		16CEFCA0206350C0004230D7 /* SwitchConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEFC9F206350C0004230D7 /* SwitchConfigurationManager.m */; };
 		16CEFCA3206355ED004230D7 /* RecordStyleTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEFCA2206355ED004230D7 /* RecordStyleTwoViewController.m */; };
 		16CEFCA720637988004230D7 /* StyleTwoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16CEFCA620637988004230D7 /* StyleTwoCell.xib */; };
+		16CF527A20737ECE00CDE453 /* StyleTypeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CF527920737ECE00CDE453 /* StyleTypeTableView.m */; };
 		16F2932B205290550094F490 /* RecordTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2932A205290550094F490 /* RecordTableView.m */; };
 		64A112BD206735B7008C03C9 /* MineTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A112BC206735B7008C03C9 /* MineTableView.m */; };
 		D1EE085C8543542AB9067104 /* libPods-SimpleRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73104B1B8A13EF0DFCFECDBC /* libPods-SimpleRecord.a */; };
@@ -64,6 +92,18 @@
 /* Begin PBXFileReference section */
 		160634942058B2EA006EC80A /* ChangeRecordStyleCustomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeRecordStyleCustomView.h; sourceTree = "<group>"; };
 		160634952058B2EA006EC80A /* ChangeRecordStyleCustomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeRecordStyleCustomView.m; sourceTree = "<group>"; };
+		1612CA1D207355D000B693B7 /* MineStyleTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineStyleTwoViewController.h; sourceTree = "<group>"; };
+		1612CA1E207355D000B693B7 /* MineStyleTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineStyleTwoViewController.m; sourceTree = "<group>"; };
+		1612CA26207365B100B693B7 /* AccountManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountManagerViewController.h; sourceTree = "<group>"; };
+		1612CA27207365B100B693B7 /* AccountManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountManagerViewController.m; sourceTree = "<group>"; };
+		1612CA29207365DA00B693B7 /* ChageAppStyleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChageAppStyleViewController.h; sourceTree = "<group>"; };
+		1612CA2A207365DA00B693B7 /* ChageAppStyleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChageAppStyleViewController.m; sourceTree = "<group>"; };
+		1612CA2C207367E700B693B7 /* FunctionConfigurationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctionConfigurationViewController.h; sourceTree = "<group>"; };
+		1612CA2D207367E700B693B7 /* FunctionConfigurationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunctionConfigurationViewController.m; sourceTree = "<group>"; };
+		1612CA2F2073683000B693B7 /* ArticleListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleListViewController.h; sourceTree = "<group>"; };
+		1612CA302073683000B693B7 /* ArticleListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleListViewController.m; sourceTree = "<group>"; };
+		1612CA32207368BA00B693B7 /* DiaryListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiaryListViewController.h; sourceTree = "<group>"; };
+		1612CA33207368BA00B693B7 /* DiaryListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiaryListViewController.m; sourceTree = "<group>"; };
 		1613265E204FEE2600CDE1EB /* UserDBOperationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDBOperationManager.h; sourceTree = "<group>"; };
 		1613265F204FEE2600CDE1EB /* UserDBOperationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDBOperationManager.m; sourceTree = "<group>"; };
 		161DDBD4204FB4E7000B195B /* SimpleRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +135,24 @@
 		1637FFDA205627640086F176 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		1637FFDB20564D890086F176 /* RecordTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordTableViewCell.h; sourceTree = "<group>"; };
 		1637FFDC20564D890086F176 /* RecordTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordTableViewCell.m; sourceTree = "<group>"; };
+		16382BA620732FFE0097EF43 /* CalendarStyleTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarStyleTwoViewController.h; sourceTree = "<group>"; };
+		16382BA720732FFE0097EF43 /* CalendarStyleTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarStyleTwoViewController.m; sourceTree = "<group>"; };
+		16382BAA2073304A0097EF43 /* ZYCalendarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYCalendarManager.m; sourceTree = "<group>"; };
+		16382BAB2073304A0097EF43 /* ZYWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYWeekView.h; sourceTree = "<group>"; };
+		16382BAC2073304A0097EF43 /* JTDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTDateHelper.m; sourceTree = "<group>"; };
+		16382BAD2073304B0097EF43 /* ZYMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMonthView.h; sourceTree = "<group>"; };
+		16382BAE2073304B0097EF43 /* ZYDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYDayView.m; sourceTree = "<group>"; };
+		16382BAF2073304B0097EF43 /* ZYCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYCalendarView.h; sourceTree = "<group>"; };
+		16382BB02073304B0097EF43 /* JTDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTDateHelper.h; sourceTree = "<group>"; };
+		16382BB12073304B0097EF43 /* ZYDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYDayView.h; sourceTree = "<group>"; };
+		16382BB22073304B0097EF43 /* ZYCalendarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYCalendarManager.h; sourceTree = "<group>"; };
+		16382BB32073304B0097EF43 /* ZYCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYCalendarView.m; sourceTree = "<group>"; };
+		16382BB52073304B0097EF43 /* backImg_end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImg_end.png; sourceTree = "<group>"; };
+		16382BB62073304B0097EF43 /* backImg_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImg_start.png; sourceTree = "<group>"; };
+		16382BB72073304B0097EF43 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		16382BB82073304B0097EF43 /* circle_cir.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_cir.png; sourceTree = "<group>"; };
+		16382BB92073304C0097EF43 /* ZYMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMonthView.m; sourceTree = "<group>"; };
+		16382BBA2073304C0097EF43 /* ZYWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYWeekView.m; sourceTree = "<group>"; };
 		16747A9E20720C38009E21C2 /* MineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTableViewCell.h; sourceTree = "<group>"; };
 		16747A9F20720C38009E21C2 /* MineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTableViewCell.m; sourceTree = "<group>"; };
 		16747AA120722305009E21C2 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
@@ -113,6 +171,26 @@
 		1696E83D20525A310022B670 /* SRRouterUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRRouterUrl.h; sourceTree = "<group>"; };
 		16AAC44C206DCF0A00068605 /* MineTableHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTableHeadView.h; sourceTree = "<group>"; };
 		16AAC44D206DCF0A00068605 /* MineTableHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTableHeadView.m; sourceTree = "<group>"; };
+		16AB3396207318E500358E7E /* CCPCalendarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPCalendarButton.h; sourceTree = "<group>"; };
+		16AB3397207318E500358E7E /* CCPCalendarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPCalendarButton.m; sourceTree = "<group>"; };
+		16AB3398207318E500358E7E /* CCPCalendarCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPCalendarCellTableViewCell.h; sourceTree = "<group>"; };
+		16AB3399207318E500358E7E /* CCPCalendarCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPCalendarCellTableViewCell.m; sourceTree = "<group>"; };
+		16AB339A207318E500358E7E /* CCPCalendarHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPCalendarHeader.h; sourceTree = "<group>"; };
+		16AB339B207318E500358E7E /* CCPCalendarHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPCalendarHeader.m; sourceTree = "<group>"; };
+		16AB339E207318E500358E7E /* CCPCalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPCalendarModel.h; sourceTree = "<group>"; };
+		16AB339F207318E500358E7E /* CCPCalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPCalendarModel.m; sourceTree = "<group>"; };
+		16AB33A0207318E500358E7E /* CCPCalendarTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPCalendarTable.h; sourceTree = "<group>"; };
+		16AB33A1207318E500358E7E /* CCPCalendarTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPCalendarTable.m; sourceTree = "<group>"; };
+		16AB33A2207318E500358E7E /* CCPCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPCalendarView.h; sourceTree = "<group>"; };
+		16AB33A3207318E500358E7E /* CCPCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPCalendarView.m; sourceTree = "<group>"; };
+		16AB33A4207318E500358E7E /* NSDate+CCPCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CCPCalendar.h"; sourceTree = "<group>"; };
+		16AB33A5207318E500358E7E /* NSDate+CCPCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CCPCalendar.m"; sourceTree = "<group>"; };
+		16AB33A6207318E500358E7E /* NSObject+CCPObjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CCPObjc.h"; sourceTree = "<group>"; };
+		16AB33A7207318E500358E7E /* NSObject+CCPObjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CCPObjc.m"; sourceTree = "<group>"; };
+		16AB33A8207318E500358E7E /* UILabel+CCPLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+CCPLabel.h"; sourceTree = "<group>"; };
+		16AB33A9207318E500358E7E /* UILabel+CCPLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CCPLabel.m"; sourceTree = "<group>"; };
+		16AB33AA207318E500358E7E /* UIView+CCPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CCPView.h"; sourceTree = "<group>"; };
+		16AB33AB207318E500358E7E /* UIView+CCPView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CCPView.m"; sourceTree = "<group>"; };
 		16CEFC8F20633D42004230D7 /* RecordStyleTwoTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordStyleTwoTableView.h; sourceTree = "<group>"; };
 		16CEFC9020633D42004230D7 /* RecordStyleTwoTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordStyleTwoTableView.m; sourceTree = "<group>"; };
 		16CEFC922063435B004230D7 /* RecordStyleTwoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordStyleTwoTableViewCell.h; sourceTree = "<group>"; };
@@ -126,6 +204,8 @@
 		16CEFCA1206355ED004230D7 /* RecordStyleTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordStyleTwoViewController.h; sourceTree = "<group>"; };
 		16CEFCA2206355ED004230D7 /* RecordStyleTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordStyleTwoViewController.m; sourceTree = "<group>"; };
 		16CEFCA620637988004230D7 /* StyleTwoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StyleTwoCell.xib; sourceTree = "<group>"; };
+		16CF527820737ECE00CDE453 /* StyleTypeTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StyleTypeTableView.h; sourceTree = "<group>"; };
+		16CF527920737ECE00CDE453 /* StyleTypeTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StyleTypeTableView.m; sourceTree = "<group>"; };
 		16F29329205290550094F490 /* RecordTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordTableView.h; sourceTree = "<group>"; };
 		16F2932A205290550094F490 /* RecordTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordTableView.m; sourceTree = "<group>"; };
 		64A112BB206735B7008C03C9 /* MineTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTableView.h; sourceTree = "<group>"; };
@@ -168,6 +248,69 @@
 				68EBA188898C1E0630CE17CC /* Pods-SimpleRecord.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		1612CA1C207355A900B693B7 /* style two */ = {
+			isa = PBXGroup;
+			children = (
+				1612CA20207355D600B693B7 /* mine collection */,
+				1612CA1D207355D000B693B7 /* MineStyleTwoViewController.h */,
+				1612CA1E207355D000B693B7 /* MineStyleTwoViewController.m */,
+			);
+			path = "style two";
+			sourceTree = "<group>";
+		};
+		1612CA20207355D600B693B7 /* mine collection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "mine collection";
+			sourceTree = "<group>";
+		};
+		1612CA21207356A600B693B7 /* diary */ = {
+			isa = PBXGroup;
+			children = (
+				1612CA32207368BA00B693B7 /* DiaryListViewController.h */,
+				1612CA33207368BA00B693B7 /* DiaryListViewController.m */,
+			);
+			path = diary;
+			sourceTree = "<group>";
+		};
+		1612CA22207356D600B693B7 /* article */ = {
+			isa = PBXGroup;
+			children = (
+				1612CA2F2073683000B693B7 /* ArticleListViewController.h */,
+				1612CA302073683000B693B7 /* ArticleListViewController.m */,
+			);
+			path = article;
+			sourceTree = "<group>";
+		};
+		1612CA23207356E000B693B7 /* function */ = {
+			isa = PBXGroup;
+			children = (
+				1612CA2C207367E700B693B7 /* FunctionConfigurationViewController.h */,
+				1612CA2D207367E700B693B7 /* FunctionConfigurationViewController.m */,
+			);
+			path = function;
+			sourceTree = "<group>";
+		};
+		1612CA24207356E900B693B7 /* style */ = {
+			isa = PBXGroup;
+			children = (
+				16CF527720737E9900CDE453 /* StyleTypeTable */,
+				1612CA29207365DA00B693B7 /* ChageAppStyleViewController.h */,
+				1612CA2A207365DA00B693B7 /* ChageAppStyleViewController.m */,
+			);
+			path = style;
+			sourceTree = "<group>";
+		};
+		1612CA25207356F400B693B7 /* account manager */ = {
+			isa = PBXGroup;
+			children = (
+				1612CA26207365B100B693B7 /* AccountManagerViewController.h */,
+				1612CA27207365B100B693B7 /* AccountManagerViewController.m */,
+			);
+			path = "account manager";
 			sourceTree = "<group>";
 		};
 		161DDBCB204FB4E7000B195B = {
@@ -263,6 +406,57 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		16382BA320732F7D0097EF43 /* style one */ = {
+			isa = PBXGroup;
+			children = (
+				16AB3395207318E500358E7E /* CCPCalendar */,
+				1696E830205254D50022B670 /* CalendarViewController.h */,
+				1696E831205254D50022B670 /* CalendarViewController.m */,
+			);
+			path = "style one";
+			sourceTree = "<group>";
+		};
+		16382BA520732FAE0097EF43 /* style two */ = {
+			isa = PBXGroup;
+			children = (
+				16382BA9207330270097EF43 /* Calendar */,
+				16382BA620732FFE0097EF43 /* CalendarStyleTwoViewController.h */,
+				16382BA720732FFE0097EF43 /* CalendarStyleTwoViewController.m */,
+			);
+			path = "style two";
+			sourceTree = "<group>";
+		};
+		16382BA9207330270097EF43 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				16382BB42073304B0097EF43 /* Images */,
+				16382BB02073304B0097EF43 /* JTDateHelper.h */,
+				16382BAC2073304A0097EF43 /* JTDateHelper.m */,
+				16382BB22073304B0097EF43 /* ZYCalendarManager.h */,
+				16382BAA2073304A0097EF43 /* ZYCalendarManager.m */,
+				16382BAF2073304B0097EF43 /* ZYCalendarView.h */,
+				16382BB32073304B0097EF43 /* ZYCalendarView.m */,
+				16382BB12073304B0097EF43 /* ZYDayView.h */,
+				16382BAE2073304B0097EF43 /* ZYDayView.m */,
+				16382BAD2073304B0097EF43 /* ZYMonthView.h */,
+				16382BB92073304C0097EF43 /* ZYMonthView.m */,
+				16382BAB2073304A0097EF43 /* ZYWeekView.h */,
+				16382BBA2073304C0097EF43 /* ZYWeekView.m */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		16382BB42073304B0097EF43 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				16382BB52073304B0097EF43 /* backImg_end.png */,
+				16382BB62073304B0097EF43 /* backImg_start.png */,
+				16382BB72073304B0097EF43 /* circle.png */,
+				16382BB82073304B0097EF43 /* circle_cir.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		1696E82920522C590022B670 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,8 +471,8 @@
 		1696E82D20523C150022B670 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				1696E830205254D50022B670 /* CalendarViewController.h */,
-				1696E831205254D50022B670 /* CalendarViewController.m */,
+				16382BA520732FAE0097EF43 /* style two */,
+				16382BA320732F7D0097EF43 /* style one */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -295,6 +489,12 @@
 		1696E82F20523CDE0022B670 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				1612CA25207356F400B693B7 /* account manager */,
+				1612CA24207356E900B693B7 /* style */,
+				1612CA23207356E000B693B7 /* function */,
+				1612CA22207356D600B693B7 /* article */,
+				1612CA21207356A600B693B7 /* diary */,
+				1612CA1C207355A900B693B7 /* style two */,
 				16AAC44B206DC68700068605 /* style one */,
 			);
 			path = Mine;
@@ -316,6 +516,33 @@
 				1696E837205254FB0022B670 /* MineViewController.m */,
 			);
 			path = "style one";
+			sourceTree = "<group>";
+		};
+		16AB3395207318E500358E7E /* CCPCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				16AB3396207318E500358E7E /* CCPCalendarButton.h */,
+				16AB3397207318E500358E7E /* CCPCalendarButton.m */,
+				16AB3398207318E500358E7E /* CCPCalendarCellTableViewCell.h */,
+				16AB3399207318E500358E7E /* CCPCalendarCellTableViewCell.m */,
+				16AB339A207318E500358E7E /* CCPCalendarHeader.h */,
+				16AB339B207318E500358E7E /* CCPCalendarHeader.m */,
+				16AB339E207318E500358E7E /* CCPCalendarModel.h */,
+				16AB339F207318E500358E7E /* CCPCalendarModel.m */,
+				16AB33A0207318E500358E7E /* CCPCalendarTable.h */,
+				16AB33A1207318E500358E7E /* CCPCalendarTable.m */,
+				16AB33A2207318E500358E7E /* CCPCalendarView.h */,
+				16AB33A3207318E500358E7E /* CCPCalendarView.m */,
+				16AB33A4207318E500358E7E /* NSDate+CCPCalendar.h */,
+				16AB33A5207318E500358E7E /* NSDate+CCPCalendar.m */,
+				16AB33A6207318E500358E7E /* NSObject+CCPObjc.h */,
+				16AB33A7207318E500358E7E /* NSObject+CCPObjc.m */,
+				16AB33A8207318E500358E7E /* UILabel+CCPLabel.h */,
+				16AB33A9207318E500358E7E /* UILabel+CCPLabel.m */,
+				16AB33AA207318E500358E7E /* UIView+CCPView.h */,
+				16AB33AB207318E500358E7E /* UIView+CCPView.m */,
+			);
+			path = CCPCalendar;
 			sourceTree = "<group>";
 		};
 		16CEFC8D20633CD2004230D7 /* style one */ = {
@@ -365,6 +592,15 @@
 				16CEFCA620637988004230D7 /* StyleTwoCell.xib */,
 			);
 			path = "Record Table";
+			sourceTree = "<group>";
+		};
+		16CF527720737E9900CDE453 /* StyleTypeTable */ = {
+			isa = PBXGroup;
+			children = (
+				16CF527820737ECE00CDE453 /* StyleTypeTableView.h */,
+				16CF527920737ECE00CDE453 /* StyleTypeTableView.m */,
+			);
+			path = StyleTypeTable;
 			sourceTree = "<group>";
 		};
 		64A112B820673575008C03C9 /* MineTable */ = {
@@ -500,10 +736,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				16CEFCA720637988004230D7 /* StyleTwoCell.xib in Resources */,
+				16382BC22073304C0097EF43 /* circle_cir.png in Resources */,
 				161DDBE4204FB4E7000B195B /* LaunchScreen.storyboard in Resources */,
 				161DDBE1204FB4E7000B195B /* Assets.xcassets in Resources */,
 				16747AA220722305009E21C2 /* iconfont.ttf in Resources */,
+				16382BC02073304C0097EF43 /* backImg_start.png in Resources */,
+				16382BBF2073304C0097EF43 /* backImg_end.png in Resources */,
 				161DDBDF204FB4E7000B195B /* Main.storyboard in Resources */,
+				16382BC12073304C0097EF43 /* circle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,33 +823,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16382BBD2073304C0097EF43 /* ZYDayView.m in Sources */,
 				16747AA52072348E009E21C2 /* RippleAnimationView.m in Sources */,
 				160634962058B2EA006EC80A /* ChangeRecordStyleCustomView.m in Sources */,
+				16382BC32073304C0097EF43 /* ZYMonthView.m in Sources */,
+				16CF527A20737ECE00CDE453 /* StyleTypeTableView.m in Sources */,
 				16F2932B205290550094F490 /* RecordTableView.m in Sources */,
 				16CEFCA0206350C0004230D7 /* SwitchConfigurationManager.m in Sources */,
 				161DDC13204FC2BB000B195B /* AppSkinColorManger.m in Sources */,
+				16382BBC2073304C0097EF43 /* JTDateHelper.m in Sources */,
 				1637FFDD20564D890086F176 /* RecordTableViewCell.m in Sources */,
 				16AAC44E206DCF0A00068605 /* MineTableHeadView.m in Sources */,
 				161DDC0C204FBD80000B195B /* CustomTabBarConterller.m in Sources */,
+				1612CA312073683000B693B7 /* ArticleListViewController.m in Sources */,
 				1696E83C205258C80022B670 /* SRRouterManager.m in Sources */,
 				16CEFCA3206355ED004230D7 /* RecordStyleTwoViewController.m in Sources */,
 				1696E82C20522D130022B670 /* UIImage+color.m in Sources */,
+				1612CA1F207355D000B693B7 /* MineStyleTwoViewController.m in Sources */,
 				16747AA020720C38009E21C2 /* MineTableViewCell.m in Sources */,
 				1696E838205254FB0022B670 /* MineViewController.m in Sources */,
+				1612CA34207368BA00B693B7 /* DiaryListViewController.m in Sources */,
 				1637FFD9205624650086F176 /* RecordTableHeadView.m in Sources */,
+				1612CA28207365B100B693B7 /* AccountManagerViewController.m in Sources */,
+				16AB33B0207318E500358E7E /* CCPCalendarModel.m in Sources */,
 				161DDC0F204FC030000B195B /* CustomNavigationController.m in Sources */,
 				161DDC16204FCBBF000B195B /* UserDataManager.m in Sources */,
 				16132660204FEE2600CDE1EB /* UserDBOperationManager.m in Sources */,
+				16AB33B6207318E500358E7E /* UIView+CCPView.m in Sources */,
 				64A112BD206735B7008C03C9 /* MineTableView.m in Sources */,
+				16AB33B3207318E500358E7E /* NSDate+CCPCalendar.m in Sources */,
+				16AB33B4207318E500358E7E /* NSObject+CCPObjc.m in Sources */,
+				16382BC42073304C0097EF43 /* ZYWeekView.m in Sources */,
+				1612CA2B207365DA00B693B7 /* ChageAppStyleViewController.m in Sources */,
+				1612CA2E207367E700B693B7 /* FunctionConfigurationViewController.m in Sources */,
 				16CEFC9A20634920004230D7 /* UIView+Snapshot.m in Sources */,
+				16382BBE2073304C0097EF43 /* ZYCalendarView.m in Sources */,
 				161DDBDC204FB4E7000B195B /* ViewController.m in Sources */,
 				1696E835205254E10022B670 /* RecordViewController.m in Sources */,
 				16CEFC942063435B004230D7 /* RecordStyleTwoTableViewCell.m in Sources */,
+				16AB33AC207318E500358E7E /* CCPCalendarButton.m in Sources */,
+				16AB33B1207318E500358E7E /* CCPCalendarTable.m in Sources */,
 				161DDBE7204FB4E7000B195B /* main.m in Sources */,
+				16AB33B5207318E500358E7E /* UILabel+CCPLabel.m in Sources */,
 				16CEFC9D20634AC8004230D7 /* RotatedView.m in Sources */,
+				16AB33AD207318E500358E7E /* CCPCalendarCellTableViewCell.m in Sources */,
+				16382BA820732FFE0097EF43 /* CalendarStyleTwoViewController.m in Sources */,
 				16CEFC9120633D42004230D7 /* RecordStyleTwoTableView.m in Sources */,
+				16382BBB2073304C0097EF43 /* ZYCalendarManager.m in Sources */,
+				16AB33B2207318E500358E7E /* CCPCalendarView.m in Sources */,
 				1696E832205254D50022B670 /* CalendarViewController.m in Sources */,
 				161DDBD9204FB4E7000B195B /* AppDelegate.m in Sources */,
+				16AB33AE207318E500358E7E /* CCPCalendarHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
