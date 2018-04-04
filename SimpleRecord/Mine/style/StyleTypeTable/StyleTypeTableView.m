@@ -7,6 +7,10 @@
 //
 
 #import "StyleTypeTableView.h"
+#import "StyleTypeTableViewCell.h"
+#import "Macro.h"
+#import <ChameleonFramework/Chameleon.h>
+#import <Masonry.h>
 
 #define StyleTypeTableViewCellId @"StyleTypeTableViewCellId"
 
@@ -22,7 +26,7 @@
         [self setupData];
         self.delegate = self;
         self.dataSource = self;
-        [self registerClass:[UITableViewCell class] forCellReuseIdentifier:StyleTypeTableViewCellId];
+        [self registerClass:[StyleTypeTableViewCell class] forCellReuseIdentifier:StyleTypeTableViewCellId];
     }
     return self;
 }
@@ -44,10 +48,10 @@
     [_titleOneArray addObject:dic4];
     [_titleOneArray addObject:dic5];
     
-    NSDictionary *dic11 = @{@"title":@"文章开关",@"fill":@"",@"desc":@"",@"click":@(YES)};
-    NSDictionary *dic12 = @{@"title":@"日记方案",@"fill":@"",@"desc":@"",@"click":@(YES)};
-    NSDictionary *dic13 = @{@"title":@"文章方案",@"fill":@"",@"desc":@"",@"click":@(YES)};
-    NSDictionary *dic14 = @{@"title":@"我的方案",@"fill":@"",@"desc":@"",@"click":@(YES)};
+    NSDictionary *dic11 = @{@"title":@"文章开关",@"fill":@"开启",@"desc":@"",@"click":@(YES)};
+    NSDictionary *dic12 = @{@"title":@"日记方案",@"fill":@"方案二",@"desc":@"",@"click":@(YES)};
+    NSDictionary *dic13 = @{@"title":@"文章方案",@"fill":@"动画方案",@"desc":@"",@"click":@(YES)};
+    NSDictionary *dic14 = @{@"title":@"我的方案",@"fill":@"列表方案",@"desc":@"",@"click":@(YES)};
     
     [_titleTwoArray addObject:dic11];
     [_titleTwoArray addObject:dic12];
@@ -71,9 +75,51 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:StyleTypeTableViewCellId forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    if (indexPath.section == 0) {
+        StyleTypeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:StyleTypeTableViewCellId forIndexPath:indexPath];
+        [cell updateWithTitleString:_titleOneArray[indexPath.row][@"title"] ImageColorString:_titleOneArray[indexPath.row][@"fill"]];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    } else {
+        StyleTypeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:StyleTypeTableViewCellId forIndexPath:indexPath];
+        [cell updateWithTitleString:_titleTwoArray[indexPath.row][@"title"] valueString:_titleTwoArray[indexPath.row][@"fill"]];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 35)];
+        UILabel *headLable = [[UILabel alloc] init];
+        headLable.text = @"颜色设置";
+        headLable.font = [UIFont systemFontOfSize:15];
+        headLable.textColor = [UIColor colorWithHexString:@"999999"];
+        [headView addSubview:headLable];
+        [headLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.mas_equalTo(headView).offset(5);
+            make.left.mas_equalTo(headView).offset(17);
+        }];
+        return headView;
+    } else {
+        UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 35)];
+        UILabel *headLable = [[UILabel alloc] init];
+        headLable.text = @"样式设置";
+        headLable.font = [UIFont systemFontOfSize:15];
+        headLable.textColor = [UIColor colorWithHexString:@"999999"];
+        [headView addSubview:headLable];
+        [headLable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.mas_equalTo(headView).offset(5);
+            make.left.mas_equalTo(headView).offset(17);
+        }];
+        return headView;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 0.01)];
+    return footView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -81,7 +127,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 20;
+    return 35;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

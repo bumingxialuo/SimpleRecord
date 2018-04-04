@@ -59,6 +59,7 @@
 		16AB33B4207318E500358E7E /* NSObject+CCPObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33A7207318E500358E7E /* NSObject+CCPObjc.m */; };
 		16AB33B5207318E500358E7E /* UILabel+CCPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33A9207318E500358E7E /* UILabel+CCPLabel.m */; };
 		16AB33B6207318E500358E7E /* UIView+CCPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33AB207318E500358E7E /* UIView+CCPView.m */; };
+		16AE90C32074C725004EBF34 /* StyleTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE90C22074C725004EBF34 /* StyleTypeTableViewCell.m */; };
 		16CEFC9120633D42004230D7 /* RecordStyleTwoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEFC9020633D42004230D7 /* RecordStyleTwoTableView.m */; };
 		16CEFC942063435B004230D7 /* RecordStyleTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEFC932063435B004230D7 /* RecordStyleTwoTableViewCell.m */; };
 		16CEFC9A20634920004230D7 /* UIView+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEFC9920634920004230D7 /* UIView+Snapshot.m */; };
@@ -191,6 +192,8 @@
 		16AB33A9207318E500358E7E /* UILabel+CCPLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+CCPLabel.m"; sourceTree = "<group>"; };
 		16AB33AA207318E500358E7E /* UIView+CCPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CCPView.h"; sourceTree = "<group>"; };
 		16AB33AB207318E500358E7E /* UIView+CCPView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CCPView.m"; sourceTree = "<group>"; };
+		16AE90C12074C725004EBF34 /* StyleTypeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StyleTypeTableViewCell.h; sourceTree = "<group>"; };
+		16AE90C22074C725004EBF34 /* StyleTypeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StyleTypeTableViewCell.m; sourceTree = "<group>"; };
 		16CEFC8F20633D42004230D7 /* RecordStyleTwoTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordStyleTwoTableView.h; sourceTree = "<group>"; };
 		16CEFC9020633D42004230D7 /* RecordStyleTwoTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordStyleTwoTableView.m; sourceTree = "<group>"; };
 		16CEFC922063435B004230D7 /* RecordStyleTwoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordStyleTwoTableViewCell.h; sourceTree = "<group>"; };
@@ -599,6 +602,8 @@
 			children = (
 				16CF527820737ECE00CDE453 /* StyleTypeTableView.h */,
 				16CF527920737ECE00CDE453 /* StyleTypeTableView.m */,
+				16AE90C12074C725004EBF34 /* StyleTypeTableViewCell.h */,
+				16AE90C22074C725004EBF34 /* StyleTypeTableViewCell.m */,
 			);
 			path = StyleTypeTable;
 			sourceTree = "<group>";
@@ -832,6 +837,7 @@
 				16CEFCA0206350C0004230D7 /* SwitchConfigurationManager.m in Sources */,
 				161DDC13204FC2BB000B195B /* AppSkinColorManger.m in Sources */,
 				16382BBC2073304C0097EF43 /* JTDateHelper.m in Sources */,
+				16AE90C32074C725004EBF34 /* StyleTypeTableViewCell.m in Sources */,
 				1637FFDD20564D890086F176 /* RecordTableViewCell.m in Sources */,
 				16AAC44E206DCF0A00068605 /* MineTableHeadView.m in Sources */,
 				161DDC0C204FBD80000B195B /* CustomTabBarConterller.m in Sources */,

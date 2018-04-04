@@ -34,6 +34,7 @@
 - (void)settingStyle {
     [self.tabBar setShadowImage:[UIImage createImageWithColor:[UIColor clearColor]]];
     [self.tabBar setBackgroundImage:[UIImage createImageWithColor:[UIColor whiteColor]]];
+    [self.tabBar setTintColor:[AppSkinColorManger sharedInstance].themeColor];
 }
 
 - (void)createSubVC {
@@ -87,7 +88,9 @@
     UIImage *image1_1 = [UIImage imageNamed:selectedImage];
     
     UIImage *unSelectImage_handle = [image1_0 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIImage *selectImage_handle = [image1_1 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *selectImage_handle = [image1_1 imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
+    
     
     (void)[[self.tabBar.items objectAtIndex:tag] initWithTitle:title image:unSelectImage_handle selectedImage:selectImage_handle];
     
