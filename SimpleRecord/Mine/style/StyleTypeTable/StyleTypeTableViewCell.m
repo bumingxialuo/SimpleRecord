@@ -35,12 +35,13 @@
     return self;
 }
 
-- (void)updateWithTitleString:(NSString *)title ImageColorString:(NSString *)colorHex {
+- (void)updateWithTitleString:(NSString *)title ImageColor:(UIColor *)color {
     _valueLabel.hidden = YES;
     _valueImageView.hidden = NO;
     _titleLabel.text = title;
-    _valueImageView.image = [UIImage createImageWithColor:[UIColor colorWithHexString:colorHex]];
+    _valueImageView.image = [UIImage createImageWithColor:color];
 }
+
 
 - (void)updateWithTitleString:(NSString *)title valueString:(NSString *)value {
     _valueLabel.hidden = NO;

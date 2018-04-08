@@ -10,7 +10,7 @@
 
 @interface StyleTypeTableViewCell : UITableViewCell
 
-- (void)updateWithTitleString:(NSString *)title ImageColorString:(NSString *)colorHex;
+- (void)updateWithTitleString:(NSString *)title ImageColor:(UIColor *)color;
 
 - (void)updateWithTitleString:(NSString *)title valueString:(NSString *)value;
 

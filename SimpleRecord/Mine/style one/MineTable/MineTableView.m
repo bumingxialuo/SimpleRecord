@@ -16,6 +16,7 @@
 
 @interface MineTableView()<UITableViewDelegate, UITableViewDataSource>
 @property(nonatomic, strong) NSMutableArray *titleArray;
+@property(nonatomic, strong) MineTableHeadView *headView;
 @end
 
 @implementation MineTableView
@@ -49,8 +50,8 @@
 }
 
 - (void)createHeadView {
-    MineTableHeadView *headView = [[MineTableHeadView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 180)];
-    self.tableHeaderView = headView;
+    _headView = [[MineTableHeadView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 180)];
+    self.tableHeaderView = _headView;
 }
 
 - (void)registerTableViewCell {

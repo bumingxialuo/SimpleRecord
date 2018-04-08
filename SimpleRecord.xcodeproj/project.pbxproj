@@ -27,6 +27,9 @@
 		161DDC0F204FC030000B195B /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC0E204FC030000B195B /* CustomNavigationController.m */; };
 		161DDC13204FC2BB000B195B /* AppSkinColorManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC12204FC2BB000B195B /* AppSkinColorManger.m */; };
 		161DDC16204FCBBF000B195B /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC15204FCBBF000B195B /* UserDataManager.m */; };
+		162E95142079A71C00D7562D /* ChangeAppStyleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E95132079A71C00D7562D /* ChangeAppStyleDetailViewController.m */; };
+		162E95172079E58900D7562D /* ChangeAppStyleDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E95162079E58900D7562D /* ChangeAppStyleDetailView.m */; };
+		162E951A2079FBBA00D7562D /* XJDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E95182079FBB900D7562D /* XJDAlertView.m */; };
 		1637FFD9205624650086F176 /* RecordTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1637FFD8205624650086F176 /* RecordTableHeadView.m */; };
 		1637FFDD20564D890086F176 /* RecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1637FFDC20564D890086F176 /* RecordTableViewCell.m */; };
 		16382BA820732FFE0097EF43 /* CalendarStyleTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16382BA720732FFE0097EF43 /* CalendarStyleTwoViewController.m */; };
@@ -131,6 +134,12 @@
 		161DDC12204FC2BB000B195B /* AppSkinColorManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSkinColorManger.m; sourceTree = "<group>"; };
 		161DDC14204FCBBF000B195B /* UserDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
 		161DDC15204FCBBF000B195B /* UserDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
+		162E95122079A71C00D7562D /* ChangeAppStyleDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeAppStyleDetailViewController.h; sourceTree = "<group>"; };
+		162E95132079A71C00D7562D /* ChangeAppStyleDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeAppStyleDetailViewController.m; sourceTree = "<group>"; };
+		162E95152079E58900D7562D /* ChangeAppStyleDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeAppStyleDetailView.h; sourceTree = "<group>"; };
+		162E95162079E58900D7562D /* ChangeAppStyleDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeAppStyleDetailView.m; sourceTree = "<group>"; };
+		162E95182079FBB900D7562D /* XJDAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJDAlertView.m; sourceTree = "<group>"; };
+		162E95192079FBB900D7562D /* XJDAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJDAlertView.h; sourceTree = "<group>"; };
 		1637FFD7205624650086F176 /* RecordTableHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordTableHeadView.h; sourceTree = "<group>"; };
 		1637FFD8205624650086F176 /* RecordTableHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordTableHeadView.m; sourceTree = "<group>"; };
 		1637FFDA205627640086F176 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
@@ -300,6 +309,7 @@
 		1612CA24207356E900B693B7 /* style */ = {
 			isa = PBXGroup;
 			children = (
+				162E95112079A6DD00D7562D /* detail style */,
 				16CF527720737E9900CDE453 /* StyleTypeTable */,
 				1612CA29207365DA00B693B7 /* ChageAppStyleViewController.h */,
 				1612CA2A207365DA00B693B7 /* ChageAppStyleViewController.m */,
@@ -409,6 +419,17 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		162E95112079A6DD00D7562D /* detail style */ = {
+			isa = PBXGroup;
+			children = (
+				162E95122079A71C00D7562D /* ChangeAppStyleDetailViewController.h */,
+				162E95132079A71C00D7562D /* ChangeAppStyleDetailViewController.m */,
+				162E95152079E58900D7562D /* ChangeAppStyleDetailView.h */,
+				162E95162079E58900D7562D /* ChangeAppStyleDetailView.m */,
+			);
+			path = "detail style";
+			sourceTree = "<group>";
+		};
 		16382BA320732F7D0097EF43 /* style one */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +527,8 @@
 		1696E839205258820022B670 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				162E95192079FBB900D7562D /* XJDAlertView.h */,
+				162E95182079FBB900D7562D /* XJDAlertView.m */,
 				1637FFDA205627640086F176 /* Macro.h */,
 			);
 			path = Tool;
@@ -832,8 +855,10 @@
 				16747AA52072348E009E21C2 /* RippleAnimationView.m in Sources */,
 				160634962058B2EA006EC80A /* ChangeRecordStyleCustomView.m in Sources */,
 				16382BC32073304C0097EF43 /* ZYMonthView.m in Sources */,
+				162E95142079A71C00D7562D /* ChangeAppStyleDetailViewController.m in Sources */,
 				16CF527A20737ECE00CDE453 /* StyleTypeTableView.m in Sources */,
 				16F2932B205290550094F490 /* RecordTableView.m in Sources */,
+				162E95172079E58900D7562D /* ChangeAppStyleDetailView.m in Sources */,
 				16CEFCA0206350C0004230D7 /* SwitchConfigurationManager.m in Sources */,
 				161DDC13204FC2BB000B195B /* AppSkinColorManger.m in Sources */,
 				16382BBC2073304C0097EF43 /* JTDateHelper.m in Sources */,
@@ -878,6 +903,7 @@
 				16382BBB2073304C0097EF43 /* ZYCalendarManager.m in Sources */,
 				16AB33B2207318E500358E7E /* CCPCalendarView.m in Sources */,
 				1696E832205254D50022B670 /* CalendarViewController.m in Sources */,
+				162E951A2079FBBA00D7562D /* XJDAlertView.m in Sources */,
 				161DDBD9204FB4E7000B195B /* AppDelegate.m in Sources */,
 				16AB33AE207318E500358E7E /* CCPCalendarHeader.m in Sources */,
 			);

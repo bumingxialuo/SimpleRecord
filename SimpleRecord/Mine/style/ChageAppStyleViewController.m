@@ -10,8 +10,14 @@
 #import "AppSkinColorManger.h"
 #import "StyleTypeTableView.h"
 #import <Masonry.h>
+#import "SRRouterManager.h"
+#import "XJDAlertView.h"
+#import "CustomTabBarConterller.h"
 
-@interface ChageAppStyleViewController ()
+@interface ChageAppStyleViewController ()<StyleTypeTableViewDelegate>
+{
+    NSArray *_titleArray;
+}
 @property(nonatomic, strong) StyleTypeTableView *tableView;
 @end
 
@@ -22,15 +28,45 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
     self.title = @"样式设置";
+    [self setUpdata];
+    [self createRightButton];
     [self createSubView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [_tableView updataColor];
+    [_tableView reloadData];
+}
+
+- (void)setUpdata {
+    _titleArray = @[@"主题色",@"第一辅色",@"第二辅色",@"背景色",@"动画色"];
+}
+
+- (void)createRightButton {
+    UIButton *updateButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+    [updateButton setTitle:@"更改" forState:UIControlStateNormal];
+    [updateButton addTarget:self action:@selector(updateButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:updateButton];
+    self.navigationItem.rightBarButtonItem = rightItem;
 }
 
 - (void)createSubView {
     _tableView = [[StyleTypeTableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    _tableView.tableViewDelegate = self;
     [self.view addSubview:_tableView];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
+}
+
+- (void)updateButtonClick {
+    XJDAlertView *alert = [[XJDAlertView alloc] initWithTitle:@"" contentText:@"确认更改吗？" leftButtonTitle:@"取消" rightButtonTitle:@"确定"];
+    alert.rightBlock = ^{
+         UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        window.rootViewController = [[CustomTabBarConterller alloc] init];
+    };
+    [alert show];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,14 +74,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - StyleTypeTableViewDelegate
+- (void)didselectStyleTypeTableViewCellForIndepath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_ChangeStyle_ColorSlider(_titleArray[indexPath.row])];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    } else {
+        
+    }
 }
-*/
 
 @end

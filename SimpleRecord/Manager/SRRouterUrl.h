@@ -24,9 +24,11 @@
 #define SR_Mine_ArticleList       @"YD://simpleRecord/mine/articleList"
 //功能配置
 #define SR_Mine_FunctionConfig    @"YD://simpleRecord/mine/functionConfig"
-//功能配置
+//样式设置
 #define SR_Mine_ChangeStyle       @"YD://simpleRecord/mine/changeStyle"
-//功能配置
+//帐号管理
 #define SR_Mine_AccountManager    @"YD://simpleRecord/mine/accountManager"
+//颜色选择
+#define SR_Mine_ChangeStyle_ColorSlider(title)          [NSString stringWithFormat:@"YD://simpleRecord/mine/changeStyle/ColorSlider/%@",title]
 
 #endif /* SRRouterUrl_h */

@@ -11,6 +11,7 @@
 #import "Macro.h"
 #import <ChameleonFramework/Chameleon.h>
 #import <Masonry.h>
+#import "AppSkinColorManger.h"
 
 #define StyleTypeTableViewCellId @"StyleTypeTableViewCellId"
 
@@ -36,11 +37,35 @@
     _titleOneArray = [[NSMutableArray alloc] initWithCapacity:0];
     _titleTwoArray = [[NSMutableArray alloc] initWithCapacity:0];
     
-    NSDictionary *dic1 = @{@"title":@"主题色",@"fill":@"DFADE4",@"desc":@"",@"click":@(YES)};
-    NSDictionary *dic2 = @{@"title":@"第一辅色",@"fill":@"00B2EE",@"desc":@"",@"click":@(YES)};
-    NSDictionary *dic3 = @{@"title":@"第二辅色",@"fill":@"9a90dc",@"desc":@"9a90dc",@"click":@(YES)};
-    NSDictionary *dic4 = @{@"title":@"背景色",@"fill":@"f5f5f5",@"desc":@"",@"click":@(YES)};
-    NSDictionary *dic5 = @{@"title":@"动画色",@"fill":@"9a7e68",@"desc":@"",@"click":@(YES)};
+    NSMutableDictionary *dic1 = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [dic1 setObject:@"主题色" forKey:@"title"];
+    [dic1 setObject:[AppSkinColorManger sharedInstance].themeColor forKey:@"fill"];
+    [dic1 setObject:@"" forKey:@"desc"];
+    [dic1 setObject:@(YES) forKey:@"click"];
+    
+    NSMutableDictionary *dic2 = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [dic2 setObject:@"第一辅色" forKey:@"title"];
+    [dic2 setObject:[AppSkinColorManger sharedInstance].secondColor forKey:@"fill"];
+    [dic2 setObject:@"" forKey:@"desc"];
+    [dic2 setObject:@(YES) forKey:@"click"];
+    
+    NSMutableDictionary *dic3 = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [dic3 setObject:@"第二辅色" forKey:@"title"];
+    [dic3 setObject:[AppSkinColorManger sharedInstance].thirdColor forKey:@"fill"];
+    [dic3 setObject:@"" forKey:@"desc"];
+    [dic3 setObject:@(YES) forKey:@"click"];
+    
+    NSMutableDictionary *dic4 = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [dic4 setObject:@"背景色" forKey:@"title"];
+    [dic4 setObject:[AppSkinColorManger sharedInstance].backgroundColor forKey:@"fill"];
+    [dic4 setObject:@"" forKey:@"desc"];
+    [dic4 setObject:@(YES) forKey:@"click"];
+    
+    NSMutableDictionary *dic5 = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [dic5 setObject:@"动画色" forKey:@"title"];
+    [dic5 setObject:[AppSkinColorManger sharedInstance].animationOneColor forKey:@"fill"];
+    [dic5 setObject:@"" forKey:@"desc"];
+    [dic5 setObject:@(YES) forKey:@"click"];
     
     [_titleOneArray addObject:dic1];
     [_titleOneArray addObject:dic2];
@@ -59,8 +84,28 @@
     [_titleTwoArray addObject:dic14];
 }
 
+- (void)updataColor {
+    if (!_titleOneArray) {
+        return;
+    }
+    _titleOneArray[0][@"fill"] = [AppSkinColorManger sharedInstance].themeColor;
+    _titleOneArray[1][@"fill"] = [AppSkinColorManger sharedInstance].secondColor;
+    _titleOneArray[2][@"fill"] = [AppSkinColorManger sharedInstance].thirdColor;
+    _titleOneArray[3][@"fill"] = [AppSkinColorManger sharedInstance].backgroundColor;
+    _titleOneArray[4][@"fill"] = [AppSkinColorManger sharedInstance].animationOneColor;
+}
+
+- (void)createTableFootView {
+//    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 80)];
+//    footView.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
+//    UILabel *tipL = [[UILabel alloc] init];
+//    tipL.numberOfLines = 0;
+//    tipL.text = @"点击";
+}
+
 #pragma mark - UITableViewDelegate And UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    [self setupData];
     return 2;
 }
 
@@ -77,7 +122,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         StyleTypeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:StyleTypeTableViewCellId forIndexPath:indexPath];
-        [cell updateWithTitleString:_titleOneArray[indexPath.row][@"title"] ImageColorString:_titleOneArray[indexPath.row][@"fill"]];
+        [cell updateWithTitleString:_titleOneArray[indexPath.row][@"title"] ImageColor:_titleOneArray[indexPath.row][@"fill"]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else {
@@ -114,6 +159,12 @@
             make.left.mas_equalTo(headView).offset(17);
         }];
         return headView;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_tableViewDelegate && [_tableViewDelegate respondsToSelector:@selector(didselectStyleTypeTableViewCellForIndepath:)]) {
+        [_tableViewDelegate didselectStyleTypeTableViewCellForIndepath:indexPath];
     }
 }
 

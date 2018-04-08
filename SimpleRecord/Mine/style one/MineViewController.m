@@ -26,6 +26,7 @@
     [self createTableView];
 }
 
+
 #pragma mark - Add SubViews
 - (void)createTableView {
     _tableView = [[MineTableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
