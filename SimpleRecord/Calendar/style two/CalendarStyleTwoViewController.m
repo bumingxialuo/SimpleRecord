@@ -10,6 +10,8 @@
 #import "ZYCalendarView.h"
 #import "AppSkinColorManger.h"
 #import <ChameleonFramework/Chameleon.h>
+#import "SRRouterUrl.h"
+#import <HHRouter/HHRouter.h>
 
 @interface CalendarStyleTwoViewController ()
 
@@ -21,7 +23,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
+    [self createRightItem];
     [self createSubView];
+}
+
+- (void)createRightItem {
+    UIButton *addButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    [addButton addTarget:self action:@selector(addButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [addButton setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:addButton];
+    self.navigationItem.rightBarButtonItem = item;
 }
 
 - (void)createSubView {
@@ -53,6 +64,8 @@
     // 设置当前日期 请在所有参数设置完之后设置日期
     view.date = [NSDate date];
     
+    self.navigationItem.title = [view.manager.dateFormatter stringFromDate:[NSDate date]];
+    
     view.dayViewBlock = ^(ZYCalendarManager *manager, NSDate *dayDate) {
         // NSLog(@"%@", dayDate);
         for (NSDate *date in manager.selectedDateArray) {
@@ -61,7 +74,14 @@
         self.navigationItem.title = [manager.dateFormatter stringFromDate:manager.selectedDateArray[0]];
         printf("\n");
     };
+    
     [self.view addSubview:view];
+}
+
+- (void)addButtonClick {
+    UIViewController *vc = [[HHRouter shared] matchController:SR_Calendar_AddDiary];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -46,6 +46,7 @@
 		16747AA020720C38009E21C2 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16747A9F20720C38009E21C2 /* MineTableViewCell.m */; };
 		16747AA220722305009E21C2 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16747AA120722305009E21C2 /* iconfont.ttf */; };
 		16747AA52072348E009E21C2 /* RippleAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16747AA42072348E009E21C2 /* RippleAnimationView.m */; };
+		1686FE15207AFE0D00926A6C /* AddCalendarTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1686FE14207AFE0D00926A6C /* AddCalendarTableView.m */; };
 		1696E82C20522D130022B670 /* UIImage+color.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E82B20522D130022B670 /* UIImage+color.m */; };
 		1696E832205254D50022B670 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E831205254D50022B670 /* CalendarViewController.m */; };
 		1696E835205254E10022B670 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E834205254E10022B670 /* RecordViewController.m */; };
@@ -72,6 +73,7 @@
 		16CEFCA720637988004230D7 /* StyleTwoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16CEFCA620637988004230D7 /* StyleTwoCell.xib */; };
 		16CF527A20737ECE00CDE453 /* StyleTypeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CF527920737ECE00CDE453 /* StyleTypeTableView.m */; };
 		16F2932B205290550094F490 /* RecordTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2932A205290550094F490 /* RecordTableView.m */; };
+		16FB0A1E207A197F002D07AC /* AddDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FB0A1D207A197F002D07AC /* AddDiaryViewController.m */; };
 		64A112BD206735B7008C03C9 /* MineTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A112BC206735B7008C03C9 /* MineTableView.m */; };
 		D1EE085C8543542AB9067104 /* libPods-SimpleRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73104B1B8A13EF0DFCFECDBC /* libPods-SimpleRecord.a */; };
 /* End PBXBuildFile section */
@@ -168,6 +170,8 @@
 		16747AA120722305009E21C2 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		16747AA32072348E009E21C2 /* RippleAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleAnimationView.h; sourceTree = "<group>"; };
 		16747AA42072348E009E21C2 /* RippleAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleAnimationView.m; sourceTree = "<group>"; };
+		1686FE13207AFE0D00926A6C /* AddCalendarTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCalendarTableView.h; sourceTree = "<group>"; };
+		1686FE14207AFE0D00926A6C /* AddCalendarTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCalendarTableView.m; sourceTree = "<group>"; };
 		1696E82A20522D130022B670 /* UIImage+color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+color.h"; sourceTree = "<group>"; };
 		1696E82B20522D130022B670 /* UIImage+color.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+color.m"; sourceTree = "<group>"; };
 		1696E830205254D50022B670 /* CalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
@@ -220,6 +224,8 @@
 		16CF527920737ECE00CDE453 /* StyleTypeTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StyleTypeTableView.m; sourceTree = "<group>"; };
 		16F29329205290550094F490 /* RecordTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordTableView.h; sourceTree = "<group>"; };
 		16F2932A205290550094F490 /* RecordTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordTableView.m; sourceTree = "<group>"; };
+		16FB0A1C207A197F002D07AC /* AddDiaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDiaryViewController.h; sourceTree = "<group>"; };
+		16FB0A1D207A197F002D07AC /* AddDiaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddDiaryViewController.m; sourceTree = "<group>"; };
 		64A112BB206735B7008C03C9 /* MineTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTableView.h; sourceTree = "<group>"; };
 		64A112BC206735B7008C03C9 /* MineTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTableView.m; sourceTree = "<group>"; };
 		68EBA188898C1E0630CE17CC /* Pods-SimpleRecord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleRecord.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleRecord/Pods-SimpleRecord.release.xcconfig"; sourceTree = "<group>"; };
@@ -443,6 +449,7 @@
 		16382BA520732FAE0097EF43 /* style two */ = {
 			isa = PBXGroup;
 			children = (
+				1686FE11207AFDD800926A6C /* AddCalendar */,
 				16382BA9207330270097EF43 /* Calendar */,
 				16382BA620732FFE0097EF43 /* CalendarStyleTwoViewController.h */,
 				16382BA720732FFE0097EF43 /* CalendarStyleTwoViewController.m */,
@@ -479,6 +486,25 @@
 				16382BB82073304B0097EF43 /* circle_cir.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		1686FE11207AFDD800926A6C /* AddCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				1686FE12207AFDEE00926A6C /* AddCalendarTableView */,
+				16FB0A1C207A197F002D07AC /* AddDiaryViewController.h */,
+				16FB0A1D207A197F002D07AC /* AddDiaryViewController.m */,
+			);
+			path = AddCalendar;
+			sourceTree = "<group>";
+		};
+		1686FE12207AFDEE00926A6C /* AddCalendarTableView */ = {
+			isa = PBXGroup;
+			children = (
+				1686FE13207AFE0D00926A6C /* AddCalendarTableView.h */,
+				1686FE14207AFE0D00926A6C /* AddCalendarTableView.m */,
+			);
+			path = AddCalendarTableView;
 			sourceTree = "<group>";
 		};
 		1696E82920522C590022B670 /* Category */ = {
@@ -665,7 +691,6 @@
 				161DDBD0204FB4E7000B195B /* Sources */,
 				161DDBD1204FB4E7000B195B /* Frameworks */,
 				161DDBD2204FB4E7000B195B /* Resources */,
-				A483E3937D315EC51AC43028 /* [CP] Embed Pods Frameworks */,
 				1FA3D035FDA1CAC4BBB7A571 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -804,7 +829,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -827,21 +853,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A483E3937D315EC51AC43028 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleRecord/Pods-SimpleRecord-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -874,6 +885,7 @@
 				16747AA020720C38009E21C2 /* MineTableViewCell.m in Sources */,
 				1696E838205254FB0022B670 /* MineViewController.m in Sources */,
 				1612CA34207368BA00B693B7 /* DiaryListViewController.m in Sources */,
+				1686FE15207AFE0D00926A6C /* AddCalendarTableView.m in Sources */,
 				1637FFD9205624650086F176 /* RecordTableHeadView.m in Sources */,
 				1612CA28207365B100B693B7 /* AccountManagerViewController.m in Sources */,
 				16AB33B0207318E500358E7E /* CCPCalendarModel.m in Sources */,
@@ -887,6 +899,7 @@
 				16382BC42073304C0097EF43 /* ZYWeekView.m in Sources */,
 				1612CA2B207365DA00B693B7 /* ChageAppStyleViewController.m in Sources */,
 				1612CA2E207367E700B693B7 /* FunctionConfigurationViewController.m in Sources */,
+				16FB0A1E207A197F002D07AC /* AddDiaryViewController.m in Sources */,
 				16CEFC9A20634920004230D7 /* UIView+Snapshot.m in Sources */,
 				16382BBE2073304C0097EF43 /* ZYCalendarView.m in Sources */,
 				161DDBDC204FB4E7000B195B /* ViewController.m in Sources */,

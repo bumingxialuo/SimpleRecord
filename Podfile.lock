@@ -10,6 +10,7 @@ PODS:
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.3)
   - SVProgressHUD (2.2.5)
+  - YYText (1.0.7)
 
 DEPENDENCIES:
   - ChameleonFramework
@@ -19,6 +20,18 @@ DEPENDENCIES:
   - Masonry
   - MJRefresh
   - SVProgressHUD
+  - YYText
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - ChameleonFramework
+    - FMDB
+    - HHRouter
+    - HMSegmentedControl
+    - Masonry
+    - MJRefresh
+    - SVProgressHUD
+    - YYText
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
@@ -28,7 +41,8 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: b6088c6172e59e4f43c30282bc893315048bcad1
+PODFILE CHECKSUM: 089f2bffb5f1a8de4f52de4bfdca7814abbd2b19
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.0

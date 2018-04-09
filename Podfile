@@ -8,4 +8,5 @@ target 'SimpleRecord' do
     pod 'HMSegmentedControl'
     pod 'ChameleonFramework'
     pod 'Masonry'
+    pod 'YYText'
 end

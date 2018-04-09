@@ -11,6 +11,7 @@
 //tab-> 日历
 #define SR_Calendar               @"YD://simpleRecord/calendar"
 #define SR_CalendarStyleTwo       @"YD://simpleRecord/calendarStyleTwo"
+#define SR_Calendar_AddDiary      @"YD://simpleRecord/calendar/addDiary"
 
 //tab-> 记录
 #define SR_Record                 @"YD://simpleRecord/record"
