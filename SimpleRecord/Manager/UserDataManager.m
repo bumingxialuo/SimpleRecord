@@ -9,6 +9,7 @@
 #import "UserDataManager.h"
 #import <FMDB/FMDB.h>
 #import <sqlite3.h>
+#import "CalendarInfoManager.h"
 
 #define SimpleRecordDB                 @"SimpleRecordDB.sqlite"
 
@@ -17,10 +18,10 @@
 #define UpdateUserInfor              @"UPDATE T_SECRETINFO SET USERNAME = %@ , PASSWORLD = %@ WHERE id = %i ;"
 #define DeleteUserInfor              @"DELETE FORM T_SECRETINFO WHERE id = %i ;"
 
-#define CreateSecretInfo               @"CREATE TABLE IF NOT EXISTS T_SECRETINFO (id INTEGER PRIMARY KEY AUTOINCREMENT, ADDTIME TEXT NOT NULL, CONTENT TEXT NOT NULL, USERID TEXT NOT NULL);"
-#define InsertToSecretInfor            @"INSERT INTO T_SECRETINFO (ADDTIME,CONTENT,USERID) VALUES (%@,%@,%@);"
-#define UpdateSecretInfor              @"UPDATE T_SECRETINFO SET CONTENT = %@ WHERE ADDTIME = %@,USERID = %@;"
-#define DeleteSecretInfor              @"DELETE FORM T_SECRETINFO WHERE ADDTIME = %@,USERID = %@;"
+#define CreateSecretInfo               @"CREATE TABLE IF NOT EXISTS T_SECRETINFO (id INTEGER PRIMARY KEY AUTOINCREMENT, ADDTIME TEXT NOT NULL, CONTENT TEXT NOT NULL, NOTEID TEXT NOT NULL);"
+#define InsertToSecretInfor            @"INSERT INTO T_SECRETINFO (ADDTIME,CONTENT,NOTEID) VALUES (%@,%@,%@);"
+#define UpdateSecretInfor              @"UPDATE T_SECRETINFO SET CONTENT = %@ WHERE ADDTIME = %@,NOTEID = %@;"
+#define DeleteSecretInfor              @"DELETE FORM T_SECRETINFO WHERE ADDTIME = %@,NOTEID = %@;"
 
 #define CreateArticleTable             @"CREATE TABLE IF NOT EXISTS T_ARTICLE (id INTEGER PRIMARY KEY AUTOINCREMENT, ADDTIME TEXT NOT NULL, CONTENT TEXT NOT NULL, LASTUPDATETIME TEXT NOT NULL,USERID TEXT NOT NULL);"
 #define InsertToArticleTable           @"INSERT INTO T_ARTICLE (ADDTIME,CONTENT,LASTUPDATETIME,USERID) VALUES (%@,%@,%@);"
@@ -52,6 +53,16 @@
 - (void)createDefaltDatabase {
     _defaultDataBase = [self createDataBaseWithName:SimpleRecordDB];
     [self createInitDatabase];
+}
+
+- (void)saveDiaryInfoWithArray:(NSArray *)listArray {
+    
+}
+
+- (void)insertInfo {
+    if ([_defaultDataBase open]) {
+        [_defaultDataBase executeQuery:InsertToUserInfor];
+    }
 }
 
 - (void)loadUser {

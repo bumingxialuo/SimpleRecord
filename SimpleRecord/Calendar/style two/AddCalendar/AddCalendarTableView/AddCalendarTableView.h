@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalendarDataModel.h"
+
+@protocol AddCalendarTableViewDelegate<NSObject>
+- (void)getCalendarContextWithContext:(NSString *)str;
+@end
 
 @interface AddCalendarTableView : UITableView
-
+@property(nonatomic, weak) id<AddCalendarTableViewDelegate> tableViewDelegate;
+- (void)updateWithDataModel:(CalendarDataModel *)model;
 @end

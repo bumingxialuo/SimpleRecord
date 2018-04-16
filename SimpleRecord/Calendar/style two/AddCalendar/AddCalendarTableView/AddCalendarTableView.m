@@ -18,6 +18,7 @@
 @interface AddCalendarTableView()<UITableViewDelegate, UITableViewDataSource, YYTextViewDelegate, UIGestureRecognizerDelegate>
 {
     CGFloat _contentHeight;
+    NSString *_dateString;
 }
 @property(nonatomic, strong) YYTextView *textView;
 @end
@@ -28,15 +29,33 @@
     self = [super initWithFrame:frame style:style];
     if (self) {
         self.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
-        self.separatorColor = [UIColor redColor];
-//        self.separatorStyle = UITableViewCellSeparatorStyleNone;
+//        self.separatorColor = [UIColor redColor];
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.delegate = self;
         self.dataSource = self;
         [self addNotification];
+        [self setUpData];
         [self registerCell];
         [self addTapGesture];
     }
     return self;
+}
+- (void)updateWithDataModel:(CalendarDataModel *)model {
+    if (!model) {
+        [_textView setEditable:YES];
+        [_textView resignFirstResponder];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM-dd"];
+        NSString *dateStr = [dateFormatter stringFromDate:[NSDate date]];
+        _dateString = dateStr;
+    } else {
+        _textView.text = model.content;
+        _dateString = [model.date substringFromIndex:model.date.length-5];
+    }
+}
+
+- (void)setUpData {
+    _contentHeight = 300;
 }
 - (void)registerCell {
     [self registerClass:[UITableViewCell class] forCellReuseIdentifier:AddCalendarTableViewCellId];
@@ -67,38 +86,56 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:AddCalendarTableViewCellId];
     cell.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    _textView = [[YYTextView alloc] init];
-    _textView.delegate = self;
-    _textView.scrollEnabled = NO;
-    _textView.textContainerInset = UIEdgeInsetsMake(0, 0,0, 0);
-    [_textView setTextColor:[UIColor colorWithHexString:@"666"]];
+    if (!_textView) {
+        _textView = [[YYTextView alloc] init];
+        _textView.delegate = self;
+        _textView.textContainerInset = UIEdgeInsetsMake(0, 0,0, 0);
+        [_textView setTextColor:[UIColor colorWithHexString:@"666"]];
+        _textView.font = [UIFont systemFontOfSize:15];
+        [cell.contentView addSubview:_textView];
+        [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(cell.contentView).offset(20);
+            make.right.mas_equalTo(cell.contentView).offset(-20);
+            make.top.mas_equalTo(cell.contentView).offset(8);
+            make.bottom.mas_equalTo(cell.contentView).offset(-8);
+        }];
+    }
     _textView.backgroundColor = [UIColor whiteColor];
-    _textView.placeholderText = @"输入你的内容";
-    _textView.font = [UIFont systemFontOfSize:15];
-    [cell.contentView addSubview:_textView];
-    [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_textView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(cell.contentView).offset(20);
         make.right.mas_equalTo(cell.contentView).offset(-20);
         make.top.mas_equalTo(cell.contentView).offset(8);
-        make.height.mas_equalTo(30);
+        make.bottom.mas_equalTo(cell.contentView).offset(-8);
     }];
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return _contentHeight ? _contentHeight+20 : 40;
+    return HEIGHTOFSCREEN - 40 - 70 - 64;
+//    return _contentHeight + 30;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 70)];
     UILabel *tipL = [[UILabel alloc] init];
     tipL.textColor = [UIColor colorWithHexString:@"999"];
-    tipL.text = @"jjfjfjfisifjisoishhoibhb";
+    tipL.text = [NSString stringWithFormat:@"ToDay: %@",_dateString];
     [headView addSubview:tipL];
     [tipL mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(headView).offset(20);
         make.right.mas_equalTo(headView).offset(-20);
         make.centerY.mas_equalTo(headView);
+    }];
+    UIView *sepearLine = [[UIView alloc] init];
+    sepearLine.backgroundColor = [AppSkinColorManger sharedInstance].secondColor;
+    [headView addSubview:sepearLine];
+    [sepearLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(tipL);
+        make.width.mas_equalTo(WIDTHOFSCREEN - 40);
+        make.height.mas_equalTo(1);
+        make.bottom.mas_equalTo(headView).offset(-5);
     }];
     return headView;
 }
@@ -119,58 +156,50 @@
 - (void)textViewDidChange:(YYTextView *)textView {
     CGSize constraintSize =CGSizeMake(WIDTHOFSCREEN -40, MAXFLOAT);
     //计算高度
-    CGSize size = [textView sizeThatFits:constraintSize];
-    if (size.height <=30) {
-        self.contentHeight =30;
-    } else {
-        self.contentHeight = size.height;
+//    CGSize size = [textView sizeThatFits:constraintSize];
+//    if (size.height > 300) {
+//        _contentHeight = size.height;
+//        [self beginUpdates];
+//        [self endUpdates];
+//    }
+}
+
+- (void)textViewDidEndEditing:(YYTextView *)textView {
+    if (_tableViewDelegate && [_tableViewDelegate respondsToSelector:@selector(getCalendarContextWithContext:)]) {
+        [_tableViewDelegate getCalendarContextWithContext:textView.text];
     }
-    
 }
 
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-//    if ([touch.view isKindOfClass:[YYTextView class]]) {
-//        return NO;
-//    }
-//    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
-//        return NO;
-//    }
+    if ([NSStringFromClass([touch.view class]) isEqualToString:@"YYTextView"]) {
+        return NO;
+    }
     if ([NSStringFromClass([touch.view class]) isEqualToString:@"YYTextContainerView"]) {
         return NO;
     }
+    
     return YES;
 }
-
-- (void)setContentHeight:(float)contentHeight{
-    if (_contentHeight != contentHeight) {
-        _contentHeight = contentHeight;
-        [_textView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(contentHeight);
-        }];
-        [self layoutIfNeeded];
-        //把高度赋值给model
-        //刷新cell的高度（在此不能用reloadData,会造成输入失去焦点,你可以试一下）
-        [self beginUpdates];
-        [self endUpdates];
-    }
-}
-
 
 - (void) handleKeyboardDidShow : (NSNotification*)notification {
     CGRect keyboardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue]; //获得键盘的rect
     //通过rect做响应的弹起等
-    [self mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, keyboardFrame.size.height, 0));
-    }];
-    [self layoutIfNeeded];
+    float offsetY = HEIGHTOFSCREEN - CGRectGetMaxY(_textView.frame);
+    if (offsetY < keyboardFrame.size.height) {
+        [_textView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_offset(-keyboardFrame.size.height - 20);
+        }];
+    }
 }
 
 - (void)handleKeyboardDidHidden {
-    [self mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    [_textView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_offset(20);
+        make.right.mas_offset(-20);
+        make.top.mas_offset(8);
+        make.bottom.mas_offset(-8);
     }];
-    [self layoutIfNeeded];
 }
 
 - (void)hiddenKeyboard {

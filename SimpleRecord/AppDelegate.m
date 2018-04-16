@@ -35,6 +35,10 @@
     [[UserDataManager sharedInstance] createDefaltDatabase];
 }
 
+- (void)saveDataBase {
+//    [[UserDataManager sharedInstance] ]
+}
+
 - (void)setRouterController {
     [[SRRouterManager shardInstance] createAllRouterController];
 }

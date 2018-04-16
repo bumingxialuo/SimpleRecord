@@ -12,6 +12,7 @@
 #import <ChameleonFramework/Chameleon.h>
 #import "SRRouterUrl.h"
 #import <HHRouter/HHRouter.h>
+#import "CalendarInfoManager.h"
 
 @interface CalendarStyleTwoViewController ()
 
@@ -79,7 +80,17 @@
 }
 
 - (void)addButtonClick {
-    UIViewController *vc = [[HHRouter shared] matchController:SR_Calendar_AddDiary];
+    [self turnToCalendarEditView];
+}
+
+- (void)turnToCalendarEditView {
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    format.dateFormat=@"yyyy-MM-dd";
+    NSString *dateStr = [format stringFromDate:[NSDate date]];
+    CalendarDataModel *target = [[CalendarInfoManager sharedManager] findByDateStr:dateStr];
+    NSString *viewTitle = @"";
+    viewTitle = target ? @"修改日记" : @"新建日记";
+    UIViewController *vc = [[HHRouter shared] matchController:SR_Calendar_AddDiary(viewTitle, @"10")];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

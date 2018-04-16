@@ -28,7 +28,7 @@
 - (void)createCalendarRouter {
     [[HHRouter shared] map:SR_Calendar toControllerClass:NSClassFromString(@"CalendarViewController")];
     [[HHRouter shared] map:SR_CalendarStyleTwo toControllerClass:NSClassFromString(@"CalendarStyleTwoViewController")];
-    [[HHRouter shared] map:SR_Calendar_AddDiary toControllerClass:NSClassFromString(@"AddDiaryViewController")];
+    [[HHRouter shared] map:SR_Calendar_AddDiary(@":navTitle",@":style") toControllerClass:NSClassFromString(@"AddDiaryViewController")];
 }
 
 - (void)createRecordRouter {

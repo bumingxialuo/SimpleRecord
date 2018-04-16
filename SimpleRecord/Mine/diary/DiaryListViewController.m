@@ -8,9 +8,11 @@
 
 #import "DiaryListViewController.h"
 #import "AppSkinColorManger.h"
+#import "DiaryListTableView.h"
+#import <Masonry.h>
 
 @interface DiaryListViewController ()
-
+@property(nonatomic,strong) DiaryListTableView *tableView;
 @end
 
 @implementation DiaryListViewController
@@ -19,6 +21,15 @@
     [super viewDidLoad];
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
     self.title = @"日记列表";
+    [self createTableView];
+}
+
+- (void)createTableView {
+    _tableView = [[DiaryListTableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    [self.view addSubview:_tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

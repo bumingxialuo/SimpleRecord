@@ -16,4 +16,6 @@
 
 - (void)loadUser;
 
+//- (void)saveDiaryInfoWithArray:(NSArray *array)listArray;
+
 @end
