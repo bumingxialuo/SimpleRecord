@@ -74,7 +74,11 @@
 		16CF527A20737ECE00CDE453 /* StyleTypeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CF527920737ECE00CDE453 /* StyleTypeTableView.m */; };
 		16F2932B205290550094F490 /* RecordTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2932A205290550094F490 /* RecordTableView.m */; };
 		16FB0A1E207A197F002D07AC /* AddDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FB0A1D207A197F002D07AC /* AddDiaryViewController.m */; };
+		6455AE6D2081CD4600BE1A4F /* CalendarDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6455AE6C2081CD4600BE1A4F /* CalendarDataModel.m */; };
+		6455AE702081CDF300BE1A4F /* CalendarInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6455AE6F2081CDF300BE1A4F /* CalendarInfoManager.m */; };
 		64A112BD206735B7008C03C9 /* MineTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A112BC206735B7008C03C9 /* MineTableView.m */; };
+		64D01C182082FECD00F27C10 /* DiaryListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D01C172082FECD00F27C10 /* DiaryListTableView.m */; };
+		64D01C1B2084E8FE00F27C10 /* DiaryListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D01C1A2084E8FE00F27C10 /* DiaryListTableViewCell.m */; };
 		D1EE085C8543542AB9067104 /* libPods-SimpleRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73104B1B8A13EF0DFCFECDBC /* libPods-SimpleRecord.a */; };
 /* End PBXBuildFile section */
 
@@ -226,8 +230,16 @@
 		16F2932A205290550094F490 /* RecordTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordTableView.m; sourceTree = "<group>"; };
 		16FB0A1C207A197F002D07AC /* AddDiaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDiaryViewController.h; sourceTree = "<group>"; };
 		16FB0A1D207A197F002D07AC /* AddDiaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddDiaryViewController.m; sourceTree = "<group>"; };
+		6455AE6B2081CD4600BE1A4F /* CalendarDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarDataModel.h; sourceTree = "<group>"; };
+		6455AE6C2081CD4600BE1A4F /* CalendarDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarDataModel.m; sourceTree = "<group>"; };
+		6455AE6E2081CDF300BE1A4F /* CalendarInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarInfoManager.h; sourceTree = "<group>"; };
+		6455AE6F2081CDF300BE1A4F /* CalendarInfoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarInfoManager.m; sourceTree = "<group>"; };
 		64A112BB206735B7008C03C9 /* MineTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTableView.h; sourceTree = "<group>"; };
 		64A112BC206735B7008C03C9 /* MineTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTableView.m; sourceTree = "<group>"; };
+		64D01C162082FECD00F27C10 /* DiaryListTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiaryListTableView.h; sourceTree = "<group>"; };
+		64D01C172082FECD00F27C10 /* DiaryListTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiaryListTableView.m; sourceTree = "<group>"; };
+		64D01C192084E8FE00F27C10 /* DiaryListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiaryListTableViewCell.h; sourceTree = "<group>"; };
+		64D01C1A2084E8FE00F27C10 /* DiaryListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiaryListTableViewCell.m; sourceTree = "<group>"; };
 		68EBA188898C1E0630CE17CC /* Pods-SimpleRecord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleRecord.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleRecord/Pods-SimpleRecord.release.xcconfig"; sourceTree = "<group>"; };
 		73104B1B8A13EF0DFCFECDBC /* libPods-SimpleRecord.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimpleRecord.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C72DB3D72D1082653B5233D /* Pods-SimpleRecord.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleRecord.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleRecord/Pods-SimpleRecord.debug.xcconfig"; sourceTree = "<group>"; };
@@ -288,6 +300,7 @@
 		1612CA21207356A600B693B7 /* diary */ = {
 			isa = PBXGroup;
 			children = (
+				64D01C152082FEA100F27C10 /* diary Table */,
 				1612CA32207368BA00B693B7 /* DiaryListViewController.h */,
 				1612CA33207368BA00B693B7 /* DiaryListViewController.m */,
 			);
@@ -449,6 +462,9 @@
 		16382BA520732FAE0097EF43 /* style two */ = {
 			isa = PBXGroup;
 			children = (
+				6455AE6A2081CCFF00BE1A4F /* CalendarDataModel */,
+				6455AE6E2081CDF300BE1A4F /* CalendarInfoManager.h */,
+				6455AE6F2081CDF300BE1A4F /* CalendarInfoManager.m */,
 				1686FE11207AFDD800926A6C /* AddCalendar */,
 				16382BA9207330270097EF43 /* Calendar */,
 				16382BA620732FFE0097EF43 /* CalendarStyleTwoViewController.h */,
@@ -657,6 +673,15 @@
 			path = StyleTypeTable;
 			sourceTree = "<group>";
 		};
+		6455AE6A2081CCFF00BE1A4F /* CalendarDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				6455AE6B2081CD4600BE1A4F /* CalendarDataModel.h */,
+				6455AE6C2081CD4600BE1A4F /* CalendarDataModel.m */,
+			);
+			path = CalendarDataModel;
+			sourceTree = "<group>";
+		};
 		64A112B820673575008C03C9 /* MineTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,6 +695,17 @@
 				16747A9F20720C38009E21C2 /* MineTableViewCell.m */,
 			);
 			path = MineTable;
+			sourceTree = "<group>";
+		};
+		64D01C152082FEA100F27C10 /* diary Table */ = {
+			isa = PBXGroup;
+			children = (
+				64D01C162082FECD00F27C10 /* DiaryListTableView.h */,
+				64D01C172082FECD00F27C10 /* DiaryListTableView.m */,
+				64D01C192084E8FE00F27C10 /* DiaryListTableViewCell.h */,
+				64D01C1A2084E8FE00F27C10 /* DiaryListTableViewCell.m */,
+			);
+			path = "diary Table";
 			sourceTree = "<group>";
 		};
 		E243B23DCB35EE8DC39A01B2 /* Frameworks */ = {
@@ -891,6 +927,7 @@
 				16AB33B0207318E500358E7E /* CCPCalendarModel.m in Sources */,
 				161DDC0F204FC030000B195B /* CustomNavigationController.m in Sources */,
 				161DDC16204FCBBF000B195B /* UserDataManager.m in Sources */,
+				6455AE6D2081CD4600BE1A4F /* CalendarDataModel.m in Sources */,
 				16132660204FEE2600CDE1EB /* UserDBOperationManager.m in Sources */,
 				16AB33B6207318E500358E7E /* UIView+CCPView.m in Sources */,
 				64A112BD206735B7008C03C9 /* MineTableView.m in Sources */,
@@ -900,6 +937,7 @@
 				1612CA2B207365DA00B693B7 /* ChageAppStyleViewController.m in Sources */,
 				1612CA2E207367E700B693B7 /* FunctionConfigurationViewController.m in Sources */,
 				16FB0A1E207A197F002D07AC /* AddDiaryViewController.m in Sources */,
+				64D01C182082FECD00F27C10 /* DiaryListTableView.m in Sources */,
 				16CEFC9A20634920004230D7 /* UIView+Snapshot.m in Sources */,
 				16382BBE2073304C0097EF43 /* ZYCalendarView.m in Sources */,
 				161DDBDC204FB4E7000B195B /* ViewController.m in Sources */,
@@ -910,6 +948,7 @@
 				161DDBE7204FB4E7000B195B /* main.m in Sources */,
 				16AB33B5207318E500358E7E /* UILabel+CCPLabel.m in Sources */,
 				16CEFC9D20634AC8004230D7 /* RotatedView.m in Sources */,
+				6455AE702081CDF300BE1A4F /* CalendarInfoManager.m in Sources */,
 				16AB33AD207318E500358E7E /* CCPCalendarCellTableViewCell.m in Sources */,
 				16382BA820732FFE0097EF43 /* CalendarStyleTwoViewController.m in Sources */,
 				16CEFC9120633D42004230D7 /* RecordStyleTwoTableView.m in Sources */,
@@ -919,6 +958,7 @@
 				162E951A2079FBBA00D7562D /* XJDAlertView.m in Sources */,
 				161DDBD9204FB4E7000B195B /* AppDelegate.m in Sources */,
 				16AB33AE207318E500358E7E /* CCPCalendarHeader.m in Sources */,
+				64D01C1B2084E8FE00F27C10 /* DiaryListTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
