@@ -10,6 +10,7 @@
 #import "AppSkinColorManger.h"
 #import "DiaryListTableViewCell.h"
 #import <Chameleon.h>
+#import "Macro.h"
 
 #define DiaryListTableViewCellId @"DiaryListTableViewCellId"
 #define DiaryListTableViewContentCellId @"DiaryListTableViewContentCellId"
@@ -85,7 +86,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSMutableDictionary *dic = _tableViewDataSouce[indexPath.section][indexPath.row];
     if (indexPath.row == 0) {
         DiaryListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DiaryListTableViewCellId forIndexPath:indexPath];
         if (!_listModel) {
@@ -94,6 +94,7 @@
         }
         return cell;
     } else {
+        NSMutableDictionary *dic = _tableViewDataSouce[indexPath.section][indexPath.row-1];
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DiaryListTableViewContentCellId];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:DiaryListTableViewContentCellId];
@@ -124,6 +125,21 @@
         }
     }
     [self reloadData];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.01;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 10)];
+    return view;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 0.01)];
+    return view;
 }
 
 @end

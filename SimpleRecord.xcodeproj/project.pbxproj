@@ -26,7 +26,6 @@
 		161DDC0C204FBD80000B195B /* CustomTabBarConterller.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC0B204FBD80000B195B /* CustomTabBarConterller.m */; };
 		161DDC0F204FC030000B195B /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC0E204FC030000B195B /* CustomNavigationController.m */; };
 		161DDC13204FC2BB000B195B /* AppSkinColorManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC12204FC2BB000B195B /* AppSkinColorManger.m */; };
-		161DDC16204FCBBF000B195B /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC15204FCBBF000B195B /* UserDataManager.m */; };
 		162E95142079A71C00D7562D /* ChangeAppStyleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E95132079A71C00D7562D /* ChangeAppStyleDetailViewController.m */; };
 		162E95172079E58900D7562D /* ChangeAppStyleDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E95162079E58900D7562D /* ChangeAppStyleDetailView.m */; };
 		162E951A2079FBBA00D7562D /* XJDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E95182079FBB900D7562D /* XJDAlertView.m */; };
@@ -74,6 +73,13 @@
 		16CF527A20737ECE00CDE453 /* StyleTypeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CF527920737ECE00CDE453 /* StyleTypeTableView.m */; };
 		16F2932B205290550094F490 /* RecordTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2932A205290550094F490 /* RecordTableView.m */; };
 		16FB0A1E207A197F002D07AC /* AddDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FB0A1D207A197F002D07AC /* AddDiaryViewController.m */; };
+		640A0F4A2086154E0037468F /* SRAppUserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A0F492086154E0037468F /* SRAppUserProfile.m */; };
+		640A0F4E20862AD90037468F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A0F4D20862AD90037468F /* LoginViewController.m */; };
+		640A0F5420862B200037468F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A0F5320862B200037468F /* RegisterViewController.m */; };
+		640A0F5720862B3B0037468F /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A0F5620862B3B0037468F /* ForgotPasswordViewController.m */; };
+		640A0F5E20862B9A0037468F /* RegisterTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A0F5D20862B9A0037468F /* RegisterTableView.m */; };
+		640A0F6220862BCF0037468F /* LoginTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A0F6120862BCF0037468F /* LoginTableView.m */; };
+		640A0F6620862BFB0037468F /* ForgotPasswordTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A0F6520862BFB0037468F /* ForgotPasswordTableView.m */; };
 		6455AE6D2081CD4600BE1A4F /* CalendarDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6455AE6C2081CD4600BE1A4F /* CalendarDataModel.m */; };
 		6455AE702081CDF300BE1A4F /* CalendarInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6455AE6F2081CDF300BE1A4F /* CalendarInfoManager.m */; };
 		64A112BD206735B7008C03C9 /* MineTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A112BC206735B7008C03C9 /* MineTableView.m */; };
@@ -138,8 +144,6 @@
 		161DDC0E204FC030000B195B /* CustomNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
 		161DDC11204FC2BB000B195B /* AppSkinColorManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSkinColorManger.h; sourceTree = "<group>"; };
 		161DDC12204FC2BB000B195B /* AppSkinColorManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSkinColorManger.m; sourceTree = "<group>"; };
-		161DDC14204FCBBF000B195B /* UserDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
-		161DDC15204FCBBF000B195B /* UserDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
 		162E95122079A71C00D7562D /* ChangeAppStyleDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeAppStyleDetailViewController.h; sourceTree = "<group>"; };
 		162E95132079A71C00D7562D /* ChangeAppStyleDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeAppStyleDetailViewController.m; sourceTree = "<group>"; };
 		162E95152079E58900D7562D /* ChangeAppStyleDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeAppStyleDetailView.h; sourceTree = "<group>"; };
@@ -230,6 +234,20 @@
 		16F2932A205290550094F490 /* RecordTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordTableView.m; sourceTree = "<group>"; };
 		16FB0A1C207A197F002D07AC /* AddDiaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDiaryViewController.h; sourceTree = "<group>"; };
 		16FB0A1D207A197F002D07AC /* AddDiaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddDiaryViewController.m; sourceTree = "<group>"; };
+		640A0F482086154E0037468F /* SRAppUserProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRAppUserProfile.h; sourceTree = "<group>"; };
+		640A0F492086154E0037468F /* SRAppUserProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRAppUserProfile.m; sourceTree = "<group>"; };
+		640A0F4C20862AD90037468F /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		640A0F4D20862AD90037468F /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		640A0F5220862B200037468F /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		640A0F5320862B200037468F /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		640A0F5520862B3B0037468F /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordViewController.h; sourceTree = "<group>"; };
+		640A0F5620862B3B0037468F /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordViewController.m; sourceTree = "<group>"; };
+		640A0F5C20862B9A0037468F /* RegisterTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterTableView.h; sourceTree = "<group>"; };
+		640A0F5D20862B9A0037468F /* RegisterTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterTableView.m; sourceTree = "<group>"; };
+		640A0F6020862BCF0037468F /* LoginTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTableView.h; sourceTree = "<group>"; };
+		640A0F6120862BCF0037468F /* LoginTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTableView.m; sourceTree = "<group>"; };
+		640A0F6420862BFB0037468F /* ForgotPasswordTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordTableView.h; sourceTree = "<group>"; };
+		640A0F6520862BFB0037468F /* ForgotPasswordTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordTableView.m; sourceTree = "<group>"; };
 		6455AE6B2081CD4600BE1A4F /* CalendarDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarDataModel.h; sourceTree = "<group>"; };
 		6455AE6C2081CD4600BE1A4F /* CalendarDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarDataModel.m; sourceTree = "<group>"; };
 		6455AE6E2081CDF300BE1A4F /* CalendarInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarInfoManager.h; sourceTree = "<group>"; };
@@ -370,6 +388,7 @@
 		161DDBD6204FB4E7000B195B /* SimpleRecord */ = {
 			isa = PBXGroup;
 			children = (
+				640A0F4B20862AAE0037468F /* LoginAndRegister */,
 				16747AA120722305009E21C2 /* iconfont.ttf */,
 				1696E839205258820022B670 /* Tool */,
 				1696E82920522C590022B670 /* Category */,
@@ -425,10 +444,10 @@
 			children = (
 				1613265E204FEE2600CDE1EB /* UserDBOperationManager.h */,
 				1613265F204FEE2600CDE1EB /* UserDBOperationManager.m */,
+				640A0F482086154E0037468F /* SRAppUserProfile.h */,
+				640A0F492086154E0037468F /* SRAppUserProfile.m */,
 				161DDC11204FC2BB000B195B /* AppSkinColorManger.h */,
 				161DDC12204FC2BB000B195B /* AppSkinColorManger.m */,
-				161DDC14204FCBBF000B195B /* UserDataManager.h */,
-				161DDC15204FCBBF000B195B /* UserDataManager.m */,
 				1696E83A205258C80022B670 /* SRRouterManager.h */,
 				1696E83B205258C80022B670 /* SRRouterManager.m */,
 				1696E83D20525A310022B670 /* SRRouterUrl.h */,
@@ -673,6 +692,73 @@
 			path = StyleTypeTable;
 			sourceTree = "<group>";
 		};
+		640A0F4B20862AAE0037468F /* LoginAndRegister */ = {
+			isa = PBXGroup;
+			children = (
+				640A0F5120862AF60037468F /* ForgotPassword */,
+				640A0F5020862AE60037468F /* Register */,
+				640A0F4F20862ADE0037468F /* Login */,
+			);
+			path = LoginAndRegister;
+			sourceTree = "<group>";
+		};
+		640A0F4F20862ADE0037468F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				640A0F5820862B5F0037468F /* LoginTable */,
+				640A0F4C20862AD90037468F /* LoginViewController.h */,
+				640A0F4D20862AD90037468F /* LoginViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		640A0F5020862AE60037468F /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				640A0F5F20862BA20037468F /* RegisterTable */,
+				640A0F5220862B200037468F /* RegisterViewController.h */,
+				640A0F5320862B200037468F /* RegisterViewController.m */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		640A0F5120862AF60037468F /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				640A0F6320862BDC0037468F /* ForgotPasswordTable */,
+				640A0F5520862B3B0037468F /* ForgotPasswordViewController.h */,
+				640A0F5620862B3B0037468F /* ForgotPasswordViewController.m */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		640A0F5820862B5F0037468F /* LoginTable */ = {
+			isa = PBXGroup;
+			children = (
+				640A0F6020862BCF0037468F /* LoginTableView.h */,
+				640A0F6120862BCF0037468F /* LoginTableView.m */,
+			);
+			path = LoginTable;
+			sourceTree = "<group>";
+		};
+		640A0F5F20862BA20037468F /* RegisterTable */ = {
+			isa = PBXGroup;
+			children = (
+				640A0F5C20862B9A0037468F /* RegisterTableView.h */,
+				640A0F5D20862B9A0037468F /* RegisterTableView.m */,
+			);
+			path = RegisterTable;
+			sourceTree = "<group>";
+		};
+		640A0F6320862BDC0037468F /* ForgotPasswordTable */ = {
+			isa = PBXGroup;
+			children = (
+				640A0F6420862BFB0037468F /* ForgotPasswordTableView.h */,
+				640A0F6520862BFB0037468F /* ForgotPasswordTableView.m */,
+			);
+			path = ForgotPasswordTable;
+			sourceTree = "<group>";
+		};
 		6455AE6A2081CCFF00BE1A4F /* CalendarDataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -902,6 +988,7 @@
 				16747AA52072348E009E21C2 /* RippleAnimationView.m in Sources */,
 				160634962058B2EA006EC80A /* ChangeRecordStyleCustomView.m in Sources */,
 				16382BC32073304C0097EF43 /* ZYMonthView.m in Sources */,
+				640A0F5420862B200037468F /* RegisterViewController.m in Sources */,
 				162E95142079A71C00D7562D /* ChangeAppStyleDetailViewController.m in Sources */,
 				16CF527A20737ECE00CDE453 /* StyleTypeTableView.m in Sources */,
 				16F2932B205290550094F490 /* RecordTableView.m in Sources */,
@@ -916,6 +1003,7 @@
 				1612CA312073683000B693B7 /* ArticleListViewController.m in Sources */,
 				1696E83C205258C80022B670 /* SRRouterManager.m in Sources */,
 				16CEFCA3206355ED004230D7 /* RecordStyleTwoViewController.m in Sources */,
+				640A0F6620862BFB0037468F /* ForgotPasswordTableView.m in Sources */,
 				1696E82C20522D130022B670 /* UIImage+color.m in Sources */,
 				1612CA1F207355D000B693B7 /* MineStyleTwoViewController.m in Sources */,
 				16747AA020720C38009E21C2 /* MineTableViewCell.m in Sources */,
@@ -925,9 +1013,10 @@
 				1637FFD9205624650086F176 /* RecordTableHeadView.m in Sources */,
 				1612CA28207365B100B693B7 /* AccountManagerViewController.m in Sources */,
 				16AB33B0207318E500358E7E /* CCPCalendarModel.m in Sources */,
+				640A0F4A2086154E0037468F /* SRAppUserProfile.m in Sources */,
 				161DDC0F204FC030000B195B /* CustomNavigationController.m in Sources */,
-				161DDC16204FCBBF000B195B /* UserDataManager.m in Sources */,
 				6455AE6D2081CD4600BE1A4F /* CalendarDataModel.m in Sources */,
+				640A0F4E20862AD90037468F /* LoginViewController.m in Sources */,
 				16132660204FEE2600CDE1EB /* UserDBOperationManager.m in Sources */,
 				16AB33B6207318E500358E7E /* UIView+CCPView.m in Sources */,
 				64A112BD206735B7008C03C9 /* MineTableView.m in Sources */,
@@ -941,6 +1030,7 @@
 				16CEFC9A20634920004230D7 /* UIView+Snapshot.m in Sources */,
 				16382BBE2073304C0097EF43 /* ZYCalendarView.m in Sources */,
 				161DDBDC204FB4E7000B195B /* ViewController.m in Sources */,
+				640A0F6220862BCF0037468F /* LoginTableView.m in Sources */,
 				1696E835205254E10022B670 /* RecordViewController.m in Sources */,
 				16CEFC942063435B004230D7 /* RecordStyleTwoTableViewCell.m in Sources */,
 				16AB33AC207318E500358E7E /* CCPCalendarButton.m in Sources */,
@@ -953,9 +1043,11 @@
 				16382BA820732FFE0097EF43 /* CalendarStyleTwoViewController.m in Sources */,
 				16CEFC9120633D42004230D7 /* RecordStyleTwoTableView.m in Sources */,
 				16382BBB2073304C0097EF43 /* ZYCalendarManager.m in Sources */,
+				640A0F5E20862B9A0037468F /* RegisterTableView.m in Sources */,
 				16AB33B2207318E500358E7E /* CCPCalendarView.m in Sources */,
 				1696E832205254D50022B670 /* CalendarViewController.m in Sources */,
 				162E951A2079FBBA00D7562D /* XJDAlertView.m in Sources */,
+				640A0F5720862B3B0037468F /* ForgotPasswordViewController.m in Sources */,
 				161DDBD9204FB4E7000B195B /* AppDelegate.m in Sources */,
 				16AB33AE207318E500358E7E /* CCPCalendarHeader.m in Sources */,
 				64D01C1B2084E8FE00F27C10 /* DiaryListTableViewCell.m in Sources */,

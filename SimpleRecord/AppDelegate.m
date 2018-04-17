@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "UserDataManager.h"
+#import "UserDBOperationManager.h"
 #import "SRRouterManager.h"
 #import "SwitchConfigurationManager.h"
 #import "CustomTabBarConterller.h"
@@ -32,11 +32,7 @@
 }
 
 - (void)setUpDataBase {
-    [[UserDataManager sharedInstance] createDefaltDatabase];
-}
-
-- (void)saveDataBase {
-//    [[UserDataManager sharedInstance] ]
+    [[UserDBOperationManager sharedInstance] createDefaultDataBase];
 }
 
 - (void)setRouterController {

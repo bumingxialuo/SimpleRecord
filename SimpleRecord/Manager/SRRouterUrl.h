@@ -8,16 +8,18 @@
 
 #ifndef SRRouterUrl_h
 #define SRRouterUrl_h
-//tab-> 日历
+//-----------------------注册登录-----------------------//
+
+//-----------------------日历-----------------------//
 #define SR_Calendar               @"YD://simpleRecord/calendar"
 #define SR_CalendarStyleTwo       @"YD://simpleRecord/calendarStyleTwo"
 #define SR_Calendar_AddDiary(navTitle,style)      [NSString stringWithFormat:@"YD://simpleRecord/calendar/addDiary/%@/%@",navTitle,style]
 
-//tab-> 记录
+//-----------------------记录-----------------------//
 #define SR_Record                 @"YD://simpleRecord/record"
 #define SR_RecordStyleTwo         @"YD://simpleRecord/recordStyleTwo"
 
-//tab-> 我的
+//-----------------------我的-----------------------//
 #define SR_Mine                   @"YD://simpleRecord/mine"
 //日记列表
 #define SR_Mine_DiaryList         @"YD://simpleRecord/mine/diaryList"

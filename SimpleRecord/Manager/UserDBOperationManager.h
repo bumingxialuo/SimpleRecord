@@ -7,29 +7,49 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SRAppUserProfile.h"
+#import <FMDB/FMDB.h>
 
 @interface UserDBOperationManager : NSObject
 
-+ (instancetype)sharedInstance;
+
 /**
- *日记
+ *  单例
+ *
+ *  @return 对象
  */
-@property(nonatomic,copy) NSString *diary;
++ (instancetype) sharedInstance;
 /**
- *文章
+ *  创建默认数据库
  */
-@property(nonatomic,copy) NSString *article;
+- (void)createDefaultDataBase;
 /**
- *添加日期
+ *  创建数据库
+ *
+ *  @param dataBaseName 数据库名字
+ *
+ *  @return 返回数据库对象
  */
-@property(nonatomic,copy) NSString *addTime;
-/**
- *最后修改日期
- */
-@property(nonatomic,copy) NSString *lastUpdateTime;
-/**
- *手势密码
- */
-@property(nonatomic,copy) NSString *gesturesPassword;
+- (FMDatabase *)createDataBaseName:(NSString *)dataBaseName;
+
+//-------------------------------------------------------
+
+- (BOOL)savetUserInfo:(SRAppUserProfile *)userInfo;
+
+//- (void)updateUserInfo:(SRAppUserProfile *)userInfo gesturePWD:(NSString *)gesturePwd;
+//
+//- (void)updateUserInfo:(SRAppUserProfile *)userInfo openTouchID:(BOOL)open;
+
+- (void)updateUserInfo:(SRAppUserProfile *)userInfo;
+
+//- (BOOL)checkUserInfo:(SRAppUserProfile *)userInfo gesturePWD:(NSString *)gesturePwd;
+
+//- (BOOL)userIsOpenTouchID:(SRAppUserProfile *)userInfo;
+
+//- (void)loadUser:(SRAppUserProfile *)userInfo;
+
+- (BOOL)userLogOut:(SRAppUserProfile *)userInfo;
+
+//- (NSString *)getGesturePWD:(SRAppUserProfile *)userInfo;
 
 @end
