@@ -9,7 +9,12 @@
 #ifndef SRRouterUrl_h
 #define SRRouterUrl_h
 //-----------------------注册登录-----------------------//
-
+//登录
+#define SR_LoginAndRegister_Login                   @"YD://simpleRecord/loginAndRegister/login"
+//注册
+#define SR_LoginAndRegister_Register(phone)         [NSString stringWithFormat:@"YD://simpleRecord/loginAndRegister/register/%@",phone]
+//忘记密码
+#define SR_LoginAndRegister_ForgotPassword(phone)   [NSString stringWithFormat:@"YD://simpleRecord/loginAndRegister/forgotPassword/%@",phone]
 //-----------------------日历-----------------------//
 #define SR_Calendar               @"YD://simpleRecord/calendar"
 #define SR_CalendarStyleTwo       @"YD://simpleRecord/calendarStyleTwo"

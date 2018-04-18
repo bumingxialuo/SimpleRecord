@@ -11,6 +11,8 @@
 #import "MIneTableView.h"
 #import <Masonry.h>
 #import "SRRouterManager.h"
+#import "NOTICE.h"
+#import "SRAppUserProfile.h"
 
 @interface MineViewController ()<MineTableViewDelegate>
 @property(nonatomic, strong) MineTableView *tableView;
@@ -58,6 +60,12 @@
             break;
         default:
             break;
+    }
+}
+
+- (void)userDoLoginEvent {
+    if (![SRAppUserProfile sharedInstance].isLogon) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTICE_UserLogIn object:nil];
     }
 }
 

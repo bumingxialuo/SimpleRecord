@@ -20,9 +20,16 @@
 }
 
 - (void)createAllRouterController {
+    [self createUserAccount];
     [self createCalendarRouter];
     [self createRecordRouter];
     [self createMineRouter];
+}
+
+- (void)createUserAccount {
+    [[HHRouter shared] map:SR_LoginAndRegister_Login toControllerClass:NSClassFromString(@"LoginViewController")];
+    [[HHRouter shared] map:SR_LoginAndRegister_Register(@"phone") toControllerClass:NSClassFromString(@"RegisterViewController")];
+    [[HHRouter shared] map:SR_LoginAndRegister_ForgotPassword(@":phone") toControllerClass:NSClassFromString(@"ForgotPasswordViewController")];
 }
 
 - (void)createCalendarRouter {

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MineTableHeadView : UIView
+@protocol MineTableHeadViewdelegate<NSObject>
+- (void)mineTableHeadViewDoLogin;
+@end
 
+@interface MineTableHeadView : UIView
+@property(nonatomic, weak) id<MineTableHeadViewdelegate> headViewDelegate;
 @end

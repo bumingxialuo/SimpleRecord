@@ -11,35 +11,35 @@
 #define DefaultBaseName @"appData.sqlite"
 #define SimpleRecordDB                 @"SimpleRecordDB.sqlite"
 
-#define CreateUserInfo               @"CREATE TABLE IF NOT EXISTS T_USERINFO (id INTEGER PRIMARY KEY AUTOINCREMENT, USERNAME TEXT NOT NULL, PASSWORLD TEXT NOT NULL);"
+#define CreateUserInfo               @"CREATE TABLE IF NOT EXISTS T_USERINFO (id INTEGER PRIMARY KEY AUTOINCREMENT, USERNAME TEXT NOT NULL, PASSWORLD TEXT NOT NULL, ISLOGIN TEXT NOT NULL, AVATAR TEXT NOT NULL);"
 //是否存在该用户
-#define ExistUser @"SELECT * FROM T_USERINFO WHERE USERID = '%@'"
+#define ExistUser @"SELECT * FROM T_USERINFO WHERE USERNAME = '%@'"
 //插入用户表数据
-#define InsertToUserInfor            @"INSERT INTO T_USERINFO (USERNAME,PASSWORLD) VALUES ('%@','%@');"
+#define InsertToUserInfor            @"INSERT INTO T_USERINFO (USERNAME,PASSWORLD,ISLOGIN,AVATAR) VALUES ('%@','%@','%@','%@');"
 //更新用户表
-#define UpdateUserInfor              @"UPDATE T_USERINFO SET USERNAME = '%@' , PASSWORLD = '%@' WHERE id = %@ ;"
+#define UpdateUserInfor              @"UPDATE T_USERINFO SET PASSWORLD = '%@' , ISLOGIN = '%@', AVATAR = '%@' WHERE USERNAME = %@ ;"
 //删除用户表
-#define DeleteUserInfor              @"DELETE FORM T_USERINFO WHERE id = %@ ;"
+#define DeleteUserInfor              @"DELETE FORM T_USERINFO WHERE USERNAME = %@ ;"
 //加载用户 当OAUTHTOKEN 不为空的时候
-#define LoadUser @"SELECT USERNAME, PASSWORLD,USERID FROM USER WHERE OAUTHTOKEN NOT NULL"
+#define LoadUser @"SELECT USERNAME, PASSWORLD, USERID FROM T_USERINFO WHERE ISLOGIN NOT NULL"
 //用户退出
-#define UserLogOut @"UPDATE USER SET USERNAME = NULL, PASSWORLD = NULL WHERE USERID = '%@'"
+#define UserLogOut @"UPDATE USER SET ISLOGIN = NULL WHERE USERNAME = '%@'"
 //创建日记表
-#define CreateSecretInfo               @"CREATE TABLE IF NOT EXISTS T_SECRETINFO (id INTEGER PRIMARY KEY AUTOINCREMENT, ADDTIME TEXT NOT NULL, CONTENT TEXT NOT NULL, NOTEID TEXT NOT NULL);"
+#define CreateSecretInfo               @"CREATE TABLE IF NOT EXISTS T_SECRETINFO (id INTEGER PRIMARY KEY AUTOINCREMENT, ADDTIME TEXT NOT NULL, CONTENT TEXT NOT NULL, NOTEID TEXT NOT NULL, USERNAME TEXT NOT NULL);"
 //插入日记表数据
-#define InsertToSecretInfor            @"INSERT INTO T_SECRETINFO (ADDTIME,CONTENT,NOTEID) VALUES ('%@','%@','%@');"
+#define InsertToSecretInfor            @"INSERT INTO T_SECRETINFO (ADDTIME,CONTENT,NOTEID,USERNAME) VALUES ('%@','%@','%@','%@');"
 //更新日记表数据
-#define UpdateSecretInfor              @"UPDATE T_SECRETINFO SET CONTENT = '%@' WHERE ADDTIME = '%@',NOTEID = '%@';"
+#define UpdateSecretInfor              @"UPDATE T_SECRETINFO SET CONTENT = '%@' WHERE ADDTIME = '%@',NOTEID = '%@',USERNAME = '%@';"
 //删除日记表数据
-#define DeleteSecretInfor              @"DELETE FORM T_SECRETINFO WHERE ADDTIME = '%@',NOTEID = '%@';"
+#define DeleteSecretInfor              @"DELETE FORM T_SECRETINFO WHERE ADDTIME = '%@',NOTEID = '%@',USERNAME = '%@';"
 //创建文章表数据
-#define CreateArticleTable             @"CREATE TABLE IF NOT EXISTS T_ARTICLE (id INTEGER PRIMARY KEY AUTOINCREMENT, ADDTIME TEXT NOT NULL, CONTENT TEXT NOT NULL, LASTUPDATETIME TEXT NOT NULL,USERID TEXT NOT NULL);"
+#define CreateArticleTable             @"CREATE TABLE IF NOT EXISTS T_ARTICLE (id INTEGER PRIMARY KEY AUTOINCREMENT, ADDTIME TEXT NOT NULL, CONTENT TEXT NOT NULL, LASTUPDATETIME TEXT NOT NULL,USERNAME TEXT NOT NULL);"
 //插入文章表数据
-#define InsertToArticleTable           @"INSERT INTO T_ARTICLE (ADDTIME,CONTENT,LASTUPDATETIME,USERID) VALUES ('%@','%@','%@');"
+#define InsertToArticleTable           @"INSERT INTO T_ARTICLE (ADDTIME,CONTENT,LASTUPDATETIME,USERNAME) VALUES ('%@','%@','%@','%@');"
 //更新文章表数据
-#define UpdateArticleTable             @"UPDATE T_ARTICLE SET CONTENT = '%@', LASTUPDATETIME = '%@' WHERE id = %@,USERID = '%@' ;"
+#define UpdateArticleTable             @"UPDATE T_ARTICLE SET CONTENT = '%@', LASTUPDATETIME = '%@' WHERE id = %@,USERNAME = '%@' ;"
 //删除文章表数据
-#define DeleteArticleTable             @"DELETE FORM T_ARTICLE WHERE id = %@,USERID = '%@' ;"
+#define DeleteArticleTable             @"DELETE FORM T_ARTICLE WHERE id = %@,USERNAME = '%@' ;"
 
 @interface UserDBOperationManager()
 
@@ -114,11 +114,11 @@ static UserDBOperationManager *sharedInstance = nil;
     {
         FMResultSet *result = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userId]];
         if (result.next) {
-            status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateUserInfor,userInfo.userName,userInfo.password,userInfo.userId]];
+            status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateUserInfor,userInfo.password,userInfo.userIsLogin,userInfo.imageData,userInfo.userName]];
         }
         else
         {
-            status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:InsertToUserInfor,userInfo.userName,userInfo.password]];
+            status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:InsertToUserInfor,userInfo.userName,userInfo.password,userInfo.userIsLogin,userInfo.imageData]];
         }
         [_defaultDataBase close];
     }
@@ -126,65 +126,22 @@ static UserDBOperationManager *sharedInstance = nil;
 }
 
 
-//- (void)updateUserInfo:(SRAppUserProfile *)userInfo gesturePWD:(NSString *)gesturePwd
-//{
-//    if ([_defaultDataBase open]) {
-//        if (![_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateGuesturePWD, gesturePwd, userInfo.userId]]) {
-//        }
-//        [_defaultDataBase close];
-//    }
-//}
 
 - (void)updateUserInfo:(SRAppUserProfile *)userInfo
 {
     if ([_defaultDataBase open]) {
-        if (![_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateUserInfor, userInfo.userName, userInfo.password, userInfo.password]]) {
+        if (![_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateUserInfor, userInfo.password, userInfo.userIsLogin, userInfo.imageData, userInfo.userName]]) {
         }
         [_defaultDataBase close];
     }
 }
-
-//- (NSString *)getGesturePWD:(RdAppUserProfile *)userInfo
-//{
-//    NSString *temp = @"";
-//    if ([_defaultDataBase open]) {
-//        FMResultSet *result=[_defaultDataBase executeQuery:[NSString stringWithFormat:GetGuesturePWD, userInfo.userId]];
-//        if (result.next) {
-//            temp = [result stringForColumn:@"GESTUREPWD"];
-//        }
-//        [_defaultDataBase close];
-//    }
-//    return temp;
-//}
-
-//- (BOOL)checkUserInfo:(RdAppUserProfile *)userInfo gesturePWD:(NSString *)gesturePwd
-//{
-//    return [gesturePwd isEqualToString:[self getGesturePWD:userInfo]];
-//}
-
-//- (void)loadUser:(RdAppUserProfile *)userInfo
-//{
-//    if ([_defaultDataBase open]) {
-//        FMResultSet *result=[_defaultDataBase executeQuery:LoadUser];
-//        if(result.next)
-//        {
-//            userInfo.hideUserName = [result stringForColumn:@"HIDEUSERNAME"];
-//            userInfo.userName = [result stringForColumn:@"USERNAME"];
-//            userInfo.oauthToken = [result stringForColumn:@"OAUTHTOKEN"];
-//            userInfo.userId = [result stringForColumn:@"USERID"];
-//            userInfo.refreshToken = [result stringForColumn:@"REFRESHTOKEN"];
-//            userInfo.avatarPath = [result stringForColumn:@"AVATARPHOTO"];
-//            //            userInfo.expiresIn = [NSString stringWithFormat:@"%f", [result stringForColumn:@"EXPIRESIN"] ];
-//        }
-//    }
-//}
 
 - (BOOL)userLogOut:(SRAppUserProfile *)userInfo
 {
     BOOL status = false;
     if([_defaultDataBase open])
     {
-        status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:UserLogOut, userInfo.userId]];
+        status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:UserLogOut, userInfo.userName]];
     }
     return status;
 }

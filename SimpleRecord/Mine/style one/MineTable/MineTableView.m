@@ -14,7 +14,7 @@
 
 #define MineTableViewCellId @"MineTableViewCellId"
 
-@interface MineTableView()<UITableViewDelegate, UITableViewDataSource>
+@interface MineTableView()<UITableViewDelegate, UITableViewDataSource, MineTableHeadViewdelegate>
 @property(nonatomic, strong) NSMutableArray *titleArray;
 @property(nonatomic, strong) MineTableHeadView *headView;
 @end
@@ -51,6 +51,7 @@
 
 - (void)createHeadView {
     _headView = [[MineTableHeadView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 180)];
+    _headView.headViewDelegate = self;
     self.tableHeaderView = _headView;
 }
 
@@ -90,6 +91,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_tableViewDelegate && [_tableViewDelegate respondsToSelector:@selector(mineTableViewDidSelectRowIndexRow:)]) {
         [_tableViewDelegate mineTableViewDidSelectRowIndexRow:indexPath.row];
+    }
+}
+
+- (void)mineTableHeadViewDoLogin {
+    if (_tableViewDelegate && [_tableViewDelegate respondsToSelector:@selector(userDoLoginEvent)]) {
+        [_tableViewDelegate userDoLoginEvent];
     }
 }
 

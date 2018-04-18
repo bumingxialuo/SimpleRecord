@@ -52,13 +52,22 @@
     _avatar.center = CGPointMake(WIDTHOFSCREEN*0.5, 90);
     _avatar.layer.cornerRadius = 42;
     _avatar.layer.masksToBounds = YES;
+    _avatar.userInteractionEnabled = YES;
     animationView.center = _avatar.center;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarTouchDoLogin)];
+    [_avatar addGestureRecognizer:tap];
     [self addSubview:_bgView];
     [self addSubview:animationView];
     [self addSubview:_avatar];
     [_bgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
+}
+
+- (void)avatarTouchDoLogin {
+    if (_headViewDelegate && [_headViewDelegate respondsToSelector:@selector(mineTableHeadViewDoLogin)]) {
+        [_headViewDelegate mineTableHeadViewDoLogin];
+    }
 }
 
 @end

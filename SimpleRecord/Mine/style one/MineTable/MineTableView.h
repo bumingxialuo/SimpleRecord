@@ -10,6 +10,8 @@
 
 @protocol MineTableViewDelegate<NSObject>
 - (void)mineTableViewDidSelectRowIndexRow:(NSInteger) index;
+
+- (void)userDoLoginEvent;
 @end
 
 @interface MineTableView : UITableView

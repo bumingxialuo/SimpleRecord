@@ -7,9 +7,12 @@
 //
 
 #import "ForgotPasswordViewController.h"
+#import "SRRouterManager.h"
 
 @interface ForgotPasswordViewController ()
-
+{
+    NSString *_phone;
+}
 @end
 
 @implementation ForgotPasswordViewController
@@ -17,6 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)setParams:(NSDictionary *)params {
+    _phone = params[@"phone"];
+    if ([_phone isEqualToString:@"*"]) {
+        _phone = @"";
+    }
 }
 
 - (void)didReceiveMemoryWarning {

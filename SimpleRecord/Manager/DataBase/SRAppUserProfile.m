@@ -18,9 +18,14 @@ static  SRAppUserProfile *sharedInstance = nil;
     
     dispatch_once(&oncePredicate, ^{
         sharedInstance = [[SRAppUserProfile alloc] init];
-//        [sharedInstance load];
+        [sharedInstance load];
     });
     return sharedInstance;
+}
+
+- (void)load
+{
+    [[UserDBOperationManager sharedInstance] loadUser:self];
 }
 
 -(BOOL)cleanUp
@@ -48,42 +53,12 @@ static  SRAppUserProfile *sharedInstance = nil;
     return  [[UserDBOperationManager sharedInstance] savetUserInfo:self];
 }
 
-//- (void)load
-//{
-//    [[UserDBOperationManager sharedInstance] loadUser:self];
-//}
-
 
 -(BOOL)isLogon
 {
-//    return _oauthToken.length > 0;
     return NO;
 }
 
-
-//- (BOOL)checkGesture:(NSString *)pwd
-//{
-//    return [[UserDBOperationManager sharedInstance] checkUserInfo:self gesturePWD:pwd];
-//}
-//
-//- (BOOL)isOpenTouchID
-//{
-//    return [[UserDBOperationManager sharedInstance] userIsOpenTouchID:self];
-//}
-//
-//- (void)setOpenTouchID:(BOOL)open
-//{
-//    [[UserDBOperationManager sharedInstance] updateUserInfo:self openTouchID:open];
-//}
-//- (void)saveGesture:(NSString *)gesturePwd
-//{
-//    return [[UserDBOperationManager sharedInstance] updateUserInfo:self gesturePWD:gesturePwd];
-//}
-//
-//- (BOOL)hasSetGesture
-//{
-//    return [[UserDBOperationManager sharedInstance] getGesturePWD:self].length > 0;
-//}
 
 
 @end

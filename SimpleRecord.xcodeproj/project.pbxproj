@@ -73,6 +73,13 @@
 		16CF527A20737ECE00CDE453 /* StyleTypeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CF527920737ECE00CDE453 /* StyleTypeTableView.m */; };
 		16F2932B205290550094F490 /* RecordTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F2932A205290550094F490 /* RecordTableView.m */; };
 		16FB0A1E207A197F002D07AC /* AddDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FB0A1D207A197F002D07AC /* AddDiaryViewController.m */; };
+		16FD282C20872065004D91F4 /* CaptchaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FD282920872065004D91F4 /* CaptchaView.m */; };
+		16FD282D20872065004D91F4 /* LoginTableViewFillInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FD282B20872065004D91F4 /* LoginTableViewFillInfoCell.m */; };
+		16FD2830208720E1004D91F4 /* ForgotPasswordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FD282F208720E1004D91F4 /* ForgotPasswordTableViewCell.m */; };
+		16FD2833208720F4004D91F4 /* RegisterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FD2832208720F4004D91F4 /* RegisterTableViewCell.m */; };
+		16FD28362087219B004D91F4 /* RDCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FD28342087219B004D91F4 /* RDCountDownButton.m */; };
+		16FD283C20874BC2004D91F4 /* SRUserArticleProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FD283B20874BC2004D91F4 /* SRUserArticleProfile.m */; };
+		16FD283F20874C37004D91F4 /* SRUserDiaryProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FD283E20874C37004D91F4 /* SRUserDiaryProfile.m */; };
 		640A0F4A2086154E0037468F /* SRAppUserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A0F492086154E0037468F /* SRAppUserProfile.m */; };
 		640A0F4E20862AD90037468F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A0F4D20862AD90037468F /* LoginViewController.m */; };
 		640A0F5420862B200037468F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 640A0F5320862B200037468F /* RegisterViewController.m */; };
@@ -234,6 +241,21 @@
 		16F2932A205290550094F490 /* RecordTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordTableView.m; sourceTree = "<group>"; };
 		16FB0A1C207A197F002D07AC /* AddDiaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDiaryViewController.h; sourceTree = "<group>"; };
 		16FB0A1D207A197F002D07AC /* AddDiaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddDiaryViewController.m; sourceTree = "<group>"; };
+		16FD282820872064004D91F4 /* CaptchaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptchaView.h; sourceTree = "<group>"; };
+		16FD282920872065004D91F4 /* CaptchaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptchaView.m; sourceTree = "<group>"; };
+		16FD282A20872065004D91F4 /* LoginTableViewFillInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewFillInfoCell.h; sourceTree = "<group>"; };
+		16FD282B20872065004D91F4 /* LoginTableViewFillInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewFillInfoCell.m; sourceTree = "<group>"; };
+		16FD282E208720E0004D91F4 /* ForgotPasswordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordTableViewCell.h; sourceTree = "<group>"; };
+		16FD282F208720E1004D91F4 /* ForgotPasswordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordTableViewCell.m; sourceTree = "<group>"; };
+		16FD2831208720F4004D91F4 /* RegisterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterTableViewCell.h; sourceTree = "<group>"; };
+		16FD2832208720F4004D91F4 /* RegisterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterTableViewCell.m; sourceTree = "<group>"; };
+		16FD28342087219B004D91F4 /* RDCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDCountDownButton.m; sourceTree = "<group>"; };
+		16FD28352087219B004D91F4 /* RDCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDCountDownButton.h; sourceTree = "<group>"; };
+		16FD2838208731DB004D91F4 /* NOTICE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NOTICE.h; sourceTree = "<group>"; };
+		16FD283A20874BC2004D91F4 /* SRUserArticleProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRUserArticleProfile.h; sourceTree = "<group>"; };
+		16FD283B20874BC2004D91F4 /* SRUserArticleProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRUserArticleProfile.m; sourceTree = "<group>"; };
+		16FD283D20874C37004D91F4 /* SRUserDiaryProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRUserDiaryProfile.h; sourceTree = "<group>"; };
+		16FD283E20874C37004D91F4 /* SRUserDiaryProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRUserDiaryProfile.m; sourceTree = "<group>"; };
 		640A0F482086154E0037468F /* SRAppUserProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRAppUserProfile.h; sourceTree = "<group>"; };
 		640A0F492086154E0037468F /* SRAppUserProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRAppUserProfile.m; sourceTree = "<group>"; };
 		640A0F4C20862AD90037468F /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -442,10 +464,7 @@
 		161DDC10204FC284000B195B /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				1613265E204FEE2600CDE1EB /* UserDBOperationManager.h */,
-				1613265F204FEE2600CDE1EB /* UserDBOperationManager.m */,
-				640A0F482086154E0037468F /* SRAppUserProfile.h */,
-				640A0F492086154E0037468F /* SRAppUserProfile.m */,
+				16FD283920874B38004D91F4 /* DataBase */,
 				161DDC11204FC2BB000B195B /* AppSkinColorManger.h */,
 				161DDC12204FC2BB000B195B /* AppSkinColorManger.m */,
 				1696E83A205258C80022B670 /* SRRouterManager.h */,
@@ -588,9 +607,12 @@
 		1696E839205258820022B670 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				16FD28352087219B004D91F4 /* RDCountDownButton.h */,
+				16FD28342087219B004D91F4 /* RDCountDownButton.m */,
 				162E95192079FBB900D7562D /* XJDAlertView.h */,
 				162E95182079FBB900D7562D /* XJDAlertView.m */,
 				1637FFDA205627640086F176 /* Macro.h */,
+				16FD2838208731DB004D91F4 /* NOTICE.h */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -692,6 +714,21 @@
 			path = StyleTypeTable;
 			sourceTree = "<group>";
 		};
+		16FD283920874B38004D91F4 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				1613265E204FEE2600CDE1EB /* UserDBOperationManager.h */,
+				1613265F204FEE2600CDE1EB /* UserDBOperationManager.m */,
+				640A0F482086154E0037468F /* SRAppUserProfile.h */,
+				640A0F492086154E0037468F /* SRAppUserProfile.m */,
+				16FD283D20874C37004D91F4 /* SRUserDiaryProfile.h */,
+				16FD283E20874C37004D91F4 /* SRUserDiaryProfile.m */,
+				16FD283A20874BC2004D91F4 /* SRUserArticleProfile.h */,
+				16FD283B20874BC2004D91F4 /* SRUserArticleProfile.m */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
 		640A0F4B20862AAE0037468F /* LoginAndRegister */ = {
 			isa = PBXGroup;
 			children = (
@@ -735,6 +772,10 @@
 		640A0F5820862B5F0037468F /* LoginTable */ = {
 			isa = PBXGroup;
 			children = (
+				16FD282820872064004D91F4 /* CaptchaView.h */,
+				16FD282920872065004D91F4 /* CaptchaView.m */,
+				16FD282A20872065004D91F4 /* LoginTableViewFillInfoCell.h */,
+				16FD282B20872065004D91F4 /* LoginTableViewFillInfoCell.m */,
 				640A0F6020862BCF0037468F /* LoginTableView.h */,
 				640A0F6120862BCF0037468F /* LoginTableView.m */,
 			);
@@ -744,6 +785,8 @@
 		640A0F5F20862BA20037468F /* RegisterTable */ = {
 			isa = PBXGroup;
 			children = (
+				16FD2831208720F4004D91F4 /* RegisterTableViewCell.h */,
+				16FD2832208720F4004D91F4 /* RegisterTableViewCell.m */,
 				640A0F5C20862B9A0037468F /* RegisterTableView.h */,
 				640A0F5D20862B9A0037468F /* RegisterTableView.m */,
 			);
@@ -753,6 +796,8 @@
 		640A0F6320862BDC0037468F /* ForgotPasswordTable */ = {
 			isa = PBXGroup;
 			children = (
+				16FD282E208720E0004D91F4 /* ForgotPasswordTableViewCell.h */,
+				16FD282F208720E1004D91F4 /* ForgotPasswordTableViewCell.m */,
 				640A0F6420862BFB0037468F /* ForgotPasswordTableView.h */,
 				640A0F6520862BFB0037468F /* ForgotPasswordTableView.m */,
 			);
@@ -987,7 +1032,9 @@
 				16382BBD2073304C0097EF43 /* ZYDayView.m in Sources */,
 				16747AA52072348E009E21C2 /* RippleAnimationView.m in Sources */,
 				160634962058B2EA006EC80A /* ChangeRecordStyleCustomView.m in Sources */,
+				16FD2830208720E1004D91F4 /* ForgotPasswordTableViewCell.m in Sources */,
 				16382BC32073304C0097EF43 /* ZYMonthView.m in Sources */,
+				16FD282D20872065004D91F4 /* LoginTableViewFillInfoCell.m in Sources */,
 				640A0F5420862B200037468F /* RegisterViewController.m in Sources */,
 				162E95142079A71C00D7562D /* ChangeAppStyleDetailViewController.m in Sources */,
 				16CF527A20737ECE00CDE453 /* StyleTypeTableView.m in Sources */,
@@ -1003,10 +1050,12 @@
 				1612CA312073683000B693B7 /* ArticleListViewController.m in Sources */,
 				1696E83C205258C80022B670 /* SRRouterManager.m in Sources */,
 				16CEFCA3206355ED004230D7 /* RecordStyleTwoViewController.m in Sources */,
+				16FD283F20874C37004D91F4 /* SRUserDiaryProfile.m in Sources */,
 				640A0F6620862BFB0037468F /* ForgotPasswordTableView.m in Sources */,
 				1696E82C20522D130022B670 /* UIImage+color.m in Sources */,
 				1612CA1F207355D000B693B7 /* MineStyleTwoViewController.m in Sources */,
 				16747AA020720C38009E21C2 /* MineTableViewCell.m in Sources */,
+				16FD282C20872065004D91F4 /* CaptchaView.m in Sources */,
 				1696E838205254FB0022B670 /* MineViewController.m in Sources */,
 				1612CA34207368BA00B693B7 /* DiaryListViewController.m in Sources */,
 				1686FE15207AFE0D00926A6C /* AddCalendarTableView.m in Sources */,
@@ -1022,12 +1071,15 @@
 				64A112BD206735B7008C03C9 /* MineTableView.m in Sources */,
 				16AB33B3207318E500358E7E /* NSDate+CCPCalendar.m in Sources */,
 				16AB33B4207318E500358E7E /* NSObject+CCPObjc.m in Sources */,
+				16FD28362087219B004D91F4 /* RDCountDownButton.m in Sources */,
 				16382BC42073304C0097EF43 /* ZYWeekView.m in Sources */,
 				1612CA2B207365DA00B693B7 /* ChageAppStyleViewController.m in Sources */,
 				1612CA2E207367E700B693B7 /* FunctionConfigurationViewController.m in Sources */,
+				16FD283C20874BC2004D91F4 /* SRUserArticleProfile.m in Sources */,
 				16FB0A1E207A197F002D07AC /* AddDiaryViewController.m in Sources */,
 				64D01C182082FECD00F27C10 /* DiaryListTableView.m in Sources */,
 				16CEFC9A20634920004230D7 /* UIView+Snapshot.m in Sources */,
+				16FD2833208720F4004D91F4 /* RegisterTableViewCell.m in Sources */,
 				16382BBE2073304C0097EF43 /* ZYCalendarView.m in Sources */,
 				161DDBDC204FB4E7000B195B /* ViewController.m in Sources */,
 				640A0F6220862BCF0037468F /* LoginTableView.m in Sources */,

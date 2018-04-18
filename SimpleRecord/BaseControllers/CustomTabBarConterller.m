@@ -13,6 +13,8 @@
 #import <HHRouter/HHRouter.h>
 #import "SRRouterUrl.h"
 #import "UIImage+color.h"
+#import "NOTICE.h"
+#import "SRAppUserProfile.h"
 
 @interface CustomTabBarConterller ()
 @property(nonatomic,strong) CustomNavigationController *calendarNav;
@@ -27,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self registerNotice];
     [self settingStyle];
     [self createSubVC];
 }
@@ -35,6 +38,44 @@
     [self.tabBar setShadowImage:[UIImage createImageWithColor:[UIColor clearColor]]];
     [self.tabBar setBackgroundImage:[UIImage createImageWithColor:[UIColor whiteColor]]];
     [self.tabBar setTintColor:[AppSkinColorManger sharedInstance].themeColor];
+}
+
+- (void)registerNotice
+{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(userLogOut)
+                                                 name:NOTICE_UserLogOut
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(userLogIn)
+                                                 name:NOTICE_UserLogIn
+                                               object:nil];
+}
+
+-(void)userLogOut
+{
+    [[SRAppUserProfile sharedInstance] cleanUp];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        UINavigationController *nav = self.selectedViewController;
+        [nav popToRootViewControllerAnimated:YES];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            //            self.selectedIndex = 0;
+            [self userLogIn];
+        });
+    });
+}
+
+/**
+ 用户登录
+ */
+- (void)userLogIn
+{
+    CustomNavigationController *nav = [[CustomNavigationController alloc] initWithRootViewController:[[HHRouter shared] matchController:SR_LoginAndRegister_Login]];
+    [self presentViewController:nav animated:YES completion:^{
+    }];
 }
 
 - (void)createSubVC {
@@ -80,7 +121,6 @@
     [self createTabBarItemWithTitle:@"我的" withUnSelectedImage:@"mine_unSelect" withSelectedImage:@"mine_select" withTag:2];
 }
 
-#pragma mark - getters and setters
 
 -(void)createTabBarItemWithTitle:(NSString *)title withUnSelectedImage:(NSString *)unSelectedImage withSelectedImage:(NSString *)selectedImage withTag:(NSInteger)tag
 {

@@ -32,6 +32,11 @@
  */
 @property(nonatomic, copy) NSString *password;
 
+/**
+ *登录标识
+ */
+@property(nonatomic, copy) NSString *userIsLogin;
+
 /********************************登录信息********************/
 
 /**
@@ -52,10 +57,5 @@
 
 - (BOOL)save;
 
-//- (BOOL)checkGesture:(NSString *)pwd;
-
-//- (void)saveGesture:(NSString *)gesturePwd;
-
-//- (BOOL)hasSetGesture;
 
 @end
