@@ -56,7 +56,7 @@ static  SRAppUserProfile *sharedInstance = nil;
 
 -(BOOL)isLogon
 {
-    return NO;
+    return [_userIsLogin isEqualToString:@"10"];
 }
 
 

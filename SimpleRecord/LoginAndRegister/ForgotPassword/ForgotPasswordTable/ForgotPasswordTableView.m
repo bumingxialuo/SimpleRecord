@@ -65,6 +65,9 @@
     UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 80)];
     footView.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
     UIButton *nextButton = [[UIButton alloc] init];
+    nextButton.frame = CGRectMake(0, 0, WIDTHOFSCREEN - 30, 44);
+    nextButton.layer.masksToBounds = YES;
+    nextButton.layer.cornerRadius = 5;
     [footView addSubview:nextButton];
     [nextButton setBackgroundColor:[AppSkinColorManger sharedInstance].themeColor];
     nextButton.titleLabel.font = [UIFont systemFontOfSize:16];

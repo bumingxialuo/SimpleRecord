@@ -13,6 +13,8 @@
 #import "SRAppUserProfile.h"
 #import "Macro.h"
 #import <Chameleon.h>
+#import "NOTICE.h"
+#import "SRRouterManager.h"
 
 #define AccountManagerTableViewCellId @"AccountManagerTableViewCellId"
 
@@ -74,6 +76,7 @@
 
 - (void)logoutButtonClick:(UIButton *)sender {
     //退出登录
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTICE_UserLogOut object:nil];
 }
 
 #pragma mark - UITableViewDelegate And UITableViewDataSource
@@ -96,7 +99,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 1) {
-        
+        UIViewController *vc = [[HHRouter shared] matchController:SR_LoginAndRegister_ForgotPassword([SRAppUserProfile sharedInstance].userName)];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

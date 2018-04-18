@@ -38,10 +38,13 @@
         self.delegate = self;
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.backgroundColor = [UIColor whiteColor];
+        self.showsVerticalScrollIndicator = NO;
         [self setUpData];
         [self registerTableViewCell];
         [self createHeadView];
         [self createFootView];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endEditting)];
+        [self addGestureRecognizer:tap];
     }
     return self;
 }
@@ -60,33 +63,36 @@
     
     
 }
+-(void)endEditting {
+    [self endEditing:YES];
+}
 - (void)registerTableViewCell {
     [self registerClass:[LoginTableViewFillInfoCell class] forCellReuseIdentifier:LoginTableViewFillInfoCellId];
 }
 
 - (void)createHeadView {
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 227+10)];
-    UIImageView *iconImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_logo"]];
+    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 237*WIDTHRADIUS)];
+    UIImageView *iconImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"头像 女孩"]];
     UIButton *closeButton = [[UIButton alloc] init];
-    [closeButton setImage:[UIImage imageNamed:@"login_close"] forState:UIControlStateNormal];
+    [closeButton setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
     [closeButton addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [headView addSubview:iconImage];
     [headView addSubview:closeButton];
     [closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(headView).offset(5);
-        make.top.mas_equalTo(headView).offset(15);
-        make.size.mas_equalTo(CGSizeMake(44, 44));
+        make.top.mas_equalTo(headView).offset(5);
+        make.size.mas_equalTo(CGSizeMake(32, 32));
     }];
     [iconImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(headView).offset(81);
+        make.top.mas_equalTo(headView).offset(80*WIDTHRADIUS);
         make.centerX.mas_equalTo(headView);
-        make.size.mas_equalTo(CGSizeMake(105, 84));
+        make.size.mas_equalTo(CGSizeMake(105*WIDTHRADIUS, 105*WIDTHRADIUS));
     }];
     self.tableHeaderView = headView;
 }
 
 - (void)createFootView {
-    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 115)];
+    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 250)];
     _loginButton = [[UIButton alloc] init];
     [_loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_loginButton setBackgroundColor:[AppSkinColorManger sharedInstance].themeColor];
@@ -98,15 +104,13 @@
     [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
     [_loginButton addTarget:self action:@selector(loginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     _forgotPasswordButton = [[UIButton alloc] init];
-    [_forgotPasswordButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_forgotPasswordButton setBackgroundColor:[UIColor colorWithHexString:@"999"]];
+    [_forgotPasswordButton setTitleColor:[UIColor colorWithHexString:@"999"] forState:UIControlStateNormal];
     [footView addSubview:_forgotPasswordButton];
     [_forgotPasswordButton setTitle:@"忘记密码？" forState:UIControlStateNormal];
     [_forgotPasswordButton addTarget:self action:@selector(forgotPasswordButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     
     _registerButton = [[UIButton alloc] init];
-    [_registerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_registerButton setBackgroundColor:[AppSkinColorManger sharedInstance].themeColor];
+    [_registerButton setTitleColor:[AppSkinColorManger sharedInstance].themeColor forState:UIControlStateNormal];
     [footView addSubview:_registerButton];
     [_registerButton setTitle:@"快速注册" forState:UIControlStateNormal];
     [_registerButton addTarget:self action:@selector(registerButtonClick:) forControlEvents:UIControlEventTouchUpInside];

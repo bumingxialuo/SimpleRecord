@@ -8,11 +8,16 @@
 
 #import "ForgotPasswordViewController.h"
 #import "SRRouterManager.h"
+#import "AppSkinColorManger.h"
+#import <Masonry.h>
+#import "Macro.h"
+#import "ForgotPasswordTableView.h"
 
 @interface ForgotPasswordViewController ()
 {
     NSString *_phone;
 }
+@property(nonatomic, strong) ForgotPasswordTableView *tableView;
 @end
 
 @implementation ForgotPasswordViewController
@@ -20,6 +25,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
+    self.navigationItem.title = @"找回登录密码";
+    [self createTableView];
+}
+
+- (void)createTableView {
+    _tableView = [[ForgotPasswordTableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    [self.view addSubview:_tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
 }
 
 - (void)setParams:(NSDictionary *)params {

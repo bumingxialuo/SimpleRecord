@@ -27,6 +27,7 @@
 @property(nonatomic, strong) NSMutableArray *titleArray;
 
 @property(nonatomic, strong) UIView *footView;
+@property(nonatomic, strong) UIView *headView;
 @property(nonatomic, strong) UIButton *registerButton;
 @property(nonatomic, strong) YYLabel *protocolView;
 @end
@@ -78,7 +79,7 @@
 - (void)setUpData {
     _titleArray = [[NSMutableArray alloc] initWithCapacity:0];
     NSDictionary *dic1 = @{@"icon":@"icon_sj",@"placeHolder":@"请输入手机号码",@"fill":@"",@"code":@(YES),@"password":@(NO)};
-    NSDictionary *dic2 = @{@"icon":@"icon_dx",@"placeHolder":@"请输入短信验证码",@"fill":@"",@"code":@(NO),@"password":@(NO)};
+    NSDictionary *dic2 = @{@"icon":@"icon_login_tx",@"placeHolder":@"请输入短信验证码",@"fill":@"",@"code":@(NO),@"password":@(NO)};
     NSDictionary *dic3 = @{@"icon":@"icon_mm",@"placeHolder":@"8-16位字符，包含字母和数字",@"fill":@"",@"code":@(YES),@"password":@(YES)};
     NSDictionary *dic4 = @{@"icon":@"icon_mm",@"placeHolder":@"请确认登录密码",@"fill":@"",@"code":@(YES),@"password":@(YES)};
     [_titleArray addObject:dic1];
@@ -90,7 +91,6 @@
 - (void)registerTableViewCell {
     [self registerClass:[RegisterTableViewCell class] forCellReuseIdentifier:RegisterTableViewCellId];
 }
-
 - (void)createFootView {
     _footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 91)];
     _footView.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;;

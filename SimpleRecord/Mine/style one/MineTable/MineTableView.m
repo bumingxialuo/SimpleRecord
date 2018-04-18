@@ -50,7 +50,7 @@
 }
 
 - (void)createHeadView {
-    _headView = [[MineTableHeadView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 180)];
+    _headView = [[MineTableHeadView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 180*WIDTHRADIUS)];
     _headView.headViewDelegate = self;
     self.tableHeaderView = _headView;
 }

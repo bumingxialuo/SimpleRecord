@@ -39,18 +39,18 @@
     
     maskLayer.frame = _bgView.bounds;
     [boderPath moveToPoint:CGPointMake(0, 40)];
-    [boderPath addQuadCurveToPoint:CGPointMake(WIDTHOFSCREEN, 40) controlPoint:CGPointMake(WIDTHOFSCREEN * 0.5, 180)];
+    [boderPath addQuadCurveToPoint:CGPointMake(WIDTHOFSCREEN, 40) controlPoint:CGPointMake(WIDTHOFSCREEN * 0.5, 180*WIDTHRADIUS)];
     [boderPath addLineToPoint:CGPointMake(WIDTHOFSCREEN, 0)];
     [boderPath addLineToPoint:CGPointMake(0, 0)];
     [boderPath addLineToPoint:CGPointMake(0, 40)];
     maskLayer.path = boderPath.CGPath;
     [_bgView.layer setMask:maskLayer];
     
-    RippleAnimationView *animationView = [[RippleAnimationView alloc] initWithFrame:CGRectMake((WIDTHOFSCREEN - 168)*0.5, (180-168)*0.5, 84, 84) animationType:AnimationTypeWithBackground];
+    RippleAnimationView *animationView = [[RippleAnimationView alloc] initWithFrame:CGRectMake((WIDTHOFSCREEN - 168)*0.5, (180*WIDTHRADIUS-168)*0.5, 84, 84) animationType:AnimationTypeWithBackground];
     _avatar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"头像 女孩"]];
-    _avatar.frame = CGRectMake((WIDTHOFSCREEN - 168)*0.5, (180-168)*0.5, 84, 84);
+    _avatar.frame = CGRectMake((WIDTHOFSCREEN - 168*WIDTHRADIUS)*0.5, (180-168)*0.5*WIDTHRADIUS, 84*WIDTHRADIUS, 84*WIDTHRADIUS);
     _avatar.center = CGPointMake(WIDTHOFSCREEN*0.5, 90);
-    _avatar.layer.cornerRadius = 42;
+    _avatar.layer.cornerRadius = 42*WIDTHRADIUS;
     _avatar.layer.masksToBounds = YES;
     _avatar.userInteractionEnabled = YES;
     animationView.center = _avatar.center;

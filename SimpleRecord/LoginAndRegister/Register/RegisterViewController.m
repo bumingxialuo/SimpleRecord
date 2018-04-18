@@ -31,7 +31,7 @@
 
 - (void)setParams:(NSDictionary *)params {
     _phone = params[@"phone"];
-    if ([_phone isEqualToString:@"*"]) {
+    if ([_phone isEqualToString:@"**"]) {
         _phone = @"";
     }
 }
