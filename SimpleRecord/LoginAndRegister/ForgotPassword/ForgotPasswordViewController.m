@@ -28,6 +28,14 @@
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
     self.navigationItem.title = @"找回登录密码";
     [self createTableView];
+    [self updateWithPhone];
+}
+
+- (void)setParams:(NSDictionary *)params {
+    _phone = params[@"phone"];
+    if ([_phone isEqualToString:@"*"]) {
+        _phone = @"";
+    }
 }
 
 - (void)createTableView {
@@ -38,11 +46,8 @@
     }];
 }
 
-- (void)setParams:(NSDictionary *)params {
-    _phone = params[@"phone"];
-    if ([_phone isEqualToString:@"*"]) {
-        _phone = @"";
-    }
+- (void)updateWithPhone {
+    [_tableView updateWithPhone:_phone];
 }
 
 - (void)didReceiveMemoryWarning {

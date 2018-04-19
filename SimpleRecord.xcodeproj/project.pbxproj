@@ -42,6 +42,7 @@
 		16382BC22073304C0097EF43 /* circle_cir.png in Resources */ = {isa = PBXBuildFile; fileRef = 16382BB82073304B0097EF43 /* circle_cir.png */; };
 		16382BC32073304C0097EF43 /* ZYMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16382BB92073304C0097EF43 /* ZYMonthView.m */; };
 		16382BC42073304C0097EF43 /* ZYWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16382BBA2073304C0097EF43 /* ZYWeekView.m */; };
+		167162352088652F00DBA60A /* NSString+EnciphermentProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 167162342088652F00DBA60A /* NSString+EnciphermentProtection.m */; };
 		16747AA020720C38009E21C2 /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16747A9F20720C38009E21C2 /* MineTableViewCell.m */; };
 		16747AA220722305009E21C2 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16747AA120722305009E21C2 /* iconfont.ttf */; };
 		16747AA52072348E009E21C2 /* RippleAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16747AA42072348E009E21C2 /* RippleAnimationView.m */; };
@@ -180,6 +181,8 @@
 		16382BB82073304B0097EF43 /* circle_cir.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle_cir.png; sourceTree = "<group>"; };
 		16382BB92073304C0097EF43 /* ZYMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMonthView.m; sourceTree = "<group>"; };
 		16382BBA2073304C0097EF43 /* ZYWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYWeekView.m; sourceTree = "<group>"; };
+		167162332088652F00DBA60A /* NSString+EnciphermentProtection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+EnciphermentProtection.h"; sourceTree = "<group>"; };
+		167162342088652F00DBA60A /* NSString+EnciphermentProtection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+EnciphermentProtection.m"; sourceTree = "<group>"; };
 		16747A9E20720C38009E21C2 /* MineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTableViewCell.h; sourceTree = "<group>"; };
 		16747A9F20720C38009E21C2 /* MineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTableViewCell.m; sourceTree = "<group>"; };
 		16747AA120722305009E21C2 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
@@ -568,6 +571,8 @@
 				1696E82B20522D130022B670 /* UIImage+color.m */,
 				16CEFC9820634920004230D7 /* UIView+Snapshot.h */,
 				16CEFC9920634920004230D7 /* UIView+Snapshot.m */,
+				167162332088652F00DBA60A /* NSString+EnciphermentProtection.h */,
+				167162342088652F00DBA60A /* NSString+EnciphermentProtection.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1082,6 +1087,7 @@
 				16FD2833208720F4004D91F4 /* RegisterTableViewCell.m in Sources */,
 				16382BBE2073304C0097EF43 /* ZYCalendarView.m in Sources */,
 				161DDBDC204FB4E7000B195B /* ViewController.m in Sources */,
+				167162352088652F00DBA60A /* NSString+EnciphermentProtection.m in Sources */,
 				640A0F6220862BCF0037468F /* LoginTableView.m in Sources */,
 				1696E835205254E10022B670 /* RecordViewController.m in Sources */,
 				16CEFC942063435B004230D7 /* RecordStyleTwoTableViewCell.m in Sources */,

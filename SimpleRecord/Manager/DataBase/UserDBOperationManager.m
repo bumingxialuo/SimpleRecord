@@ -16,8 +16,10 @@
 #define ExistUser @"SELECT * FROM T_USERINFO WHERE USERNAME = '%@'"
 //插入用户表数据
 #define InsertToUserInfor            @"INSERT INTO T_USERINFO (USERNAME,PASSWORLD,ISLOGIN,AVATAR) VALUES ('%@','%@','%@','%@');"
-//更新用户表
-#define UpdateUserInfor              @"UPDATE T_USERINFO SET PASSWORLD = '%@' , ISLOGIN = '%@', AVATAR = '%@' WHERE USERNAME = %@ ;"
+//更新用户登录信息
+#define UpdateUserLogin              @"UPDATE T_USERINFO SET ISLOGIN = '%@' WHERE USERNAME = '%@' AND PASSWORLD = '%@';"
+//登录后修改
+#define UpdateUser              @"UPDATE T_USERINFO SET PASSWORLD = '%@', AVATAR = '%@' WHERE USERNAME = '%@' AND ISLOGIN = '%@';"
 //删除用户表
 #define DeleteUserInfor              @"DELETE FORM T_USERINFO WHERE USERNAME = %@ ;"
 //加载用户 当OAUTHTOKEN 不为空的时候
@@ -136,9 +138,28 @@ static UserDBOperationManager *sharedInstance = nil;
     BOOL status;
     if([_defaultDataBase open])
     {
-        FMResultSet *result = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userId]];
+        FMResultSet *result = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userName]];
         if (result.next) {
-            status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateUserInfor,userInfo.password,userInfo.userIsLogin,userInfo.imageData,userInfo.userName]];
+            status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateUser,userInfo.password,userInfo.imageData,userInfo.userName,userInfo.userIsLogin]];
+        }
+        else
+        {
+            status = NO;
+//            status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:InsertToUserInfor,userInfo.userName,userInfo.password,userInfo.userIsLogin,userInfo.imageData]];
+        }
+        [_defaultDataBase close];
+    }
+    return status;
+}
+
+- (BOOL)insertUserInfo:(SRAppUserProfile *)userInfo {
+    BOOL status;
+    if([_defaultDataBase open])
+    {
+        FMResultSet *result = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userName]];
+        if (result.next) {
+            
+            status = NO;
         }
         else
         {
@@ -149,12 +170,28 @@ static UserDBOperationManager *sharedInstance = nil;
     return status;
 }
 
+- (BOOL)isExitUser:(SRAppUserProfile *)userInfo {
+    FMResultSet *result = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userName]];
+    if (result.next) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
 
+- (BOOL)loginUser:(SRAppUserProfile *)userInfo {
+    FMResultSet *result = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userId]];
+    if (result.next) {
+        return [_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateUserLogin,userInfo.userIsLogin,userInfo.userName,userInfo.password]];
+    } else {
+        return NO;
+    }
+}
 
 - (void)updateUserInfo:(SRAppUserProfile *)userInfo
 {
     if ([_defaultDataBase open]) {
-        if (![_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateUserInfor, userInfo.password, userInfo.userIsLogin, userInfo.imageData, userInfo.userName]]) {
+        if (![_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateUser,userInfo.password, userInfo.imageData, userInfo.userName, userInfo.userIsLogin]]) {
         }
         [_defaultDataBase close];
     }

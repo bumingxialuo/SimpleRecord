@@ -36,6 +36,12 @@
 
 - (BOOL)savetUserInfo:(SRAppUserProfile *)userInfo;
 
+- (BOOL)insertUserInfo:(SRAppUserProfile *)userInfo;
+
+- (BOOL)isExitUser:(SRAppUserProfile *)userInfo;
+
+- (BOOL)loginUser:(SRAppUserProfile *)userInfo;
+
 - (void)updateUserInfo:(SRAppUserProfile *)userInfo;
 
 - (BOOL)userLogOut:(SRAppUserProfile *)userInfo;

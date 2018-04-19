@@ -13,6 +13,8 @@
 #import "SRRouterManager.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "SRAppUserProfile.h"
+#import "XJDAlertView.h"
+#import "NSString+EnciphermentProtection.h"
 
 @interface LoginViewController ()<LoginTableViewDelegate>
 @property(nonatomic, strong) LoginTableView *tableView;
@@ -70,16 +72,38 @@
         return;
     } else if (phone.length != 11) {
         [SVProgressHUD showErrorWithStatus:@"请输入正确格式的手机号码"];
+        return;
+    } else if ([NSString judgePassWordLegal:password]) {
+        [SVProgressHUD showErrorWithStatus:@"密码格式不正确"];
+        return;
     }
-    //还要拦截一种密码格式不正确
     
     // 这里可以进行网络请求
     //请求注册借口 ，没有后台所以直接注册成功，直接进入个人中心页面
+    
+    //判断手机号码是否注册过
     [SRAppUserProfile sharedInstance].userName = phone;
-    [SRAppUserProfile sharedInstance].password = password;
+    if (![[SRAppUserProfile sharedInstance] judgeUserExit]) {
+        XJDAlertView *alert = [[XJDAlertView alloc] initWithTitle:@"" contentText:@"该手机号未注册" leftButtonTitle:@"取消" rightButtonTitle:@"注册"];
+        alert.rightBlock = ^{
+            [self registerButtonClickInTableView:phone];
+        };
+        [alert show];
+        return;
+    }
+    [SRAppUserProfile sharedInstance].password = [NSString md5To32bit:password];
     [SRAppUserProfile sharedInstance].userIsLogin = @"10";
-    [[SRAppUserProfile sharedInstance] save];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    if ([[SRAppUserProfile sharedInstance] userLogin]) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        XJDAlertView *alert = [[XJDAlertView alloc] initWithTitle:@"" contentText:@"登录密码不正确" leftButtonTitle:@"取消" rightButtonTitle:@"找回"];
+        alert.rightBlock = ^{
+            [self forgotPasswordButtonClickInTableView:phone];
+        };
+        [alert show];
+        return;
+    }
+    
 }
 - (void)forgotPasswordButtonClickInTableView:(NSString *)phone {
     if ([phone isEqualToString:@""]) {

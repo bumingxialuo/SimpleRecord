@@ -55,7 +55,31 @@
  */
 -(BOOL)cleanUp;
 
+/**
+ 判断用户是否已注册
+
+ @return 是否成功
+ */
+- (BOOL)judgeUserExit;
+
+/**
+ 用户注册
+
+ @return 是否成功
+ */
+- (BOOL)userRegister;
+
+/**
+ 用户登录
+
+ @return 是否成功
+ */
+- (BOOL)userLogin;
+
+/**
+ 登录后修改信息
+
+ @return 是否成功
+ */
 - (BOOL)save;
-
-
 @end

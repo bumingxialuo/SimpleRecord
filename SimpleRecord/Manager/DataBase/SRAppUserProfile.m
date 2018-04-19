@@ -53,7 +53,17 @@ static  SRAppUserProfile *sharedInstance = nil;
     return  [[UserDBOperationManager sharedInstance] savetUserInfo:self];
 }
 
+- (BOOL)judgeUserExit {
+    return [[UserDBOperationManager sharedInstance] isExitUser:self];
+}
 
+- (BOOL)login {
+    return [[UserDBOperationManager sharedInstance] loginUser:self];
+}
+
+- (BOOL)userRegister {
+    return [[UserDBOperationManager sharedInstance] insertUserInfo:self];
+}
 -(BOOL)isLogon
 {
     return [_userIsLogin isEqualToString:@"10"];

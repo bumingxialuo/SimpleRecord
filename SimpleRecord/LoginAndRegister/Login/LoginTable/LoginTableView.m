@@ -92,7 +92,7 @@
 }
 
 - (void)createFootView {
-    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 250)];
+    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 250*WIDTHRADIUS)];
     _loginButton = [[UIButton alloc] init];
     [_loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_loginButton setBackgroundColor:[AppSkinColorManger sharedInstance].themeColor];
