@@ -23,6 +23,8 @@
 
 - (void)findOneDiary ;
 
+- (NSString *)findOneDiaryStr;
+
 - (void)findAllDiary ;
 
 @end

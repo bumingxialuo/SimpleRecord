@@ -27,4 +27,12 @@
  */
 +(BOOL)judgePassWordLegal:(NSString *)pass;
 
+/**
+ 日期转字符串
+
+ @param date 带转换的日期
+ @return 转换后的字符串
+ */
++ (NSString *)dateConvertToString:(NSDate *)date;
+
 @end

@@ -33,6 +33,7 @@
 
 - (void)setUpDataBase {
     [[UserDBOperationManager sharedInstance] createDefaultDataBase];
+    [SRAppUserProfile sharedInstance];
 }
 
 - (void)setRouterController {

@@ -11,9 +11,9 @@
 #define DefaultBaseName @"appData.sqlite"
 #define SimpleRecordDB                 @"SimpleRecordDB.sqlite"
 
-#define CreateUserInfo               @"CREATE TABLE IF NOT EXISTS T_USERINFO (id INTEGER PRIMARY KEY AUTOINCREMENT, USERNAME TEXT NOT NULL, PASSWORLD TEXT NOT NULL, ISLOGIN TEXT NOT NULL, AVATAR TEXT NOT NULL);"
+#define CreateUserInfo               @"CREATE TABLE IF NOT EXISTS T_USERINFO (id INTEGER PRIMARY KEY AUTOINCREMENT, USERNAME TEXT NOT NULL, PASSWORLD TEXT NOT NULL, ISLOGIN TEXT, AVATAR TEXT);"
 //是否存在该用户
-#define ExistUser @"SELECT * FROM T_USERINFO WHERE USERNAME = '%@'"
+#define ExistUser @"SELECT * FROM T_USERINFO WHERE USERNAME = '%@';"
 //插入用户表数据
 #define InsertToUserInfor            @"INSERT INTO T_USERINFO (USERNAME,PASSWORLD,ISLOGIN,AVATAR) VALUES ('%@','%@','%@','%@');"
 //更新用户登录信息
@@ -23,13 +23,13 @@
 //删除用户表
 #define DeleteUserInfor              @"DELETE FORM T_USERINFO WHERE USERNAME = %@ ;"
 //加载用户 当OAUTHTOKEN 不为空的时候
-#define LoadUser @"SELECT USERNAME, PASSWORLD, USERID FROM T_USERINFO WHERE ISLOGIN NOT NULL"
+#define LoadUser @"SELECT USERNAME,ISLOGIN, PASSWORLD, AVATAR FROM T_USERINFO WHERE ISLOGIN = '10';"
 //用户退出
-#define UserLogOut @"UPDATE USER SET ISLOGIN = NULL WHERE USERNAME = '%@'"
+#define UserLogOut @"UPDATE T_USERINFO SET ISLOGIN = NULL WHERE USERNAME = '%@';"
 //创建日记表
 #define CreateSecretInfo               @"CREATE TABLE IF NOT EXISTS T_SECRETINFO (id INTEGER PRIMARY KEY AUTOINCREMENT, ADDTIME TEXT NOT NULL, CONTENT TEXT NOT NULL, USERNAME TEXT NOT NULL);"
 //是否存在该日记
-#define ExistOneDiary @"SELECT * FROM T_SECRETINFO WHERE USERNAME = '%@', ADDTIME = '%@';"
+#define ExistOneDiary @"SELECT * FROM T_SECRETINFO WHERE USERNAME = '%@' AND ADDTIME = '%@';"
 //插入日记表数据
 #define InsertToSecretInfor            @"INSERT INTO T_SECRETINFO (ADDTIME,CONTENT,USERNAME) VALUES ('%@','%@','%@');"
 //更新日记表数据
@@ -135,18 +135,25 @@ static UserDBOperationManager *sharedInstance = nil;
 #pragma mark -存储或更新用户信息
 - (BOOL)savetUserInfo:(SRAppUserProfile *)userInfo
 {
-    BOOL status;
+    BOOL status = NO;
     if([_defaultDataBase open])
     {
         FMResultSet *result = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userName]];
         if (result.next) {
             status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateUser,userInfo.password,userInfo.imageData,userInfo.userName,userInfo.userIsLogin]];
         }
-        else
-        {
-            status = NO;
-//            status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:InsertToUserInfor,userInfo.userName,userInfo.password,userInfo.userIsLogin,userInfo.imageData]];
+        FMResultSet *result2 = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userName]];
+        while (result2.next) {
+
+            NSString *str0 = [result2 stringForColumnIndex:0];
+            NSString *str1 = [result2 stringForColumnIndex:1];
+            NSString *str2 = [result2 stringForColumnIndex:2];
+            NSString *str3 = [result2 stringForColumnIndex:3];
+            NSString *str4 = [result2 stringForColumnIndex:4];
+            NSLog(@"%@,%@,%@,%@,%@",str0,str1,str2,str3,str4);
+
         }
+        
         [_defaultDataBase close];
     }
     return status;
@@ -171,21 +178,37 @@ static UserDBOperationManager *sharedInstance = nil;
 }
 
 - (BOOL)isExitUser:(SRAppUserProfile *)userInfo {
-    FMResultSet *result = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userName]];
-    if (result.next) {
-        return YES;
-    } else {
-        return NO;
+    BOOL states = false;
+    if ([_defaultDataBase open]) {
+        FMResultSet *result = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userName]];
+        if (result.next) {
+            states = YES;
+        }
+        [_defaultDataBase close];
     }
+    return states;
 }
 
 - (BOOL)loginUser:(SRAppUserProfile *)userInfo {
-    FMResultSet *result = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userId]];
-    if (result.next) {
-        return [_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateUserLogin,userInfo.userIsLogin,userInfo.userName,userInfo.password]];
-    } else {
-        return NO;
+     BOOL state = NO;
+    if ([_defaultDataBase open]) {
+        FMResultSet *result = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userName]];
+        while (result.next) {
+            state = [_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateUserLogin,userInfo.userIsLogin,userInfo.userName,userInfo.password]];
+        }
+        FMResultSet *result2 = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userName]];
+        if (result2.next) {
+            NSString *str0 = [result2 stringForColumn:@"ISLOGIN"];
+            if ([str0 isEqualToString:@"10"]) {
+                state = YES;
+            } else {
+                state = NO;
+            }
+        }
+        
     }
+    
+    return state;
 }
 
 - (void)updateUserInfo:(SRAppUserProfile *)userInfo
@@ -203,6 +226,18 @@ static UserDBOperationManager *sharedInstance = nil;
     if([_defaultDataBase open])
     {
         status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:UserLogOut, userInfo.userName]];
+        
+//        FMResultSet *result = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistUser, userInfo.userName]];
+//        while (result.next) {
+//
+//            NSString *str0 = [result stringForColumnIndex:0];
+//            NSString *str1 = [result stringForColumnIndex:1];
+//            NSString *str2 = [result stringForColumnIndex:2];
+//            NSString *str3 = [result stringForColumnIndex:3];
+//            NSString *str4 = [result stringForColumnIndex:4];
+//            NSLog(@"%@,%@,%@,%@,%@",str0,str1,str2,str3,str4);
+//        
+//        }
     }
     return status;
 }
@@ -219,7 +254,16 @@ static UserDBOperationManager *sharedInstance = nil;
         }
         else
         {
-            status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:InsertToSecretInfor,oneDiary.content,oneDiary.addTime,oneDiary.userName]];
+            status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:InsertToSecretInfor,oneDiary.addTime,oneDiary.content,oneDiary.userName]];
+        }
+        FMResultSet *result2 = [_defaultDataBase executeQuery:@"select * from T_SECRETINFO"];
+        NSMutableDictionary *dic = [NSMutableDictionary new];
+        while (result2.next) {
+            NSString *str = [result2 stringForColumnIndex:0];
+            NSString *str1 = [result2 stringForColumnIndex:1];
+            NSString *str2 = [result2 stringForColumnIndex:2];
+            NSString *str3 = [result2 stringForColumnIndex:3];
+            dic[str1] = str2;
         }
         [_defaultDataBase close];
     }
@@ -247,15 +291,41 @@ static UserDBOperationManager *sharedInstance = nil;
     }
 }
 
+- (NSString *)loadOneDiaryReturnStr:(SRUserDiaryProfile *)oneDiary {
+    if ([_defaultDataBase open]) {
+        FMResultSet *resultSet=[_defaultDataBase executeQuery:[NSString stringWithFormat:LoadOneDiary, oneDiary.userName, oneDiary.addTime]];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        while (resultSet.next) {
+            NSString *content = [resultSet stringForColumn:@"CONTENT"];
+            NSString *addTime = [resultSet stringForColumn:@"ADDTIME"];
+            if (content && addTime) {
+//                dict[addTime] = content;
+                dict[@"addTime"] = addTime;
+                dict[@"content"] = content;
+            }
+            
+        }
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:NULL];
+        if (!jsonData) {
+            return @"";
+        }
+        
+        NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        return jsonStr;
+    }
+    return @"";
+}
+
 - (void)loadAllDiary:(NSArray<SRUserDiaryProfile *> *) allDiary {
     if ([_defaultDataBase open]) {
         FMResultSet *result=[_defaultDataBase executeQuery:[NSString stringWithFormat:LoadALLDiary, allDiary[0].userName]];
-        if(result.next)
-        {
-            for (SRUserDiaryProfile *oneDiary in allDiary) {
-                oneDiary.userName = [result stringForColumn:@"USERNAME"];
-                oneDiary.addTime = [result stringForColumn:@"ADDTIME"];
-                oneDiary.content = [result stringForColumn:@"CONTENT"];
+        NSMutableDictionary *dic = [NSMutableDictionary new];
+        while (result.next) {
+            NSString *content = [result stringForColumn:@"CONTENT"];
+            NSString *addTime = [result stringForColumn:@"ADDTIME"];
+            if (content && addTime) {
+                dic[@"addTime"] = addTime;
+                dic[@"content"] = content;
             }
         }
     }

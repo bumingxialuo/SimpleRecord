@@ -8,6 +8,7 @@
 
 #import "SRUserArticleProfile.h"
 #import "UserDBOperationManager.h"
+#import "SRAppUserProfile.h"
 
 @implementation SRUserArticleProfile
 static  SRUserArticleProfile *sharedInstance = nil;

@@ -46,6 +46,9 @@
         _titleTextField.keyboardType = UIKeyboardTypeNumberPad;
     } else {
         _titleTextField.keyboardType = UIKeyboardTypeASCIICapable;
+        [_titleTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
+        
+        [_titleTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
     }
     if (type == RightViewTypePasswordVisible) {
         //可见不可见

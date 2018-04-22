@@ -35,6 +35,7 @@ static  SRAppUserProfile *sharedInstance = nil;
     _userName = @"";
     _hideUserName = @"";
     _imageData = @"";
+    _userIsLogin = @"";
     return reslut;
 }
 -(NSString *)hideUserName{
@@ -57,7 +58,7 @@ static  SRAppUserProfile *sharedInstance = nil;
     return [[UserDBOperationManager sharedInstance] isExitUser:self];
 }
 
-- (BOOL)login {
+- (BOOL)userLogin {
     return [[UserDBOperationManager sharedInstance] loginUser:self];
 }
 

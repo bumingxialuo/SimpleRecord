@@ -99,7 +99,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 1) {
-        UIViewController *vc = [[HHRouter shared] matchController:SR_LoginAndRegister_ForgotPassword([SRAppUserProfile sharedInstance].userName)];
+        UIViewController *vc = [[HHRouter shared] matchController:SR_LoginAndRegister_ForgotPassword(@"modify",[SRAppUserProfile sharedInstance].userName)];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

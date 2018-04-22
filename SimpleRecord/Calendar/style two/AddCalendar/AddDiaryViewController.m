@@ -12,6 +12,11 @@
 #import <Masonry.h>
 #import "CalendarInfoManager.h"
 #import "SRRouterManager.h"
+#import "SRUserDiaryProfile.h"
+#import "SRAppUserProfile.h"
+#import "XJDAlertView.h"
+#import "NOTICE.h"
+#import "NSString+EnciphermentProtection.h"
 
 @interface AddDiaryViewController ()<AddCalendarTableViewDelegate>
 {
@@ -46,6 +51,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [SRUserDiaryProfile sharedInstance].addTime = [NSString dateConvertToString:[NSDate date]];
+    NSString *returnStr = [[SRUserDiaryProfile sharedInstance] findOneDiaryStr];
     CalendarDataModel *model = [[CalendarInfoManager sharedManager] findByDate:[NSDate date]];
     [_tableView updateWithDataModel:model];
     [_tableView reloadData];
@@ -71,11 +78,24 @@
 
 - (void)saveButtonClick {
     [self.view endEditing:YES];
-    [self saveInfoToInstance];
-    [self.navigationController popViewControllerAnimated:YES];
+    if (![SRAppUserProfile sharedInstance].isLogon) {
+        XJDAlertView *alertView = [[XJDAlertView alloc] initWithTitle:@"" contentText:@"您还没有登录哦" leftButtonTitle:@"取消" rightButtonTitle:@"去登陆"];
+        alertView.rightBlock = ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTICE_UserLogIn object:nil];
+        };
+        [alertView show];
+    } else {
+        [self saveInfoToInstance];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)saveInfoToInstance {
+    
+    [SRUserDiaryProfile sharedInstance].content = _text;
+    [SRUserDiaryProfile sharedInstance].addTime = [NSString dateConvertToString:[NSDate date]];
+    [[SRUserDiaryProfile sharedInstance] saveDiary];
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString *dateStr = [dateFormatter stringFromDate:[NSDate date]];

@@ -56,6 +56,8 @@
 
 - (void)loadOneDiary:(SRUserDiaryProfile *)oneDiary;
 
+- (NSString *)loadOneDiaryReturnStr:(SRUserDiaryProfile *)oneDiary;
+
 - (void)loadAllDiary:(NSArray<SRUserDiaryProfile *> *) allDiary;
 
 //-------------- Articel -------------------

@@ -14,7 +14,7 @@
 //注册
 #define SR_LoginAndRegister_Register(phone)         [NSString stringWithFormat:@"YD://simpleRecord/loginAndRegister/register/%@",phone]
 //忘记密码
-#define SR_LoginAndRegister_ForgotPassword(phone)   [NSString stringWithFormat:@"YD://simpleRecord/loginAndRegister/forgotPassword/%@",phone]
+#define SR_LoginAndRegister_ForgotPassword(type,phone)   [NSString stringWithFormat:@"YD://simpleRecord/loginAndRegister/forgotPassword/%@/%@",type,phone]
 //-----------------------日历-----------------------//
 #define SR_Calendar               @"YD://simpleRecord/calendar"
 #define SR_CalendarStyleTwo       @"YD://simpleRecord/calendarStyleTwo"

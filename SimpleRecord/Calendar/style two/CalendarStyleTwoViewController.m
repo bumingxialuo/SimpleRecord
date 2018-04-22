@@ -13,6 +13,8 @@
 #import "SRRouterUrl.h"
 #import <HHRouter/HHRouter.h>
 #import "CalendarInfoManager.h"
+#import "SRUserDiaryProfile.h"
+#import "SRAppUserProfile.h"
 
 @interface CalendarStyleTwoViewController ()
 
@@ -26,6 +28,12 @@
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
     [self createRightItem];
     [self createSubView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [SRUserDiaryProfile sharedInstance].userName = [SRAppUserProfile sharedInstance].userName;
+    
 }
 
 - (void)createRightItem {

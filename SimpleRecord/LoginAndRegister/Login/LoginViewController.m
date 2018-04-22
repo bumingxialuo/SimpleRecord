@@ -73,7 +73,7 @@
     } else if (phone.length != 11) {
         [SVProgressHUD showErrorWithStatus:@"请输入正确格式的手机号码"];
         return;
-    } else if ([NSString judgePassWordLegal:password]) {
+    } else if (![NSString judgePassWordLegal:password]) {
         [SVProgressHUD showErrorWithStatus:@"密码格式不正确"];
         return;
     }
@@ -94,8 +94,12 @@
     [SRAppUserProfile sharedInstance].password = [NSString md5To32bit:password];
     [SRAppUserProfile sharedInstance].userIsLogin = @"10";
     if ([[SRAppUserProfile sharedInstance] userLogin]) {
+        
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     } else {
+        [SRAppUserProfile sharedInstance].userIsLogin = @"";
+        [SRAppUserProfile sharedInstance].password = @"";
+        [SRAppUserProfile sharedInstance].userName = @"";
         XJDAlertView *alert = [[XJDAlertView alloc] initWithTitle:@"" contentText:@"登录密码不正确" leftButtonTitle:@"取消" rightButtonTitle:@"找回"];
         alert.rightBlock = ^{
             [self forgotPasswordButtonClickInTableView:phone];
@@ -109,7 +113,7 @@
     if ([phone isEqualToString:@""]) {
         phone = @"*";
     }
-    UIViewController *vc = [[HHRouter shared] matchController:SR_LoginAndRegister_ForgotPassword(phone)];
+    UIViewController *vc = [[HHRouter shared] matchController:SR_LoginAndRegister_ForgotPassword(@"forgot",phone)];
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)registerButtonClickInTableView:(NSString *)phone {

@@ -8,6 +8,7 @@
 
 #import "SRUserDiaryProfile.h"
 #import "UserDBOperationManager.h"
+#import "SRAppUserProfile.h"
 
 @implementation SRUserDiaryProfile
 
@@ -36,6 +37,11 @@ static  SRUserDiaryProfile *sharedInstance = nil;
 
 - (void)findOneDiary {
     [[UserDBOperationManager sharedInstance] loadOneDiary:self];
+}
+
+- (NSString *)findOneDiaryStr {
+    NSString *contentStr = [[UserDBOperationManager sharedInstance] loadOneDiaryReturnStr:self];
+    return contentStr;
 }
 
 //所有的新建一个文件
