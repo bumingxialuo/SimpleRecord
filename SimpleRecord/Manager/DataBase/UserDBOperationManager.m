@@ -8,52 +8,50 @@
 
 #import "UserDBOperationManager.h"
 
-#define DefaultBaseName @"appData.sqlite"
-#define SimpleRecordDB                 @"SimpleRecordDB.sqlite"
+#define DefaultBaseName              @"appData.sqlite"
+#define SimpleRecordDB               @"SimpleRecordDB.sqlite"
 
 #define CreateUserInfo               @"CREATE TABLE IF NOT EXISTS T_USERINFO (id INTEGER PRIMARY KEY AUTOINCREMENT, USERNAME TEXT NOT NULL, PASSWORLD TEXT NOT NULL, ISLOGIN TEXT, AVATAR TEXT);"
 //是否存在该用户
-#define ExistUser @"SELECT * FROM T_USERINFO WHERE USERNAME = '%@';"
+#define ExistUser                    @"SELECT * FROM T_USERINFO WHERE USERNAME = '%@';"
 //插入用户表数据
 #define InsertToUserInfor            @"INSERT INTO T_USERINFO (USERNAME,PASSWORLD,ISLOGIN,AVATAR) VALUES ('%@','%@','%@','%@');"
 //更新用户登录信息
 #define UpdateUserLogin              @"UPDATE T_USERINFO SET ISLOGIN = '%@' WHERE USERNAME = '%@' AND PASSWORLD = '%@';"
 //登录后修改
-#define UpdateUser              @"UPDATE T_USERINFO SET PASSWORLD = '%@', AVATAR = '%@' WHERE USERNAME = '%@' AND ISLOGIN = '%@';"
+#define UpdateUser                   @"UPDATE T_USERINFO SET PASSWORLD = '%@', AVATAR = '%@' WHERE USERNAME = '%@' AND ISLOGIN = '%@';"
 //删除用户表
 #define DeleteUserInfor              @"DELETE FORM T_USERINFO WHERE USERNAME = %@ ;"
 //加载用户 当OAUTHTOKEN 不为空的时候
-#define LoadUser @"SELECT USERNAME,ISLOGIN, PASSWORLD, AVATAR FROM T_USERINFO WHERE ISLOGIN = '10';"
+#define LoadUser                     @"SELECT USERNAME,ISLOGIN, PASSWORLD, AVATAR FROM T_USERINFO WHERE ISLOGIN = '10';"
 //用户退出
-#define UserLogOut @"UPDATE T_USERINFO SET ISLOGIN = NULL WHERE USERNAME = '%@';"
+#define UserLogOut                   @"UPDATE T_USERINFO SET ISLOGIN = NULL WHERE USERNAME = '%@';"
 //创建日记表
-#define CreateSecretInfo               @"CREATE TABLE IF NOT EXISTS T_SECRETINFO (id INTEGER PRIMARY KEY AUTOINCREMENT, ADDTIME TEXT NOT NULL, CONTENT TEXT NOT NULL, USERNAME TEXT NOT NULL);"
+#define CreateSecretInfo             @"CREATE TABLE IF NOT EXISTS T_SECRETINFO (id INTEGER PRIMARY KEY AUTOINCREMENT, ADDTIME TEXT NOT NULL, CONTENT TEXT NOT NULL, USERNAME TEXT NOT NULL);"
 //是否存在该日记
-#define ExistOneDiary @"SELECT * FROM T_SECRETINFO WHERE USERNAME = '%@' AND ADDTIME = '%@';"
+#define ExistOneDiary                @"SELECT * FROM T_SECRETINFO WHERE USERNAME = '%@' AND ADDTIME = '%@';"
 //插入日记表数据
-#define InsertToSecretInfor            @"INSERT INTO T_SECRETINFO (ADDTIME,CONTENT,USERNAME) VALUES ('%@','%@','%@');"
+#define InsertToSecretInfor          @"INSERT INTO T_SECRETINFO (ADDTIME,CONTENT,USERNAME) VALUES ('%@','%@','%@');"
 //更新日记表数据
-#define UpdateSecretInfor              @"UPDATE T_SECRETINFO SET CONTENT = '%@' WHERE ADDTIME = '%@' AND USERNAME = '%@';"
+#define UpdateSecretInfor            @"UPDATE T_SECRETINFO SET CONTENT = '%@' WHERE ADDTIME = '%@' AND USERNAME = '%@';"
 //加载一份日记 当USERNAME 不为空的时候
-#define LoadOneDiary @"SELECT CONTENT, ADDTIME, USERNAME FROM T_SECRETINFO WHERE USERNAME = '%@' AND ADDTIME = '%@'; "
+#define LoadOneDiary                 @"SELECT CONTENT, ADDTIME, USERNAME FROM T_SECRETINFO WHERE USERNAME = '%@' AND ADDTIME = '%@'; "
 //加载所有日记 当USERNAME 不为空的时候
-#define LoadALLDiary @"SELECT CONTENT, ADDTIME, USERNAME FROM T_SECRETINFO WHERE USERNAME = '%@'; "
+#define LoadALLDiary                 @"SELECT CONTENT, ADDTIME, USERNAME FROM T_SECRETINFO WHERE USERNAME = '%@'; "
 //删除日记表数据
-#define DeleteSecretInfor              @"DELETE FORM T_SECRETINFO WHERE ADDTIME = '%@',USERNAME = '%@';"
+#define DeleteSecretInfor            @"DELETE FORM T_SECRETINFO WHERE ADDTIME = '%@',USERNAME = '%@';"
 //创建文章表数据
-#define CreateArticleTable             @"CREATE TABLE IF NOT EXISTS T_ARTICLE (id INTEGER PRIMARY KEY AUTOINCREMENT, ADDTIME TEXT NOT NULL, CONTENT TEXT NOT NULL, LASTUPDATETIME TEXT NOT NULL,USERNAME TEXT NOT NULL);"
-//是否存在该文章
-#define ExistOneArticle @"SELECT * FROM T_ARTICLE WHERE USERNAME = '%@', ADDTIME = '%@';"
+#define CreateArticleTable           @"CREATE TABLE IF NOT EXISTS T_ARTICLE (id INTEGER PRIMARY KEY AUTOINCREMENT, ADDTIME TEXT NOT NULL, CONTENT TEXT NOT NULL, LASTUPDATETIME TEXT NOT NULL,TITLE TEXT NOT NULL,USERNAME TEXT NOT NULL,MODIFYTIME TEXT);"
 //插入文章表数据
-#define InsertToArticleTable           @"INSERT INTO T_ARTICLE (ADDTIME,CONTENT,LASTUPDATETIME,USERNAME) VALUES ('%@','%@','%@','%@');"
+#define InsertToArticleTable         @"INSERT INTO T_ARTICLE (ADDTIME,CONTENT,LASTUPDATETIME,TITLE,USERNAME,MODIFYTIME) VALUES ('%@','%@','%@','%@','%@','%@');"
 //更新文章表数据
-#define UpdateArticleTable             @"UPDATE T_ARTICLE SET CONTENT = '%@', LASTUPDATETIME = '%@' WHERE ADDTIME = '%@' AND USERNAME = '%@' ;"
+#define UpdateArticleTable           @"UPDATE T_ARTICLE SET CONTENT = '%@', LASTUPDATETIME = '%@', MODIFYTIME = '%@',TITLE = '%@'  WHERE USERNAME = '%@' AND id = '%@';"
 //加载一篇文章 当USERNAME 不为空的时候
-#define LoadOneArticle @"SELECT CONTENT, ADDTIME, USERNAME, LASTUPDATETIME FROM T_ARTICLE WHERE USERNAME = '%@' AND ADDTIME = '%@'; "
+#define LoadOneArticle               @"SELECT * FROM T_ARTICLE WHERE USERNAME = '%@' AND id = '%@'; "
 //加载所有文章 当USERNAME 不为空的时候
-#define LoadALLArticle @"SELECT CONTENT, ADDTIME, USERNAME, LASTUPDATETIME FROM T_ARTICLE WHERE USERNAME = '%@'; "
+#define LoadALLArticle               @"SELECT * FROM T_ARTICLE WHERE USERNAME = '%@'; "
 //删除文章表数据
-#define DeleteArticleTable             @"DELETE FORM T_ARTICLE WHERE ADDTIME = '%@',USERNAME = '%@' ;"
+#define DeleteArticleTable           @"DELETE FORM T_ARTICLE WHERE id = '%@' ;"
 
 @interface UserDBOperationManager()
 
@@ -299,7 +297,6 @@ static UserDBOperationManager *sharedInstance = nil;
             NSString *content = [resultSet stringForColumn:@"CONTENT"];
             NSString *addTime = [resultSet stringForColumn:@"ADDTIME"];
             if (content && addTime) {
-//                dict[addTime] = content;
                 dict[@"addTime"] = addTime;
                 dict[@"content"] = content;
             }
@@ -331,20 +328,27 @@ static UserDBOperationManager *sharedInstance = nil;
     }
 }
 
+- (NSString *)loadAllDiaryReturnStr:(SRUserDiaryProfile *)oneDiary {
+    return @"";
+}
+
 //-------------- Articel -------------------
 
+- (BOOL)insertOneArticle:(SRUserArticleProfile *)oneArticle {
+    BOOL status= false;
+    if([_defaultDataBase open]) {
+        status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:InsertToArticleTable,oneArticle.addTime,oneArticle.content,oneArticle.lastUpdateTime,oneArticle.title,oneArticle.userName,oneArticle.modifyNum]];
+        [_defaultDataBase close];
+    }
+    return status;
+}
+    
+
 - (BOOL)saveArticleInfo:(SRUserArticleProfile *)oneArticle {
-    BOOL status;
+    BOOL status = false;
     if([_defaultDataBase open])
     {
-        FMResultSet *result = [_defaultDataBase executeQuery:[NSString stringWithFormat:ExistOneArticle, oneArticle.userName, oneArticle.addTime]];
-        if (result.next) {
-            status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateArticleTable,oneArticle.content,oneArticle.lastUpdateTime,oneArticle.addTime,oneArticle.userName]];
-        }
-        else
-        {
-            status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:InsertToArticleTable,oneArticle.addTime,oneArticle.content,oneArticle.lastUpdateTime,oneArticle.userName]];
-        }
+        status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateArticleTable,oneArticle.content,oneArticle.lastUpdateTime,oneArticle.modifyNum,oneArticle.title,oneArticle.userName,oneArticle.articleId]];
         [_defaultDataBase close];
     }
     return status;
@@ -354,22 +358,71 @@ static UserDBOperationManager *sharedInstance = nil;
     BOOL status = false;
     if([_defaultDataBase open])
     {
-        status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:DeleteArticleTable, oneArticle.addTime, oneArticle.userName]];
+        status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:DeleteArticleTable, oneArticle.articleId]];
     }
     return status;
 }
 
-- (void)loadOneArticle:(SRUserArticleProfile *)oneArticle {
+- (NSString *)loadOneArticleReturnStr:(SRUserArticleProfile *)oneArticle {
     if ([_defaultDataBase open]) {
-        FMResultSet *result=[_defaultDataBase executeQuery:[NSString stringWithFormat:LoadOneArticle, oneArticle.userName,oneArticle.addTime]];
-        if(result.next)
-        {
-            oneArticle.userName = [result stringForColumn:@"USERNAME"];
-            oneArticle.addTime = [result stringForColumn:@"ADDTIME"];
-            oneArticle.content = [result stringForColumn:@"CONTENT"];
-            oneArticle.lastUpdateTime = [result stringForColumn:@"LASTUPDATETIME"];
+        FMResultSet *result=[_defaultDataBase executeQuery:[NSString stringWithFormat:LoadOneArticle, oneArticle.userName,oneArticle.articleId]];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        while (result.next) {
+            NSString *articleId = [result stringForColumn:@"id"];
+            NSString *content = [result stringForColumn:@"CONTENT"];
+            NSString *addTime = [result stringForColumn:@"ADDTIME"];
+            NSString *updateTime = [result stringForColumn:@"LASTUPDATETIME"];
+            NSString *modifyNum = [result stringForColumn:@"MODIFYTIME"];
+            NSString *title = [result stringForColumn:@"TITLE"];
+            if (content && addTime) {
+                dict[@"articleId"] = articleId;
+                dict[@"addTime"] = addTime;
+                dict[@"content"] = content;
+                dict[@"updateTime"] = updateTime;
+                dict[@"modifyNum"] = modifyNum;
+                dict[@"title"] = title;
+            }
         }
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:NULL];
+        if (!jsonData) {
+            return @"";
+        }
+        
+        NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        return jsonStr;
     }
+    return @"";
+}
+
+- (NSString *)loadlatestArticle:(SRUserArticleProfile *)oneArticle {
+    if ([_defaultDataBase open]) {
+        FMResultSet *result=[_defaultDataBase executeQuery:[NSString stringWithFormat:LoadALLArticle, oneArticle.userName]];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        while (result.next) {
+            NSString *articleId = [result stringForColumn:@"id"];
+            NSString *content = [result stringForColumn:@"CONTENT"];
+            NSString *addTime = [result stringForColumn:@"ADDTIME"];
+            NSString *updateTime = [result stringForColumn:@"LASTUPDATETIME"];
+            NSString *modifyNum = [result stringForColumn:@"MODIFYTIME"];
+            NSString *title = [result stringForColumn:@"TITLE"];
+            if (content && addTime) {
+                dict[@"articleId"] = articleId;
+                dict[@"addTime"] = addTime;
+                dict[@"content"] = content;
+                dict[@"updateTime"] = updateTime;
+                dict[@"modifyNum"] = modifyNum;
+                dict[@"title"] = title;
+            }
+        }
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:NULL];
+        if (!jsonData) {
+            return @"";
+        }
+        
+        NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        return jsonStr;
+    }
+    return @"";
 }
 
 - (void)loadAllArticle:(NSArray<SRUserArticleProfile *> *) allArticle {
@@ -386,5 +439,6 @@ static UserDBOperationManager *sharedInstance = nil;
         }
     }
 }
+
 
 @end

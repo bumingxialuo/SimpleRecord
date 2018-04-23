@@ -22,6 +22,10 @@ static  SRUserArticleProfile *sharedInstance = nil;
     return sharedInstance;
 }
 
+- (BOOL)insertArtcle {
+    return [[UserDBOperationManager sharedInstance] insertOneArticle:self];
+}
+
 - (BOOL)saveArticle {
     return [[UserDBOperationManager sharedInstance] saveArticleInfo:self];
 }
@@ -34,11 +38,15 @@ static  SRUserArticleProfile *sharedInstance = nil;
     return reslut;
 }
 
-- (void)findOneArticle {
-    [[UserDBOperationManager sharedInstance] loadOneArticle:self];
+- (NSString *)findOneArticle {
+    return [[UserDBOperationManager sharedInstance] loadOneArticleReturnStr:self];
 }
 
 - (void)findAllArticle  {
     
+}
+
+- (NSString *)loadLatestArticle {
+    return [[UserDBOperationManager sharedInstance] loadlatestArticle:self];
 }
 @end

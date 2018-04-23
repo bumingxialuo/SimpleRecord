@@ -10,22 +10,32 @@
 
 @interface SRUserArticleProfile : NSObject
 
+@property(nonatomic, copy) NSString *articleId;
+
 @property(nonatomic, copy) NSString *addTime;
 
 @property(nonatomic, copy) NSString *content;
 
 @property(nonatomic, copy) NSString *lastUpdateTime;
 
+@property(nonatomic, copy) NSString *modifyNum;
+
 @property(nonatomic, copy) NSString *userName;
 
+@property(nonatomic, copy) NSString *title;
+
 + (instancetype)sharedInstance;
+
+- (BOOL)insertArtcle;
 
 - (BOOL)saveArticle;
 
 - (BOOL)removeArticle;
 
-- (void)findOneArticle ;
+- (NSString *)findOneArticle ;
 
 - (void)findAllArticle ;
+
+- (NSString *)loadLatestArticle;
 
 @end

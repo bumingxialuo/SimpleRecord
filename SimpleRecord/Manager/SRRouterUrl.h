@@ -21,8 +21,9 @@
 #define SR_Calendar_AddDiary(navTitle,style)      [NSString stringWithFormat:@"YD://simpleRecord/calendar/addDiary/%@/%@",navTitle,style]
 
 //-----------------------记录-----------------------//
-#define SR_Record                 @"YD://simpleRecord/record"
-#define SR_RecordStyleTwo         @"YD://simpleRecord/recordStyleTwo"
+#define SR_Record                        @"YD://simpleRecord/record"
+#define SR_RecordStyleTwo                @"YD://simpleRecord/recordStyleTwo"
+#define SR_Record_AddRecord(type,id)        [NSString stringWithFormat:@"YD://simpleRecord/record/addRecord/%@/%@",type,id]
 
 //-----------------------我的-----------------------//
 #define SR_Mine                   @"YD://simpleRecord/mine"

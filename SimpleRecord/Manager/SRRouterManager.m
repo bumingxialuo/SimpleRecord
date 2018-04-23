@@ -41,6 +41,7 @@
 - (void)createRecordRouter {
     [[HHRouter shared] map:SR_Record toControllerClass:NSClassFromString(@"RecordViewController")];
     [[HHRouter shared] map:SR_RecordStyleTwo toControllerClass:NSClassFromString(@"RecordStyleTwoViewController")];
+    [[HHRouter shared] map:SR_Record_AddRecord(@":type", @":id") toControllerClass:NSClassFromString(@"AddOneArticleViewController")];
 }
 
 - (void)createMineRouter {

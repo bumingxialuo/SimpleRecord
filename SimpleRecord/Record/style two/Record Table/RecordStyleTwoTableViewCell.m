@@ -12,14 +12,25 @@
 #import "Macro.h"
 #import <Masonry.h>
 #import "AppSkinColorManger.h"
+#import "AppSkinColorManger.h"
 
 
 @interface RecordStyleTwoTableViewCell()
+{
+    RecordDataModel *_model;
+}
 @property(nonatomic, weak) IBOutlet UIView *containerView;
 @property(nonatomic, weak) IBOutlet NSLayoutConstraint *containerViewTop;
 
 @property(nonatomic, weak) IBOutlet RotatedView *foregroundView;
 @property(nonatomic, weak) IBOutlet NSLayoutConstraint *foregroundViewTop;
+@property (weak, nonatomic) IBOutlet UIView *serialNumberBGView;
+@property (weak, nonatomic) IBOutlet UIView *unfoldTitleView;
+@property (weak, nonatomic) IBOutlet UILabel *startTime;
+@property (weak, nonatomic) IBOutlet UILabel *lastUpdateTime;
+@property (weak, nonatomic) IBOutlet UILabel *modifyTime;
+@property (weak, nonatomic) IBOutlet UILabel *wordNumber;
+@property (weak, nonatomic) IBOutlet UILabel *createTime;
 
 @property(nonatomic, strong) UIView *animationView;
 
@@ -33,12 +44,29 @@
     // Initialization code
     [self commonInit];
 }
+- (IBAction)continueButtonClick:(UIButton *)sender {
+    if (_cellDelegate && [_cellDelegate respondsToSelector:@selector(turnToArticleDetailViewWithId:)]) {
+        [_cellDelegate turnToArticleDetailViewWithId:_model.articleId];
+    }
+}
+
+- (void)updateWithModel:(RecordDataModel *)model {
+    _model = model;
+    _startTime.text = model.addTime;
+    _lastUpdateTime.text = model.updateTime;
+    _modifyTime.text = model.modifyNum;
+    _wordNumber.text = [NSString stringWithFormat:@"%ld",model.content.length];
+    _createTime.text = model.addTime;
+}
 
 - (void)commonInit
 {
     [self configureDefaultState];
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    _serialNumberBGView.backgroundColor = [AppSkinColorManger sharedInstance].thirdColor;
+    _unfoldTitleView.backgroundColor = [AppSkinColorManger sharedInstance].thirdColor;
     
     self.containerView.layer.cornerRadius = self.foregroundView.layer.cornerRadius;
     self.containerView.layer.masksToBounds = YES;

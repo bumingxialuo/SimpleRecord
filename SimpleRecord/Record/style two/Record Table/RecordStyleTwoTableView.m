@@ -13,11 +13,13 @@
 
 #define kCloseCellHeight    179.f
 #define kOpenCellHeight     488.f
-#define kRowsCount          10
 
 #define RecordStyleTwoTableViewCellId @"RecordStyleTwoTableViewCellId"
 
-@interface RecordStyleTwoTableView()<UITableViewDelegate, UITableViewDataSource>
+@interface RecordStyleTwoTableView()<UITableViewDelegate, UITableViewDataSource, RecordStyleTwoTableViewCellDelegate>
+{
+    RecordDataModel *_model;
+}
 
 @property (nonatomic, strong) NSMutableArray<NSNumber *> *cellHeights;
 
@@ -32,26 +34,30 @@
         self.dataSource = self;
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self registerNib:[UINib nibWithNibName:@"StyleTwoCell" bundle:nil] forCellReuseIdentifier:RecordStyleTwoTableViewCellId];
-        self.backgroundColor = [UIColor colorWithGradientStyle:UIGradientStyleLeftToRight
+        self.backgroundColor = [UIColor colorWithGradientStyle:UIGradientStyleRadial
                                                      withFrame:self.frame
-                                                     andColors:@[[AppSkinColorManger sharedInstance].themeColor,
-                                                                 [AppSkinColorManger sharedInstance].secondColor]];
+                                                     andColors:@[[AppSkinColorManger sharedInstance].secondColor,
+                                                                 [AppSkinColorManger sharedInstance].themeColor]];
         [self createCellHeightsArray];
     }
     return self;
 }
 
+- (void)updateWithModel:(RecordDataModel *)model {
+    _model = model;
+}
+
 - (void)createCellHeightsArray
 {
-    for (int i = 0; i < kRowsCount; i ++) {
-        [self.cellHeights addObject:@(kCloseCellHeight)];
-    }
+    [self.cellHeights addObject:@(kCloseCellHeight)];
 }
 
 #pragma mark - UITableViewDelegate And UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RecordStyleTwoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:RecordStyleTwoTableViewCellId];
+    cell.cellDelegate = self;
+    [cell updateWithModel:_model];
     return cell;
 }
 
@@ -102,8 +108,6 @@
     {
         [cell selectedAnimationByIsSelected:YES animated:NO completion:nil];
     }
-    
-//    [cell setNumber:indexPath.row];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -111,7 +115,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return kRowsCount;
+    return 1;
 }
 
 #pragma mark - Getter && Setter
@@ -123,5 +127,9 @@
     return _cellHeights;
 }
 
-
+- (void)turnToArticleDetailViewWithId:(NSString *)articleId {
+    if (_tableViewDelegate && [_tableViewDelegate respondsToSelector:@selector(turnToContinumEditingArticleViewWithId:)]) {
+        [_tableViewDelegate turnToContinumEditingArticleViewWithId:articleId];
+    }
+}
 @end

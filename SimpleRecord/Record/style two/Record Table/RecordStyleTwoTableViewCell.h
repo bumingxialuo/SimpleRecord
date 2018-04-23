@@ -7,16 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecordDataModel.h"
 
 typedef NS_ENUM(NSInteger,AnimationType) {
     AnimationTypeOpen,
     AnimationTypeClose
 };
 
+@protocol RecordStyleTwoTableViewCellDelegate<NSObject>
+- (void)turnToArticleDetailViewWithId:(NSString *)articleId;
+@end
+
 @interface RecordStyleTwoTableViewCell : UITableViewCell
+
+@property(nonatomic, weak) id<RecordStyleTwoTableViewCellDelegate> cellDelegate;
 
 @property(nonatomic, assign) IBInspectable NSInteger itemCount;
 @property(nonatomic, strong) IBInspectable UIColor *backViewColor;
+
+- (void)updateWithModel:(RecordDataModel *)model;
 
 - (BOOL)isAnimating;
 

@@ -9,4 +9,5 @@ target 'SimpleRecord' do
     pod 'ChameleonFramework'
     pod 'Masonry'
     pod 'YYText'
+    pod 'JSONModel'
 end

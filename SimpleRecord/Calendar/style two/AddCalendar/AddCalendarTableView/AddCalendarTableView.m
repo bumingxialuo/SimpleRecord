@@ -50,7 +50,7 @@
         _dateString = dateStr;
     } else {
         _textView.text = model.content;
-        _dateString = [model.date substringFromIndex:model.date.length-5];
+        _dateString = [model.addTime substringFromIndex:model.addTime.length-5];
     }
 }
 

@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JSONModel/JSONModel.h>
 
-@interface CalendarDataModel : NSObject
+@interface CalendarDataModel : JSONModel
 
-@property (nonatomic, copy) NSString *noteId;
-
-@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSString *addTime;
 
 @property (nonatomic, copy) NSString *content;
 

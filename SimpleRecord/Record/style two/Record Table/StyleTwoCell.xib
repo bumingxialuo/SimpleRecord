@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -128,8 +128,8 @@
                                 <constraint firstItem="AYa-F5-DSR" firstAttribute="top" secondItem="gDR-Vo-LEc" secondAttribute="top" constant="8" id="O4w-ik-e37"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-08-12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyE-Cg-5pa">
-                            <rect key="frame" x="196" y="25" width="76" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2017-08-12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyE-Cg-5pa">
+                            <rect key="frame" x="196" y="25" width="92" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -462,6 +462,9 @@
                                     <state key="normal" title="CONTINUE">
                                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="continueButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bxU-XQ-tCp"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -513,8 +516,15 @@
             <connections>
                 <outlet property="containerView" destination="Ug4-nd-54A" id="ia3-pY-EMT"/>
                 <outlet property="containerViewTop" destination="v4N-05-wE6" id="bO5-6d-dKc"/>
+                <outlet property="createTime" destination="5cU-6V-gh3" id="MdH-Z7-tEj"/>
                 <outlet property="foregroundView" destination="OSv-P8-419" id="QKO-Y5-PHM"/>
                 <outlet property="foregroundViewTop" destination="ksM-SP-kBb" id="cvg-bG-8uq"/>
+                <outlet property="lastUpdateTime" destination="vUy-JI-4Vd" id="rzK-Cg-Fz8"/>
+                <outlet property="modifyTime" destination="rZR-Lr-RPp" id="43W-d8-mTH"/>
+                <outlet property="serialNumberBGView" destination="h1H-yR-qis" id="ae8-iB-44W"/>
+                <outlet property="startTime" destination="kyE-Cg-5pa" id="36z-ty-ALW"/>
+                <outlet property="unfoldTitleView" destination="JIS-RK-sP0" id="NAa-ai-eWr"/>
+                <outlet property="wordNumber" destination="vqt-fV-8IB" id="bab-3H-kcM"/>
             </connections>
             <point key="canvasLocation" x="55" y="189.5"/>
         </view>

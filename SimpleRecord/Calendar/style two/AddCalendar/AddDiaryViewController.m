@@ -10,7 +10,6 @@
 #import "AppSkinColorManger.h"
 #import "AddCalendarTableView/AddCalendarTableView.h"
 #import <Masonry.h>
-#import "CalendarInfoManager.h"
 #import "SRRouterManager.h"
 #import "SRUserDiaryProfile.h"
 #import "SRAppUserProfile.h"
@@ -53,7 +52,8 @@
     [super viewDidAppear:animated];
     [SRUserDiaryProfile sharedInstance].addTime = [NSString dateConvertToString:[NSDate date]];
     NSString *returnStr = [[SRUserDiaryProfile sharedInstance] findOneDiaryStr];
-    CalendarDataModel *model = [[CalendarInfoManager sharedManager] findByDate:[NSDate date]];
+    NSError *error = nil;
+    CalendarDataModel *model = [[CalendarDataModel alloc] initWithString:returnStr error:&error];
     [_tableView updateWithDataModel:model];
     [_tableView reloadData];
 }
@@ -91,18 +91,9 @@
 }
 
 - (void)saveInfoToInstance {
-    
     [SRUserDiaryProfile sharedInstance].content = _text;
     [SRUserDiaryProfile sharedInstance].addTime = [NSString dateConvertToString:[NSDate date]];
     [[SRUserDiaryProfile sharedInstance] saveDiary];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *dateStr = [dateFormatter stringFromDate:[NSDate date]];
-    CalendarDataModel *model = [CalendarDataModel new];
-    model.date = dateStr;
-    model.content = _text;
-    [[CalendarInfoManager sharedManager] insertOrUpdate:model];
 }
 
 - (void)getCalendarContextWithContext:(NSString *)str {

@@ -12,9 +12,9 @@
 #import <ChameleonFramework/Chameleon.h>
 #import "SRRouterUrl.h"
 #import <HHRouter/HHRouter.h>
-#import "CalendarInfoManager.h"
 #import "SRUserDiaryProfile.h"
 #import "SRAppUserProfile.h"
+#import "CalendarDataModel.h"
 
 @interface CalendarStyleTwoViewController ()
 
@@ -94,10 +94,10 @@
 - (void)turnToCalendarEditView {
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     format.dateFormat=@"yyyy-MM-dd";
-    NSString *dateStr = [format stringFromDate:[NSDate date]];
-    CalendarDataModel *target = [[CalendarInfoManager sharedManager] findByDateStr:dateStr];
-    NSString *viewTitle = @"";
-    viewTitle = target ? @"修改日记" : @"新建日记";
+    NSError *error = nil;
+    NSString *target = [[SRUserDiaryProfile sharedInstance] findOneDiaryStr];
+    CalendarDataModel *targetModel = [[CalendarDataModel alloc] initWithString:target error:&error];
+    NSString *viewTitle = targetModel ? @"修改日记" : @"新建日记";
     UIViewController *vc = [[HHRouter shared] matchController:SR_Calendar_AddDiary(viewTitle, @"10")];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];

@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecordDataModel.h"
+
+@protocol RecordStyleTwoTableViewDelegate<NSObject>
+- (void)turnToContinumEditingArticleViewWithId:(NSString *)articleId;
+@end
 
 @interface RecordStyleTwoTableView : UITableView
-
+@property(nonatomic, weak) id<RecordStyleTwoTableViewDelegate> tableViewDelegate;
+- (void)updateWithModel:(RecordDataModel *)model;
 @end

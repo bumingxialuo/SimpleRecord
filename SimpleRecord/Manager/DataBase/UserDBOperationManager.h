@@ -60,13 +60,19 @@
 
 - (void)loadAllDiary:(NSArray<SRUserDiaryProfile *> *) allDiary;
 
+- (NSString *)loadAllDiaryReturnStr:(SRUserDiaryProfile *)oneDiary;
+
 //-------------- Articel -------------------
+
+- (BOOL)insertOneArticle:(SRUserArticleProfile *)oneArticle;
 
 - (BOOL)saveArticleInfo:(SRUserArticleProfile *)oneArticle;
 
 - (BOOL)removeArticle:(SRUserArticleProfile *)oneArticle;
 
-- (void)loadOneArticle:(SRUserArticleProfile *)oneArticle;
+- (NSString *)loadOneArticleReturnStr:(SRUserArticleProfile *)oneArticle;
+
+- (NSString *)loadlatestArticle:(SRUserArticleProfile *)oneArticle;
 
 - (void)loadAllArticle:(NSArray<SRUserArticleProfile *> *) allArticle;
 
