@@ -26,6 +26,7 @@
 		161DDC0C204FBD80000B195B /* CustomTabBarConterller.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC0B204FBD80000B195B /* CustomTabBarConterller.m */; };
 		161DDC0F204FC030000B195B /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC0E204FC030000B195B /* CustomNavigationController.m */; };
 		161DDC13204FC2BB000B195B /* AppSkinColorManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 161DDC12204FC2BB000B195B /* AppSkinColorManger.m */; };
+		161F1B49208F0CDD0039C089 /* RecordListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 161F1B48208F0CDD0039C089 /* RecordListModel.m */; };
 		162E95142079A71C00D7562D /* ChangeAppStyleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E95132079A71C00D7562D /* ChangeAppStyleDetailViewController.m */; };
 		162E95172079E58900D7562D /* ChangeAppStyleDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E95162079E58900D7562D /* ChangeAppStyleDetailView.m */; };
 		162E951A2079FBBA00D7562D /* XJDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 162E95182079FBB900D7562D /* XJDAlertView.m */; };
@@ -154,6 +155,8 @@
 		161DDC0E204FC030000B195B /* CustomNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
 		161DDC11204FC2BB000B195B /* AppSkinColorManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSkinColorManger.h; sourceTree = "<group>"; };
 		161DDC12204FC2BB000B195B /* AppSkinColorManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSkinColorManger.m; sourceTree = "<group>"; };
+		161F1B47208F0CDD0039C089 /* RecordListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordListModel.h; sourceTree = "<group>"; };
+		161F1B48208F0CDD0039C089 /* RecordListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordListModel.m; sourceTree = "<group>"; };
 		162E95122079A71C00D7562D /* ChangeAppStyleDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeAppStyleDetailViewController.h; sourceTree = "<group>"; };
 		162E95132079A71C00D7562D /* ChangeAppStyleDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeAppStyleDetailViewController.m; sourceTree = "<group>"; };
 		162E95152079E58900D7562D /* ChangeAppStyleDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeAppStyleDetailView.h; sourceTree = "<group>"; };
@@ -552,6 +555,8 @@
 		1676414E208D74F500FDC771 /* RecordDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				161F1B47208F0CDD0039C089 /* RecordListModel.h */,
+				161F1B48208F0CDD0039C089 /* RecordListModel.m */,
 				1676414F208D751A00FDC771 /* RecordDataModel.h */,
 				16764150208D751A00FDC771 /* RecordDataModel.m */,
 			);
@@ -1068,6 +1073,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				161F1B49208F0CDD0039C089 /* RecordListModel.m in Sources */,
 				16382BBD2073304C0097EF43 /* ZYDayView.m in Sources */,
 				16747AA52072348E009E21C2 /* RippleAnimationView.m in Sources */,
 				160634962058B2EA006EC80A /* ChangeRecordStyleCustomView.m in Sources */,

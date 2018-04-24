@@ -34,6 +34,10 @@
 - (void)setUpDataBase {
     [[UserDBOperationManager sharedInstance] createDefaultDataBase];
     [SRAppUserProfile sharedInstance];
+    if ([SRAppUserProfile sharedInstance].isLogon) {
+        [SRUserArticleProfile sharedInstance].userName = [SRAppUserProfile sharedInstance].userName;
+        [SRUserDiaryProfile sharedInstance].userName = [SRAppUserProfile sharedInstance].userName;
+    }
 }
 
 - (void)setRouterController {

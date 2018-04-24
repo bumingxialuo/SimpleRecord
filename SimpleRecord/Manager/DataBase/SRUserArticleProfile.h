@@ -38,4 +38,6 @@
 
 - (NSString *)loadLatestArticle;
 
+- (NSString *)loadAllArticle;
+
 @end

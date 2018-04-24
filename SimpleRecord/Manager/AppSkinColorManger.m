@@ -36,4 +36,22 @@
     return self;
 }
 
+- (NSString *)themeColorStr {
+    return [NSString stringWithFormat:@"%@",_themeColor];
+}
+- (NSString *)secondColorStr {
+    return [NSString stringWithFormat:@"%@",_secondColor];
+}
+- (NSString *)thirdColorStr {
+    return [NSString stringWithFormat:@"%@",_thirdColor];
+}
+- (NSString *)animationOneColorStr {
+    return [NSString stringWithFormat:@"%@",_animationOneColor];
+}
+- (NSString *)backgroundColorStr {
+    return [NSString stringWithFormat:@"%@",_backgroundColor];
+}
+- (NSString *)textColorStr {
+    return [NSString stringWithFormat:@"%@",_textColor];
+}
 @end

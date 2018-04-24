@@ -51,13 +51,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SimpleRecord/Record/style two/AddOneArticle/AddOneArticleViewController.m"
-            timestampString = "546176612.752472"
+            filePath = "SimpleRecord/Mine/article/ArticleListViewController.m"
+            timestampString = "546245753.390003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "-saveButtonClick:"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SimpleRecord/Manager/DataBase/UserDBOperationManager.m"
+            timestampString = "546245753.390462"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "492"
+            endingLineNumber = "492"
+            landmarkName = "-loadAllArticle:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SimpleRecord/Manager/DataBase/UserDBOperationManager.m"
+            timestampString = "546245771.171043"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "522"
+            endingLineNumber = "522"
+            landmarkName = "-loadAllArticle:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -20,6 +20,7 @@
 @interface RecordStyleTwoViewController ()<RecordStyleTwoTableViewDelegate>
 @property(nonatomic, strong) RecordStyleTwoTableView *tableView;
 @property(nonatomic, strong) UIView *emptyView;
+@property(nonatomic, strong) UILabel *remarkLabel;
 @end
 
 @implementation RecordStyleTwoViewController
@@ -38,6 +39,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (![SRAppUserProfile sharedInstance].isLogon) {
+        [self showNoneView];
+        _remarkLabel.text = @"你还没有登录哦";
         return;
     }
     if (![SRUserArticleProfile sharedInstance].userName) {
@@ -53,8 +56,10 @@
     if (model) {
         [self shoeTableView];
         [_tableView updateWithModel:model];
+        [_tableView reloadData];
     } else {
         [self showNoneView];
+        _remarkLabel.text = @"这里什么也没有";
     }
 }
 
@@ -86,11 +91,11 @@
     icon_none.image = [[UIImage imageNamed:@"icon_none"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     icon_none.tintColor = [AppSkinColorManger sharedInstance].thirdColor;
     [_emptyView addSubview:icon_none];
-    UILabel *remarkLabel = [[UILabel alloc] init];
-    remarkLabel.text = @"这里什么也没有";
-    remarkLabel.textColor = [UIColor colorWithHexString:@"999"];
-    remarkLabel.font = [UIFont systemFontOfSize:14];
-    [_emptyView addSubview:remarkLabel];
+    _remarkLabel = [[UILabel alloc] init];
+    _remarkLabel.text = @"这里什么也没有";
+    _remarkLabel.textColor = [UIColor colorWithHexString:@"999"];
+    _remarkLabel.font = [UIFont systemFontOfSize:14];
+    [_emptyView addSubview:_remarkLabel];
     [_emptyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
@@ -99,7 +104,7 @@
         make.top.mas_equalTo(_emptyView).offset(120);
         make.size.mas_equalTo(CGSizeMake(150, 150));
     }];
-    [remarkLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_remarkLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(icon_none.mas_bottom).offset(40);
         make.centerX.mas_equalTo(_emptyView);
     }];

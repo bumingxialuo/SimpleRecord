@@ -11,6 +11,14 @@
 #define DefaultBaseName              @"appData.sqlite"
 #define SimpleRecordDB               @"SimpleRecordDB.sqlite"
 
+#define CreateColorConfig            @"CREATE TABLE IF NOT EXISTS T_COLORCONFIG (id INTEGER PRIMARY KEY AUTOINCREMENT , THEMECOLR TEXT NOT NULL , SECONDCOLOR TEXT NOT NULL, THRIDCOLOR TEXT NOT NULL, ANIMATIONCOLOR TEXT NOT NULL, BACKGROUNDCOLOR TEXT NOT NULL, TEXTONE TEXT ,TEXTTWO TEXT, TEXTTHREE TEXT);"
+
+#define InsertColorConfig            @"INSERT INTO T_COLORCONFIG (THEMECOLR,SECONDCOLOR,THRIDCOLOR,ANIMATIONCOLOR,BACKGROUNDCOLOR,TEXTONE,TEXTTWO,TEXTTHREE) VALUES ('%@','%@','%@','%@','%@','%@','%@','%@');"
+
+#define SaveColorConfig              @"UPDATE T_COLORCONFIG SET THEMECOLR = '%@',SECONDCOLOR = '%@',THRIDCOLOR = '%@',ANIMATIONCOLOR = '%@',BACKGROUNDCOLOR = '%@', TEXTONE = '%@',  TEXTTWO = '%@', TEXTTHREE = '%@' WHRER id = 1;"
+
+#define LoadColor                    @"SELECT * FROM T_COLORCONFIG WHERE id = 1;"
+
 #define CreateUserInfo               @"CREATE TABLE IF NOT EXISTS T_USERINFO (id INTEGER PRIMARY KEY AUTOINCREMENT, USERNAME TEXT NOT NULL, PASSWORLD TEXT NOT NULL, ISLOGIN TEXT, AVATAR TEXT);"
 //是否存在该用户
 #define ExistUser                    @"SELECT * FROM T_USERINFO WHERE USERNAME = '%@';"
@@ -90,6 +98,9 @@ static UserDBOperationManager *sharedInstance = nil;
         if (![_defaultDataBase executeUpdate:CreateArticleTable]) {
             NSLog(@"创建文章存储表失败");
         }
+//        if (![_defaultDataBase executeUpdate:CreateColorConfig]) {
+//            NSLog(@"创建颜色存储表失败");
+//        }
         [_defaultDataBase close];
     }
 }
@@ -129,6 +140,30 @@ static UserDBOperationManager *sharedInstance = nil;
             userInfo.imageData = [result stringForColumn:@"AVATAR"];
         }
     }
+}
+- (BOOL)loadColorConfig:(AppSkinColorManger *)color {
+    BOOL states = false;
+    if ([_defaultDataBase open]) {
+        FMResultSet *result = [_defaultDataBase executeQuery:LoadUser];
+        if (result.next) {
+            states = YES;
+        }
+        states = false;
+    }
+    return states;
+}
+
+- (BOOL)saveColorConfig:(AppSkinColorManger *)color {
+    BOOL states = false;
+    if ([_defaultDataBase open]) {
+        FMResultSet *result = [_defaultDataBase executeQuery:LoadUser];
+        if (result.next) {
+//            states = [_defaultDataBase executeUpdate:[NSString stringWithFormat:SaveColorConfig,color.themeColor]];
+        } else {
+//            states = [_defaultDataBase executeUpdate:[NSString stringWithFormat:InsertColorConfig]];
+        }
+    }
+    return states;
 }
 #pragma mark -存储或更新用户信息
 - (BOOL)savetUserInfo:(SRAppUserProfile *)userInfo
@@ -350,6 +385,24 @@ static UserDBOperationManager *sharedInstance = nil;
     {
         status = [_defaultDataBase executeUpdate:[NSString stringWithFormat:UpdateArticleTable,oneArticle.content,oneArticle.lastUpdateTime,oneArticle.modifyNum,oneArticle.title,oneArticle.userName,oneArticle.articleId]];
         [_defaultDataBase close];
+        FMResultSet *result=[_defaultDataBase executeQuery:[NSString stringWithFormat:LoadALLArticle, oneArticle.userName]];
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        while (result.next) {
+            NSString *articleId = [result stringForColumn:@"id"];
+            NSString *content = [result stringForColumn:@"CONTENT"];
+            NSString *addTime = [result stringForColumn:@"ADDTIME"];
+            NSString *updateTime = [result stringForColumn:@"LASTUPDATETIME"];
+            NSString *modifyNum = [result stringForColumn:@"MODIFYTIME"];
+            NSString *title = [result stringForColumn:@"TITLE"];
+            if (content && addTime) {
+                dict[@"articleId"] = articleId;
+                dict[@"addTime"] = addTime;
+                dict[@"content"] = content;
+                dict[@"updateTime"] = updateTime;
+                dict[@"modifyNum"] = modifyNum;
+                dict[@"title"] = title;
+            }
+        }
     }
     return status;
 }
@@ -374,6 +427,12 @@ static UserDBOperationManager *sharedInstance = nil;
             NSString *updateTime = [result stringForColumn:@"LASTUPDATETIME"];
             NSString *modifyNum = [result stringForColumn:@"MODIFYTIME"];
             NSString *title = [result stringForColumn:@"TITLE"];
+            oneArticle.articleId = articleId;
+            oneArticle.content = content;
+            oneArticle.addTime = addTime;
+            oneArticle.lastUpdateTime = updateTime;
+            oneArticle.modifyNum = modifyNum;
+            oneArticle.title = title;
             if (content && addTime) {
                 dict[@"articleId"] = articleId;
                 dict[@"addTime"] = addTime;
@@ -405,6 +464,12 @@ static UserDBOperationManager *sharedInstance = nil;
             NSString *updateTime = [result stringForColumn:@"LASTUPDATETIME"];
             NSString *modifyNum = [result stringForColumn:@"MODIFYTIME"];
             NSString *title = [result stringForColumn:@"TITLE"];
+            oneArticle.articleId = articleId;
+            oneArticle.content = content;
+            oneArticle.addTime = addTime;
+            oneArticle.lastUpdateTime = updateTime;
+            oneArticle.modifyNum = modifyNum;
+            oneArticle.title = title;
             if (content && addTime) {
                 dict[@"articleId"] = articleId;
                 dict[@"addTime"] = addTime;
@@ -424,20 +489,39 @@ static UserDBOperationManager *sharedInstance = nil;
     }
     return @"";
 }
-
-- (void)loadAllArticle:(NSArray<SRUserArticleProfile *> *) allArticle {
+- (NSString *)loadAllArticle:(SRUserArticleProfile *)oneArticle {
     if ([_defaultDataBase open]) {
-        FMResultSet *result=[_defaultDataBase executeQuery:[NSString stringWithFormat:LoadALLDiary, allArticle[0].userName]];
-        if(result.next)
+        FMResultSet *result=[_defaultDataBase executeQuery:[NSString stringWithFormat:LoadALLArticle, oneArticle.userName]];
+        NSMutableArray *array = [NSMutableArray new];
+        
+        while (result.next)
         {
-            for (SRUserArticleProfile *oneArticle in allArticle) {
-                oneArticle.userName = [result stringForColumn:@"USERNAME"];
-                oneArticle.addTime = [result stringForColumn:@"ADDTIME"];
-                oneArticle.content = [result stringForColumn:@"CONTENT"];
-                oneArticle.lastUpdateTime = [result stringForColumn:@"LASTUPDATETIME"];
-            }
+            NSMutableDictionary *muta = [NSMutableDictionary new];
+            NSString *articleId = [result stringForColumn:@"id"];
+            NSString *content = [result stringForColumn:@"CONTENT"];
+            NSString *addTime = [result stringForColumn:@"ADDTIME"];
+            NSString *updateTime = [result stringForColumn:@"LASTUPDATETIME"];
+            NSString *modifyNum = [result stringForColumn:@"MODIFYTIME"];
+            NSString *title = [result stringForColumn:@"TITLE"];
+            muta[@"articleId"] = articleId;
+            muta[@"content"] = content;
+            muta[@"addTime"] = addTime;
+            muta[@"updateTime"] = updateTime;
+            muta[@"modifyNum"] = modifyNum;
+            muta[@"title"] = title;
+            [array addObject:muta];
         }
+        NSMutableDictionary *dic = [NSMutableDictionary new];
+        dic[@"list"] = array;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:NULL];
+        if (!jsonData) {
+            return @"";
+        }
+        
+        NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        return jsonStr;
     }
+    return @"";
 }
 
 

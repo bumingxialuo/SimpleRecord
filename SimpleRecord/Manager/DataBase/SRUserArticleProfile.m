@@ -49,4 +49,8 @@ static  SRUserArticleProfile *sharedInstance = nil;
 - (NSString *)loadLatestArticle {
     return [[UserDBOperationManager sharedInstance] loadlatestArticle:self];
 }
+
+- (NSString *)loadAllArticle {
+    return [[UserDBOperationManager sharedInstance] loadAllArticle:self];
+}
 @end

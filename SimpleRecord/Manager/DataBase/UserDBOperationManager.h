@@ -11,6 +11,7 @@
 #import "SRUserDiaryProfile.h"
 #import "SRUserArticleProfile.h"
 #import <FMDB/FMDB.h>
+#import "AppSkinColorManger.h"
 
 @interface UserDBOperationManager : NSObject
 /**
@@ -74,7 +75,9 @@
 
 - (NSString *)loadlatestArticle:(SRUserArticleProfile *)oneArticle;
 
-- (void)loadAllArticle:(NSArray<SRUserArticleProfile *> *) allArticle;
+- (NSString *)loadAllArticle:(SRUserArticleProfile *)oneArticle;
+
+//- (void)loadAllArticle:(NSArray<SRUserArticleProfile *> *) allArticle;
 
 
 

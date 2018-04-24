@@ -1,4 +1,4 @@
-//
+ //
 //  ArticleListViewController.m
 //  SimpleRecord
 //
@@ -8,6 +8,8 @@
 
 #import "ArticleListViewController.h"
 #import "AppSkinColorManger.h"
+#import "SRUserArticleProfile.h"
+#import "RecordDataModel.h"
 
 @interface ArticleListViewController ()
 
@@ -19,6 +21,12 @@
     [super viewDidLoad];
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
     self.title  = @"文章列表";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSString *jsonStr = [[SRUserArticleProfile sharedInstance] loadAllArticle];
+//    NSArray<RecordDataModel *> *listModel = 
 }
 
 - (void)didReceiveMemoryWarning {

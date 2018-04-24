@@ -33,4 +33,16 @@
 
 @property(nonatomic,strong) UIColor *textColor;
 
+@property(nonatomic,copy) NSString *themeColorStr;
+
+@property(nonatomic,copy) NSString *secondColorStr;
+
+@property(nonatomic,copy) NSString *thirdColorStr;
+
+@property(nonatomic,copy) NSString *animationOneColorStr;
+
+@property(nonatomic,copy) NSString *backgroundColorStr;
+
+@property(nonatomic,copy) NSString *textColorStr;
+
 @end

@@ -70,11 +70,17 @@
 }
 
 - (void)turnToDiaryListView {
+    if (![SRAppUserProfile sharedInstance].isLogon) {
+        return;
+    }
     UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_DiaryList];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)turnToArticleListView {
+    if (![SRAppUserProfile sharedInstance].isLogon) {
+        return;
+    }
     UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_ArticleList];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
@@ -90,6 +96,9 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)turnToAccountManagerView {
+    if (![SRAppUserProfile sharedInstance].isLogon) {
+        return;
+    }
     UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_AccountManager];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
