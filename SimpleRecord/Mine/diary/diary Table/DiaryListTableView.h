@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CalendarDataModel.h"
+#import "CalendarListModel.h"
 
 @interface DiaryListTableView : UITableView
-- (void)updateWithModel:(NSArray<CalendarDataModel *> *)model;
+- (void)updateWithModel:(CalendarListModel *)model;
 @end

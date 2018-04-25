@@ -9,10 +9,10 @@
 #import "ArticleListViewController.h"
 #import "AppSkinColorManger.h"
 #import "SRUserArticleProfile.h"
-#import "RecordDataModel.h"
+#import "RecordListModel.h"
 
 @interface ArticleListViewController ()
-
+@property(nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation ArticleListViewController
@@ -21,12 +21,18 @@
     [super viewDidLoad];
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
     self.title  = @"文章列表";
+    [self createtableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSString *jsonStr = [[SRUserArticleProfile sharedInstance] loadAllArticle];
-//    NSArray<RecordDataModel *> *listModel = 
+    NSError *error = nil;
+    RecordListModel *listModel = [[RecordListModel alloc] initWithString:jsonStr error:&error];
+}
+
+- (void)createtableView {
+    
 }
 
 - (void)didReceiveMemoryWarning {

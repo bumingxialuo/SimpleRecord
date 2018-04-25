@@ -10,6 +10,8 @@
 #import "AppSkinColorManger.h"
 #import "DiaryListTableView.h"
 #import <Masonry.h>
+#import "SRUserDiaryProfile.h"
+#import "CalendarListModel.h"
 
 @interface DiaryListViewController ()
 @property(nonatomic,strong) DiaryListTableView *tableView;
@@ -22,6 +24,14 @@
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
     self.title = @"日记列表";
     [self createTableView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSString *jsonStr = [[SRUserDiaryProfile sharedInstance] findAllDiaryStr];
+    NSError *error = nil;
+    CalendarListModel *listModel = [[CalendarListModel alloc] initWithString:jsonStr error:&error];
+    [_tableView updateWithModel:listModel];
 }
 
 - (void)createTableView {

@@ -25,6 +25,6 @@
 
 - (NSString *)findOneDiaryStr;
 
-- (void)findAllDiary ;
+- (NSString *)findAllDiaryStr;
 
 @end

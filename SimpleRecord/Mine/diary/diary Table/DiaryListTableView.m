@@ -11,6 +11,7 @@
 #import "DiaryListTableViewCell.h"
 #import <Chameleon.h>
 #import "Macro.h"
+#import "CalendarViewModel.h"
 
 #define DiaryListTableViewCellId @"DiaryListTableViewCellId"
 #define DiaryListTableViewContentCellId @"DiaryListTableViewContentCellId"
@@ -22,7 +23,7 @@
     BOOL _sectionTwoOpen;
 }
 @property(nonatomic, strong) NSMutableArray<NSMutableArray *>*tableViewDataSouce;
-@property(nonatomic, strong) NSArray *titleArray;
+@property(nonatomic, strong) NSMutableArray *titleArray;
 @end
 
 @implementation DiaryListTableView
@@ -38,9 +39,16 @@
     }
     return self;
 }
-- (void)updateWithModel:(NSArray<CalendarDataModel *> *)model {
-    _listModel = model;
+- (void)updateWithModel:(CalendarListModel *)model {
+    _listModel = model.list;
+    _titleArray = [NSMutableArray new];
+    for (CalendarDataModel *model in _listModel) {
+        CalendarViewModel *viewModel = [[CalendarViewModel alloc] initWithModel:model];
+        [_titleArray addObject:viewModel.addYear];
+        
+    }
 }
+
 - (void)setUpData {
     _tableViewDataSouce = [[NSMutableArray alloc] initWithCapacity:0];
     [_tableViewDataSouce addObject:[self createOneSectionData]];

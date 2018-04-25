@@ -364,6 +364,31 @@ static UserDBOperationManager *sharedInstance = nil;
 }
 
 - (NSString *)loadAllDiaryReturnStr:(SRUserDiaryProfile *)oneDiary {
+    if ([_defaultDataBase open]) {
+        FMResultSet *result=[_defaultDataBase executeQuery:[NSString stringWithFormat:LoadALLDiary, oneDiary.userName]];
+        NSMutableArray *array = [NSMutableArray new];
+        
+        while (result.next)
+        {
+            NSMutableDictionary *muta = [NSMutableDictionary new];
+            NSString *diaryId = [result stringForColumn:@"id"];
+            NSString *content = [result stringForColumn:@"CONTENT"];
+            NSString *addTime = [result stringForColumn:@"ADDTIME"];
+           
+            muta[@"content"] = content;
+            muta[@"addTime"] = addTime;
+            [array addObject:muta];
+        }
+        NSMutableDictionary *dic = [NSMutableDictionary new];
+        dic[@"list"] = array;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:NULL];
+        if (!jsonData) {
+            return @"";
+        }
+        
+        NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        return jsonStr;
+    }
     return @"";
 }
 

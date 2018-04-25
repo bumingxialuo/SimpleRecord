@@ -44,9 +44,10 @@ static  SRUserDiaryProfile *sharedInstance = nil;
     return contentStr;
 }
 
-//所有的新建一个文件
-- (void)findAllDiary {
-    
+- (NSString *)findAllDiaryStr {
+    NSString *contentStr = [[UserDBOperationManager sharedInstance] loadAllDiaryReturnStr:self];
+    return contentStr;
 }
+
 
 @end
