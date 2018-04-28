@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "CalendarListModel.h"
+#import "RecordListModel.h"
 
 @interface DiaryListTableView : UITableView
+
 - (void)updateWithModel:(CalendarListModel *)model;
+
+- (void)updateWithArticelModel:(RecordListModel *)model;
+
 @end

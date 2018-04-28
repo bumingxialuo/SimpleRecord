@@ -127,7 +127,7 @@
 }
 
 - (void)editBtnClick:(UIButton *)sender {
-    UIViewController *vc = [[HHRouter shared] matchController:SR_Record_AddRecord(@"add",@"")];
+    UIViewController *vc = [[HHRouter shared] matchController:SR_Record_AddRecord(@"add",@" ")];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

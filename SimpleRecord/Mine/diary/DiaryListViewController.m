@@ -32,6 +32,7 @@
     NSError *error = nil;
     CalendarListModel *listModel = [[CalendarListModel alloc] initWithString:jsonStr error:&error];
     [_tableView updateWithModel:listModel];
+    [_tableView reloadData];
 }
 
 - (void)createTableView {

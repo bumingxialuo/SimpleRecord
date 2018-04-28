@@ -23,14 +23,13 @@
     }
     return self;
 }
-
 - (NSString *)addYear {
-    NSArray *arr = [NSString mutableArrayValueForKey:@"-"];
+    NSArray *arr = [_model.addTime componentsSeparatedByString:@"-"];
     return arr[0] ? arr[0] : @"";
 }
 
 - (NSString *)addMonthAndDay {
-    NSArray *arr = [NSString mutableArrayValueForKey:@"-"];
+    NSArray *arr = [_model.addTime componentsSeparatedByString:@"-"];
     NSString *returnStr = @"";
     if (arr[1] && arr[2]) {
         returnStr = [NSString stringWithFormat:@"%@月%@日",arr[1],arr[2]];

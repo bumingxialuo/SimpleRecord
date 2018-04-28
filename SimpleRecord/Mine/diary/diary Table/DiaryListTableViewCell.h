@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DiaryListTableViewCell : UITableViewCell
-- (void)updateWithTitle:(NSString *)title value:(NSString *)value isOpen:(BOOL)isOpen;
+- (void)updateWithTitle:(NSString *)title value:(NSInteger)value isOpen:(BOOL)isOpen;
 @end

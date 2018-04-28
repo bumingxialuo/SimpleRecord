@@ -12,6 +12,7 @@
 #import <Chameleon.h>
 #import "Macro.h"
 #import "CalendarViewModel.h"
+#import "RecordViewModel.h"
 
 #define DiaryListTableViewCellId @"DiaryListTableViewCellId"
 #define DiaryListTableViewContentCellId @"DiaryListTableViewContentCellId"
@@ -19,10 +20,9 @@
 @interface DiaryListTableView()<UITableViewDelegate, UITableViewDataSource>
 {
     NSArray<CalendarDataModel *> *_listModel;
-    BOOL _sectionOneOpen;
-    BOOL _sectionTwoOpen;
+    NSArray<RecordDataModel *> *_articelListModel;
 }
-@property(nonatomic, strong) NSMutableArray<NSMutableArray *>*tableViewDataSouce;
+@property(nonatomic, strong) NSMutableArray<NSMutableArray *> *tableViewDataSouce;
 @property(nonatomic, strong) NSMutableArray *titleArray;
 @end
 
@@ -31,43 +31,82 @@
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     self = [super initWithFrame:frame style:style];
     if (self) {
-        self.separatorColor = [AppSkinColorManger sharedInstance].backgroundColor;
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.delegate = self;
         self.dataSource = self;
-        [self setUpData];
         [self registerTableViewCell];
+        [self createData];
     }
     return self;
 }
 - (void)updateWithModel:(CalendarListModel *)model {
     _listModel = model.list;
-    _titleArray = [NSMutableArray new];
-    for (CalendarDataModel *model in _listModel) {
-        CalendarViewModel *viewModel = [[CalendarViewModel alloc] initWithModel:model];
-        [_titleArray addObject:viewModel.addYear];
-        
+    [_tableViewDataSouce removeAllObjects];
+    
+    _titleArray = [self createTitleArry];
+    
+    for (NSDictionary *yearDic in _titleArray) {
+        NSMutableArray *sectionArray = [NSMutableArray new];
+        for (CalendarDataModel *model in _listModel) {
+            CalendarViewModel *viewModel = [[CalendarViewModel alloc] initWithModel:model];
+            if ([viewModel.addYear isEqualToString:yearDic[@"title"]]) {
+                [sectionArray addObject:[self createMutableDic:viewModel.addMonthAndDay value:viewModel.title]];
+            }
+        }
+        [_tableViewDataSouce addObject:sectionArray];
+    }
+    
+}
+
+- (void)updateWithArticelModel:(RecordListModel *)model {
+    _articelListModel = model.list;
+    _titleArray = [self createArticelTitleArry];
+    [_tableViewDataSouce removeAllObjects];
+    for (NSDictionary *yearDic in _titleArray) {
+        NSMutableArray *sectionArray = [NSMutableArray new];
+        for (RecordDataModel *model in _articelListModel) {
+            RecordViewModel *viewModel = [[RecordViewModel alloc] initWithModel:model];
+            if ([viewModel.addYear isEqualToString:yearDic[@"title"]]) {
+                [sectionArray addObject:[self createMutableDic:viewModel.createMonth value:viewModel.title]];
+            }
+        }
+        [_tableViewDataSouce addObject:sectionArray];
     }
 }
 
-- (void)setUpData {
-    _tableViewDataSouce = [[NSMutableArray alloc] initWithCapacity:0];
-    [_tableViewDataSouce addObject:[self createOneSectionData]];
-    [_tableViewDataSouce addObject:[self createTwoSectionData]];
-    _titleArray = @[@"2017",@"2018"];
+- (NSMutableArray *)createTitleArry{
+    NSMutableArray *yearArray = [NSMutableArray new];
+    for (CalendarDataModel *model in _listModel) {
+        CalendarViewModel *viewModel = [[CalendarViewModel alloc] initWithModel:model];
+        [yearArray addObject:viewModel.addYear];
+    }
+    NSSet *set = [NSSet setWithArray:[yearArray mutableCopy]];
+    yearArray = [[set allObjects] mutableCopy];
+    NSMutableArray *mutaArr = [NSMutableArray new];
+    for (NSString *addYear in yearArray) {
+        [mutaArr addObject:[self createMutableDic:addYear status:NO]];
+    }
+    return mutaArr;
 }
 
-- (NSMutableArray *)createOneSectionData {
-    NSMutableArray *sectionArray = [[NSMutableArray alloc] initWithCapacity:0];
-    [sectionArray addObject:[self createMutableDic:@"06-15" value:@"特别的事情"]];
-    [sectionArray addObject:[self createMutableDic:@"07-01" value:@"中软实习"]];
-    [sectionArray addObject:[self createMutableDic:@"08-01" value:@"融都实习"]];
-    return sectionArray;
+- (NSMutableArray *)createArticelTitleArry {
+    NSMutableArray *yearArray = [NSMutableArray new];
+    for (RecordDataModel *model in _articelListModel) {
+        RecordViewModel *viewModel = [[RecordViewModel alloc] initWithModel:model];
+        [yearArray addObject:viewModel.addYear];
+    }
+    NSSet *set = [NSSet setWithArray:[yearArray mutableCopy]];
+    yearArray = [[set allObjects] mutableCopy];
+    NSMutableArray *mutaArr = [NSMutableArray new];
+    for (NSString *addYear in yearArray) {
+        [mutaArr addObject:[self createMutableDic:addYear status:NO]];
+    }
+    return mutaArr;
 }
-- (NSMutableArray *)createTwoSectionData {
-    NSMutableArray *sectionArray = [[NSMutableArray alloc] initWithCapacity:0];
-    [sectionArray addObject:[self createMutableDic:@"01-01" value:@"新的一年"]];
-    [sectionArray addObject:[self createMutableDic:@"04-05" value:@"清明"]];
-    return sectionArray;
+
+- (void)createData {
+    _titleArray = [NSMutableArray new];
+    _tableViewDataSouce = [NSMutableArray new];
 }
 
 - (NSMutableDictionary *)createMutableDic:(NSString *)title value:(NSString *)value {
@@ -77,8 +116,49 @@
     return dic;
 }
 
+- (NSMutableDictionary *)createMutableDic:(NSString *)title status:(BOOL)status {
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:0];
+    [dic setObject:title forKey:@"title"];
+    [dic setObject:@(status) forKey:@("value")];
+    return dic;
+}
+
 - (void)registerTableViewCell {
     [self registerClass:[DiaryListTableViewCell class] forCellReuseIdentifier:DiaryListTableViewCellId];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        NSDictionary *titleDict = _titleArray[indexPath.section];
+        NSNumber *boolNum = titleDict[@"value"];
+        DiaryListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DiaryListTableViewCellId forIndexPath:indexPath];
+        [cell updateWithTitle:titleDict[@"title"] value:_tableViewDataSouce[indexPath.section].count isOpen:[boolNum boolValue]];
+        return cell;
+    } else {
+        NSArray *sectionArr = _tableViewDataSouce[indexPath.section];
+        NSDictionary *dic = sectionArr[indexPath.row-1];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DiaryListTableViewContentCellId];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:DiaryListTableViewContentCellId];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.textColor = [UIColor colorWithHexString:@"999"];
+            cell.detailTextLabel.textColor = [UIColor colorWithHexString:@"999"];
+            cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
+            cell.textLabel.font = [UIFont systemFontOfSize:13];
+        }
+        cell.textLabel.text = dic[@"title"];
+        cell.detailTextLabel.text = dic[@"value"];
+        return cell;
+    }
+    
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath  {
+    if (indexPath.row == 0) {
+        NSDictionary *titleDic = _titleArray[indexPath.section];
+        NSNumber *boolNum = titleDic[@"value"];
+        _titleArray[indexPath.section][@"value"] = [NSNumber numberWithBool:![boolNum boolValue]];
+    }
+    [self reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -86,53 +166,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return _sectionOneOpen ? _tableViewDataSouce[section].count : 1;
-    } else {
-        return _sectionTwoOpen ? _tableViewDataSouce[section].count : 1;
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
-        DiaryListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DiaryListTableViewCellId forIndexPath:indexPath];
-        if (!_listModel) {
-            NSString *value = [NSString stringWithFormat:@"共%lu篇",(unsigned long)_tableViewDataSouce[indexPath.section].count];
-            [cell updateWithTitle:_titleArray[indexPath.section] value:value isOpen:indexPath.section == 0 ? _sectionOneOpen : _sectionTwoOpen];
-        }
-        return cell;
-    } else {
-        NSMutableDictionary *dic = _tableViewDataSouce[indexPath.section][indexPath.row-1];
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DiaryListTableViewContentCellId];
-        if (!cell) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:DiaryListTableViewContentCellId];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.textColor = [UIColor colorWithHexString:@"999"];
-            cell.detailTextLabel.textColor = [UIColor colorWithHexString:@"999"];
-            cell.textLabel.text = dic[@"title"];
-            cell.detailTextLabel.text = dic[@"value"];
-        }
-        return cell;
-    }
-    
+    NSNumber *boolNum = _titleArray[section][@"value"];
+    return [boolNum boolValue] ? _tableViewDataSouce[section].count+1 : 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row==0) {
         return 50;
     }
-    return 44;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath  {
-    if (indexPath.row == 0) {
-        if (indexPath.section == 0) {
-            _sectionOneOpen = !_sectionOneOpen;
-        } else {
-            _sectionTwoOpen = !_sectionTwoOpen;
-        }
-    }
-    [self reloadData];
+    return 30;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

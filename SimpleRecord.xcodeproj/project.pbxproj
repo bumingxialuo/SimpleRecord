@@ -51,7 +51,6 @@
 		16764155208DBCAE00FDC771 /* AddOneArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16764154208DBCAE00FDC771 /* AddOneArticleViewController.m */; };
 		16764159208DC36E00FDC771 /* AddOneArticleTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16764158208DC36E00FDC771 /* AddOneArticleTableView.m */; };
 		1686FE15207AFE0D00926A6C /* AddCalendarTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1686FE14207AFE0D00926A6C /* AddCalendarTableView.m */; };
-		16879CE32090585B0029AC8F /* ArticleListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16879CE22090585B0029AC8F /* ArticleListTableView.m */; };
 		16879CED209077510029AC8F /* CalendarListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16879CEC209077510029AC8F /* CalendarListModel.m */; };
 		16879CF020907B320029AC8F /* CalendarViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16879CEF20907B320029AC8F /* CalendarViewModel.m */; };
 		1696E82C20522D130022B670 /* UIImage+color.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E82B20522D130022B670 /* UIImage+color.m */; };
@@ -59,6 +58,7 @@
 		1696E835205254E10022B670 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E834205254E10022B670 /* RecordViewController.m */; };
 		1696E838205254FB0022B670 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E837205254FB0022B670 /* MineViewController.m */; };
 		1696E83C205258C80022B670 /* SRRouterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1696E83B205258C80022B670 /* SRRouterManager.m */; };
+		16A2E049209453D800CEE4BF /* RecordViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A2E048209453D800CEE4BF /* RecordViewModel.m */; };
 		16AAC44E206DCF0A00068605 /* MineTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AAC44D206DCF0A00068605 /* MineTableHeadView.m */; };
 		16AB33AC207318E500358E7E /* CCPCalendarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB3397207318E500358E7E /* CCPCalendarButton.m */; };
 		16AB33AD207318E500358E7E /* CCPCalendarCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB3399207318E500358E7E /* CCPCalendarCellTableViewCell.m */; };
@@ -204,8 +204,6 @@
 		16764158208DC36E00FDC771 /* AddOneArticleTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddOneArticleTableView.m; sourceTree = "<group>"; };
 		1686FE13207AFE0D00926A6C /* AddCalendarTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCalendarTableView.h; sourceTree = "<group>"; };
 		1686FE14207AFE0D00926A6C /* AddCalendarTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCalendarTableView.m; sourceTree = "<group>"; };
-		16879CE12090585B0029AC8F /* ArticleListTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleListTableView.h; sourceTree = "<group>"; };
-		16879CE22090585B0029AC8F /* ArticleListTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleListTableView.m; sourceTree = "<group>"; };
 		16879CEB209077510029AC8F /* CalendarListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarListModel.h; sourceTree = "<group>"; };
 		16879CEC209077510029AC8F /* CalendarListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarListModel.m; sourceTree = "<group>"; };
 		16879CEE20907B320029AC8F /* CalendarViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarViewModel.h; sourceTree = "<group>"; };
@@ -221,6 +219,8 @@
 		1696E83A205258C80022B670 /* SRRouterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRRouterManager.h; sourceTree = "<group>"; };
 		1696E83B205258C80022B670 /* SRRouterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRRouterManager.m; sourceTree = "<group>"; };
 		1696E83D20525A310022B670 /* SRRouterUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRRouterUrl.h; sourceTree = "<group>"; };
+		16A2E047209453D800CEE4BF /* RecordViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordViewModel.h; sourceTree = "<group>"; };
+		16A2E048209453D800CEE4BF /* RecordViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordViewModel.m; sourceTree = "<group>"; };
 		16AAC44C206DCF0A00068605 /* MineTableHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTableHeadView.h; sourceTree = "<group>"; };
 		16AAC44D206DCF0A00068605 /* MineTableHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTableHeadView.m; sourceTree = "<group>"; };
 		16AB3396207318E500358E7E /* CCPCalendarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPCalendarButton.h; sourceTree = "<group>"; };
@@ -569,6 +569,8 @@
 				161F1B48208F0CDD0039C089 /* RecordListModel.m */,
 				1676414F208D751A00FDC771 /* RecordDataModel.h */,
 				16764150208D751A00FDC771 /* RecordDataModel.m */,
+				16A2E047209453D800CEE4BF /* RecordViewModel.h */,
+				16A2E048209453D800CEE4BF /* RecordViewModel.m */,
 			);
 			path = RecordDataModel;
 			sourceTree = "<group>";
@@ -614,8 +616,6 @@
 		16879CE02090582E0029AC8F /* articleTable */ = {
 			isa = PBXGroup;
 			children = (
-				16879CE12090585B0029AC8F /* ArticleListTableView.h */,
-				16879CE22090585B0029AC8F /* ArticleListTableView.m */,
 			);
 			path = articleTable;
 			sourceTree = "<group>";
@@ -1130,7 +1130,6 @@
 				1686FE15207AFE0D00926A6C /* AddCalendarTableView.m in Sources */,
 				1637FFD9205624650086F176 /* RecordTableHeadView.m in Sources */,
 				1612CA28207365B100B693B7 /* AccountManagerViewController.m in Sources */,
-				16879CE32090585B0029AC8F /* ArticleListTableView.m in Sources */,
 				16AB33B0207318E500358E7E /* CCPCalendarModel.m in Sources */,
 				640A0F4A2086154E0037468F /* SRAppUserProfile.m in Sources */,
 				16764155208DBCAE00FDC771 /* AddOneArticleViewController.m in Sources */,
@@ -1142,6 +1141,7 @@
 				64A112BD206735B7008C03C9 /* MineTableView.m in Sources */,
 				16AB33B3207318E500358E7E /* NSDate+CCPCalendar.m in Sources */,
 				16AB33B4207318E500358E7E /* NSObject+CCPObjc.m in Sources */,
+				16A2E049209453D800CEE4BF /* RecordViewModel.m in Sources */,
 				16FD28362087219B004D91F4 /* RDCountDownButton.m in Sources */,
 				16382BC42073304C0097EF43 /* ZYWeekView.m in Sources */,
 				1612CA2B207365DA00B693B7 /* ChageAppStyleViewController.m in Sources */,

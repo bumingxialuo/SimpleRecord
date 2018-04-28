@@ -42,7 +42,6 @@
         self.navigationItem.title = @"更新文章";
     }
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
-    [SRUserArticleProfile sharedInstance].articleId = _articleId;
     [self createRightSaveItem];
     [self createTableView];
 }
@@ -51,6 +50,12 @@
     [super viewWillAppear:animated];
     if (![SRAppUserProfile sharedInstance].isLogon) {
         return;
+    }
+    if (![_articleId isEqualToString:@" "]) {
+        [SRUserArticleProfile sharedInstance].articleId = _articleId;
+    } else {
+        [SRUserArticleProfile sharedInstance].articleId = @"";
+        [SRUserArticleProfile sharedInstance].modifyNum = 0;
     }
     NSString *jsonStr = [[SRUserArticleProfile sharedInstance] findOneArticle];
     NSError *error = nil;

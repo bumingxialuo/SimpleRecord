@@ -9,6 +9,7 @@
 #import "DiaryListTableViewCell.h"
 #import <Chameleon.h>
 #import <Masonry.h>
+#import "AppSkinColorManger.h"
 
 @interface DiaryListTableViewCell()
 @property(nonatomic, strong) UILabel *titleLabel;
@@ -32,9 +33,9 @@
     return self;
 }
 
-- (void)updateWithTitle:(NSString *)title value:(NSString *)value isOpen:(BOOL)isOpen {
+- (void)updateWithTitle:(NSString *)title value:(NSInteger)value isOpen:(BOOL)isOpen {
     _titleLabel.text = title;
-    _valueLable.text = value;
+    _valueLable.text = [NSString stringWithFormat:@"共%ld篇",value];
     if (isOpen) {
         _arrow.image = [UIImage imageNamed:@"arrow on"];
     } else {
@@ -54,9 +55,14 @@
     _arrow = [[UIImageView alloc] init];
     _arrow.image = [UIImage imageNamed:@"arrow down"];
     
+    UIView *line = [[UIView alloc] init];
+    line.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
+    
     [self.contentView addSubview:_titleLabel];
     [self.contentView addSubview:_valueLable];
     [self.contentView addSubview:_arrow];
+    [self.contentView addSubview:line];
+    
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(15);
         make.centerY.mas_equalTo(self.contentView);
@@ -69,6 +75,10 @@
     [_valueLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(_arrow.mas_left).offset(-5);
         make.centerY.mas_equalTo(self.contentView);
+    }];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(1);
     }];
 }
 
