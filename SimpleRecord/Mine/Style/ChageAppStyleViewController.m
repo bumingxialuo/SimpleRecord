@@ -16,8 +16,7 @@
 
 @interface ChageAppStyleViewController ()<StyleTypeTableViewDelegate>
 {
-    NSArray *_sectionOneArray;
-    NSArray *_sectionTwoArray;
+   
 }
 @property(nonatomic, strong) StyleTypeTableView *tableView;
 @end
@@ -29,7 +28,6 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
     self.title = @"样式设置";
-    [self setUpdata];
     [self createRightButton];
     [self createSubView];
 }
@@ -38,11 +36,6 @@
     [super viewWillAppear:animated];
     [_tableView updataColor];
     [_tableView reloadData];
-}
-
-- (void)setUpdata {
-    _sectionOneArray = @[@"主题色",@"第一辅色",@"第二辅色",@"背景色",@"动画色"];
-    _sectionTwoArray = @[@"文章开关",@"文章方案",@"日记开关",@"日记方案",@"我的方案"];
 }
 
 - (void)createRightButton {
@@ -77,12 +70,12 @@
 }
 
 #pragma mark - StyleTypeTableViewDelegate
-- (void)didselectStyleTypeTableViewCellForIndepath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_ChangeStyle_ColorSlider(_sectionOneArray[indexPath.row])];
+- (void)didselectStyleTypeTableViewCellWithTitle:(NSString *)title indexSection:(NSInteger)section {
+    if (section == 0) {
+        UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_ChangeStyle_ColorSlider(title)];
         [self.navigationController pushViewController:vc animated:YES];
     } else {
-        UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_ChangeStyle_PageStyle(_sectionTwoArray[indexPath.row])];
+        UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_ChangeStyle_PageStyle(title)];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

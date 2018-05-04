@@ -40,4 +40,7 @@
 //颜色选择
 #define SR_Mine_ChangeStyle_ColorSlider(title)          [NSString stringWithFormat:@"YD://simpleRecord/mine/changeStyle/ColorSlider/%@",title]
 
+//具体页面样式设置
+#define SR_Mine_ChangeStyle_PageStyle(title)            [NSString stringWithFormat:@"YD://simpleRecord/mine/changeStyle/pageStyle/%@",title]
+
 #endif /* SRRouterUrl_h */

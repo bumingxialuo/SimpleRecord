@@ -50,6 +50,7 @@
 		16764151208D751A00FDC771 /* RecordDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16764150208D751A00FDC771 /* RecordDataModel.m */; };
 		16764155208DBCAE00FDC771 /* AddOneArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16764154208DBCAE00FDC771 /* AddOneArticleViewController.m */; };
 		16764159208DC36E00FDC771 /* AddOneArticleTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16764158208DC36E00FDC771 /* AddOneArticleTableView.m */; };
+		16836953209AAAF600D850F9 /* TableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 16836952209AAAF600D850F9 /* TableDataSource.m */; };
 		1686FE15207AFE0D00926A6C /* AddCalendarTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1686FE14207AFE0D00926A6C /* AddCalendarTableView.m */; };
 		16879CED209077510029AC8F /* CalendarListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16879CEC209077510029AC8F /* CalendarListModel.m */; };
 		16879CF020907B320029AC8F /* CalendarViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16879CEF20907B320029AC8F /* CalendarViewModel.m */; };
@@ -71,6 +72,7 @@
 		16AB33B5207318E500358E7E /* UILabel+CCPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33A9207318E500358E7E /* UILabel+CCPLabel.m */; };
 		16AB33B6207318E500358E7E /* UIView+CCPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AB33AB207318E500358E7E /* UIView+CCPView.m */; };
 		16AE90C32074C725004EBF34 /* StyleTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AE90C22074C725004EBF34 /* StyleTypeTableViewCell.m */; };
+		16CE9ACA20999468008C9A15 /* ChangeAppFunctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CE9AC920999468008C9A15 /* ChangeAppFunctionViewController.m */; };
 		16CEFC9120633D42004230D7 /* RecordStyleTwoTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEFC9020633D42004230D7 /* RecordStyleTwoTableView.m */; };
 		16CEFC942063435B004230D7 /* RecordStyleTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEFC932063435B004230D7 /* RecordStyleTwoTableViewCell.m */; };
 		16CEFC9A20634920004230D7 /* UIView+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CEFC9920634920004230D7 /* UIView+Snapshot.m */; };
@@ -202,6 +204,8 @@
 		16764154208DBCAE00FDC771 /* AddOneArticleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddOneArticleViewController.m; sourceTree = "<group>"; };
 		16764157208DC36E00FDC771 /* AddOneArticleTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddOneArticleTableView.h; sourceTree = "<group>"; };
 		16764158208DC36E00FDC771 /* AddOneArticleTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddOneArticleTableView.m; sourceTree = "<group>"; };
+		16836951209AAAF600D850F9 /* TableDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableDataSource.h; sourceTree = "<group>"; };
+		16836952209AAAF600D850F9 /* TableDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableDataSource.m; sourceTree = "<group>"; };
 		1686FE13207AFE0D00926A6C /* AddCalendarTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCalendarTableView.h; sourceTree = "<group>"; };
 		1686FE14207AFE0D00926A6C /* AddCalendarTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCalendarTableView.m; sourceTree = "<group>"; };
 		16879CEB209077510029AC8F /* CalendarListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarListModel.h; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 		16AB33AB207318E500358E7E /* UIView+CCPView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CCPView.m"; sourceTree = "<group>"; };
 		16AE90C12074C725004EBF34 /* StyleTypeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StyleTypeTableViewCell.h; sourceTree = "<group>"; };
 		16AE90C22074C725004EBF34 /* StyleTypeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StyleTypeTableViewCell.m; sourceTree = "<group>"; };
+		16CE9AC820999468008C9A15 /* ChangeAppFunctionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeAppFunctionViewController.h; sourceTree = "<group>"; };
+		16CE9AC920999468008C9A15 /* ChangeAppFunctionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeAppFunctionViewController.m; sourceTree = "<group>"; };
 		16CEFC8F20633D42004230D7 /* RecordStyleTwoTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordStyleTwoTableView.h; sourceTree = "<group>"; };
 		16CEFC9020633D42004230D7 /* RecordStyleTwoTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordStyleTwoTableView.m; sourceTree = "<group>"; };
 		16CEFC922063435B004230D7 /* RecordStyleTwoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordStyleTwoTableViewCell.h; sourceTree = "<group>"; };
@@ -341,14 +347,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		1612CA1C207355A900B693B7 /* style two */ = {
+		1612CA1C207355A900B693B7 /* Style Two */ = {
 			isa = PBXGroup;
 			children = (
 				1612CA20207355D600B693B7 /* mine collection */,
 				1612CA1D207355D000B693B7 /* MineStyleTwoViewController.h */,
 				1612CA1E207355D000B693B7 /* MineStyleTwoViewController.m */,
 			);
-			path = "style two";
+			path = "Style Two";
 			sourceTree = "<group>";
 		};
 		1612CA20207355D600B693B7 /* mine collection */ = {
@@ -358,53 +364,54 @@
 			path = "mine collection";
 			sourceTree = "<group>";
 		};
-		1612CA21207356A600B693B7 /* diary */ = {
+		1612CA21207356A600B693B7 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
-				64D01C152082FEA100F27C10 /* diary Table */,
+				64D01C152082FEA100F27C10 /* Diary Table */,
 				1612CA32207368BA00B693B7 /* DiaryListViewController.h */,
 				1612CA33207368BA00B693B7 /* DiaryListViewController.m */,
 			);
-			path = diary;
+			path = Diary;
 			sourceTree = "<group>";
 		};
-		1612CA22207356D600B693B7 /* article */ = {
+		1612CA22207356D600B693B7 /* Article */ = {
 			isa = PBXGroup;
 			children = (
-				16879CE02090582E0029AC8F /* articleTable */,
+				16879CE02090582E0029AC8F /* ArticleTable */,
 				1612CA2F2073683000B693B7 /* ArticleListViewController.h */,
 				1612CA302073683000B693B7 /* ArticleListViewController.m */,
 			);
-			path = article;
+			path = Article;
 			sourceTree = "<group>";
 		};
-		1612CA23207356E000B693B7 /* function */ = {
+		1612CA23207356E000B693B7 /* Function */ = {
 			isa = PBXGroup;
 			children = (
 				1612CA2C207367E700B693B7 /* FunctionConfigurationViewController.h */,
 				1612CA2D207367E700B693B7 /* FunctionConfigurationViewController.m */,
 			);
-			path = function;
+			path = Function;
 			sourceTree = "<group>";
 		};
-		1612CA24207356E900B693B7 /* style */ = {
+		1612CA24207356E900B693B7 /* Style */ = {
 			isa = PBXGroup;
 			children = (
-				162E95112079A6DD00D7562D /* detail style */,
+				16836950209AA8D600D850F9 /* TableDataSource */,
+				162E95112079A6DD00D7562D /* Detail Style */,
 				16CF527720737E9900CDE453 /* StyleTypeTable */,
 				1612CA29207365DA00B693B7 /* ChageAppStyleViewController.h */,
 				1612CA2A207365DA00B693B7 /* ChageAppStyleViewController.m */,
 			);
-			path = style;
+			path = Style;
 			sourceTree = "<group>";
 		};
-		1612CA25207356F400B693B7 /* account manager */ = {
+		1612CA25207356F400B693B7 /* Account Manager */ = {
 			isa = PBXGroup;
 			children = (
 				1612CA26207365B100B693B7 /* AccountManagerViewController.h */,
 				1612CA27207365B100B693B7 /* AccountManagerViewController.m */,
 			);
-			path = "account manager";
+			path = "Account Manager";
 			sourceTree = "<group>";
 		};
 		161DDBCB204FB4E7000B195B = {
@@ -498,28 +505,30 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		162E95112079A6DD00D7562D /* detail style */ = {
+		162E95112079A6DD00D7562D /* Detail Style */ = {
 			isa = PBXGroup;
 			children = (
 				162E95122079A71C00D7562D /* ChangeAppStyleDetailViewController.h */,
 				162E95132079A71C00D7562D /* ChangeAppStyleDetailViewController.m */,
 				162E95152079E58900D7562D /* ChangeAppStyleDetailView.h */,
 				162E95162079E58900D7562D /* ChangeAppStyleDetailView.m */,
+				16CE9AC820999468008C9A15 /* ChangeAppFunctionViewController.h */,
+				16CE9AC920999468008C9A15 /* ChangeAppFunctionViewController.m */,
 			);
-			path = "detail style";
+			path = "Detail Style";
 			sourceTree = "<group>";
 		};
-		16382BA320732F7D0097EF43 /* style one */ = {
+		16382BA320732F7D0097EF43 /* Style One */ = {
 			isa = PBXGroup;
 			children = (
 				16AB3395207318E500358E7E /* CCPCalendar */,
 				1696E830205254D50022B670 /* CalendarViewController.h */,
 				1696E831205254D50022B670 /* CalendarViewController.m */,
 			);
-			path = "style one";
+			path = "Style One";
 			sourceTree = "<group>";
 		};
-		16382BA520732FAE0097EF43 /* style two */ = {
+		16382BA520732FAE0097EF43 /* Style Two */ = {
 			isa = PBXGroup;
 			children = (
 				6455AE6A2081CCFF00BE1A4F /* CalendarDataModel */,
@@ -528,7 +537,7 @@
 				16382BA620732FFE0097EF43 /* CalendarStyleTwoViewController.h */,
 				16382BA720732FFE0097EF43 /* CalendarStyleTwoViewController.m */,
 			);
-			path = "style two";
+			path = "Style Two";
 			sourceTree = "<group>";
 		};
 		16382BA9207330270097EF43 /* Calendar */ = {
@@ -594,6 +603,15 @@
 			path = AddOneArticleTable;
 			sourceTree = "<group>";
 		};
+		16836950209AA8D600D850F9 /* TableDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				16836951209AAAF600D850F9 /* TableDataSource.h */,
+				16836952209AAAF600D850F9 /* TableDataSource.m */,
+			);
+			path = TableDataSource;
+			sourceTree = "<group>";
+		};
 		1686FE11207AFDD800926A6C /* AddCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,11 +631,11 @@
 			path = AddCalendarTableView;
 			sourceTree = "<group>";
 		};
-		16879CE02090582E0029AC8F /* articleTable */ = {
+		16879CE02090582E0029AC8F /* ArticleTable */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = articleTable;
+			path = ArticleTable;
 			sourceTree = "<group>";
 		};
 		1696E82920522C590022B670 /* Category */ = {
@@ -636,8 +654,8 @@
 		1696E82D20523C150022B670 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				16382BA520732FAE0097EF43 /* style two */,
-				16382BA320732F7D0097EF43 /* style one */,
+				16382BA520732FAE0097EF43 /* Style Two */,
+				16382BA320732F7D0097EF43 /* Style One */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -645,8 +663,8 @@
 		1696E82E20523CCD0022B670 /* Record */ = {
 			isa = PBXGroup;
 			children = (
-				16CEFC8D20633CD2004230D7 /* style one */,
-				16CEFC8E20633CE7004230D7 /* style two */,
+				16CEFC8D20633CD2004230D7 /* Style One */,
+				16CEFC8E20633CE7004230D7 /* Style Two */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -654,13 +672,13 @@
 		1696E82F20523CDE0022B670 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				1612CA25207356F400B693B7 /* account manager */,
-				1612CA24207356E900B693B7 /* style */,
-				1612CA23207356E000B693B7 /* function */,
-				1612CA22207356D600B693B7 /* article */,
-				1612CA21207356A600B693B7 /* diary */,
-				1612CA1C207355A900B693B7 /* style two */,
-				16AAC44B206DC68700068605 /* style one */,
+				1612CA25207356F400B693B7 /* Account Manager */,
+				1612CA24207356E900B693B7 /* Style */,
+				1612CA23207356E000B693B7 /* Function */,
+				1612CA22207356D600B693B7 /* Article */,
+				1612CA21207356A600B693B7 /* Diary */,
+				1612CA1C207355A900B693B7 /* Style Two */,
+				16AAC44B206DC68700068605 /* Style One */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -678,14 +696,14 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
-		16AAC44B206DC68700068605 /* style one */ = {
+		16AAC44B206DC68700068605 /* Style One */ = {
 			isa = PBXGroup;
 			children = (
 				64A112B820673575008C03C9 /* MineTable */,
 				1696E836205254FB0022B670 /* MineViewController.h */,
 				1696E837205254FB0022B670 /* MineViewController.m */,
 			);
-			path = "style one";
+			path = "Style One";
 			sourceTree = "<group>";
 		};
 		16AB3395207318E500358E7E /* CCPCalendar */ = {
@@ -715,17 +733,17 @@
 			path = CCPCalendar;
 			sourceTree = "<group>";
 		};
-		16CEFC8D20633CD2004230D7 /* style one */ = {
+		16CEFC8D20633CD2004230D7 /* Style One */ = {
 			isa = PBXGroup;
 			children = (
 				16CEFCA420637921004230D7 /* Record Table */,
 				1696E833205254E10022B670 /* RecordViewController.h */,
 				1696E834205254E10022B670 /* RecordViewController.m */,
 			);
-			path = "style one";
+			path = "Style One";
 			sourceTree = "<group>";
 		};
-		16CEFC8E20633CE7004230D7 /* style two */ = {
+		16CEFC8E20633CE7004230D7 /* Style Two */ = {
 			isa = PBXGroup;
 			children = (
 				16764152208DBC8800FDC771 /* AddOneArticle */,
@@ -734,7 +752,7 @@
 				16CEFCA1206355ED004230D7 /* RecordStyleTwoViewController.h */,
 				16CEFCA2206355ED004230D7 /* RecordStyleTwoViewController.m */,
 			);
-			path = "style two";
+			path = "Style Two";
 			sourceTree = "<group>";
 		};
 		16CEFCA420637921004230D7 /* Record Table */ = {
@@ -895,7 +913,7 @@
 			path = MineTable;
 			sourceTree = "<group>";
 		};
-		64D01C152082FEA100F27C10 /* diary Table */ = {
+		64D01C152082FEA100F27C10 /* Diary Table */ = {
 			isa = PBXGroup;
 			children = (
 				64D01C162082FECD00F27C10 /* DiaryListTableView.h */,
@@ -903,7 +921,7 @@
 				64D01C192084E8FE00F27C10 /* DiaryListTableViewCell.h */,
 				64D01C1A2084E8FE00F27C10 /* DiaryListTableViewCell.m */,
 			);
-			path = "diary Table";
+			path = "Diary Table";
 			sourceTree = "<group>";
 		};
 		E243B23DCB35EE8DC39A01B2 /* Frameworks */ = {
@@ -1116,9 +1134,11 @@
 				16AAC44E206DCF0A00068605 /* MineTableHeadView.m in Sources */,
 				161DDC0C204FBD80000B195B /* CustomTabBarConterller.m in Sources */,
 				1612CA312073683000B693B7 /* ArticleListViewController.m in Sources */,
+				16CE9ACA20999468008C9A15 /* ChangeAppFunctionViewController.m in Sources */,
 				1696E83C205258C80022B670 /* SRRouterManager.m in Sources */,
 				16CEFCA3206355ED004230D7 /* RecordStyleTwoViewController.m in Sources */,
 				16FD283F20874C37004D91F4 /* SRUserDiaryProfile.m in Sources */,
+				16836953209AAAF600D850F9 /* TableDataSource.m in Sources */,
 				640A0F6620862BFB0037468F /* ForgotPasswordTableView.m in Sources */,
 				1696E82C20522D130022B670 /* UIImage+color.m in Sources */,
 				1612CA1F207355D000B693B7 /* MineStyleTwoViewController.m in Sources */,

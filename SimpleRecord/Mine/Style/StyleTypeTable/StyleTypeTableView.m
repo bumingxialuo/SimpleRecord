@@ -12,6 +12,7 @@
 #import <ChameleonFramework/Chameleon.h>
 #import <Masonry.h>
 #import "AppSkinColorManger.h"
+#import "TableDataSource.h"
 
 #define StyleTypeTableViewCellId @"StyleTypeTableViewCellId"
 
@@ -28,60 +29,15 @@
         self.delegate = self;
         self.dataSource = self;
         [self registerClass:[StyleTypeTableViewCell class] forCellReuseIdentifier:StyleTypeTableViewCellId];
+        [self setupData];
     }
     return self;
 }
 
 #pragma mark - set data
 - (void)setupData {
-    _titleOneArray = [[NSMutableArray alloc] initWithCapacity:0];
-    _titleTwoArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    NSMutableDictionary *dic1 = [[NSMutableDictionary alloc] initWithCapacity:0];
-    [dic1 setObject:@"主题色" forKey:@"title"];
-    [dic1 setObject:[AppSkinColorManger sharedInstance].themeColor forKey:@"fill"];
-    [dic1 setObject:@"" forKey:@"desc"];
-    [dic1 setObject:@(YES) forKey:@"click"];
-    
-    NSMutableDictionary *dic2 = [[NSMutableDictionary alloc] initWithCapacity:0];
-    [dic2 setObject:@"第一辅色" forKey:@"title"];
-    [dic2 setObject:[AppSkinColorManger sharedInstance].secondColor forKey:@"fill"];
-    [dic2 setObject:@"" forKey:@"desc"];
-    [dic2 setObject:@(YES) forKey:@"click"];
-    
-    NSMutableDictionary *dic3 = [[NSMutableDictionary alloc] initWithCapacity:0];
-    [dic3 setObject:@"第二辅色" forKey:@"title"];
-    [dic3 setObject:[AppSkinColorManger sharedInstance].thirdColor forKey:@"fill"];
-    [dic3 setObject:@"" forKey:@"desc"];
-    [dic3 setObject:@(YES) forKey:@"click"];
-    
-    NSMutableDictionary *dic4 = [[NSMutableDictionary alloc] initWithCapacity:0];
-    [dic4 setObject:@"背景色" forKey:@"title"];
-    [dic4 setObject:[AppSkinColorManger sharedInstance].backgroundColor forKey:@"fill"];
-    [dic4 setObject:@"" forKey:@"desc"];
-    [dic4 setObject:@(YES) forKey:@"click"];
-    
-    NSMutableDictionary *dic5 = [[NSMutableDictionary alloc] initWithCapacity:0];
-    [dic5 setObject:@"动画色" forKey:@"title"];
-    [dic5 setObject:[AppSkinColorManger sharedInstance].animationOneColor forKey:@"fill"];
-    [dic5 setObject:@"" forKey:@"desc"];
-    [dic5 setObject:@(YES) forKey:@"click"];
-    
-    [_titleOneArray addObject:dic1];
-    [_titleOneArray addObject:dic2];
-    [_titleOneArray addObject:dic3];
-    [_titleOneArray addObject:dic4];
-    [_titleOneArray addObject:dic5];
-    
-    NSDictionary *dic11 = @{@"title":@"文章开关",@"fill":@"开启",@"desc":@"",@"click":@(YES)};
-    NSDictionary *dic12 = @{@"title":@"日记方案",@"fill":@"方案二",@"desc":@"",@"click":@(YES)};
-    NSDictionary *dic13 = @{@"title":@"文章方案",@"fill":@"动画方案",@"desc":@"",@"click":@(YES)};
-    NSDictionary *dic14 = @{@"title":@"我的方案",@"fill":@"列表方案",@"desc":@"",@"click":@(YES)};
-    
-    [_titleTwoArray addObject:dic11];
-    [_titleTwoArray addObject:dic12];
-    [_titleTwoArray addObject:dic13];
-    [_titleTwoArray addObject:dic14];
+    _titleOneArray = [[TableDataSource alloc] createTableViewSectionOneDataSource];
+    _titleTwoArray = [[TableDataSource alloc] createTableViewSectionTwoDataSource];
 }
 
 - (void)updataColor {
@@ -101,7 +57,6 @@
 
 #pragma mark - UITableViewDelegate And UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    [self setupData];
     return 2;
 }
 
@@ -159,8 +114,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_tableViewDelegate && [_tableViewDelegate respondsToSelector:@selector(didselectStyleTypeTableViewCellForIndepath:)]) {
-        [_tableViewDelegate didselectStyleTypeTableViewCellForIndepath:indexPath];
+    NSString *title = @"";
+    if (indexPath.section == 0) {
+        title = _titleOneArray[indexPath.row][@"title"];
+    } else {
+        title = _titleTwoArray[indexPath.row][@"title"];
+    }
+    if (_tableViewDelegate && [_tableViewDelegate respondsToSelector:@selector(didselectStyleTypeTableViewCellWithTitle:indexSection:)]) {
+        [_tableViewDelegate didselectStyleTypeTableViewCellWithTitle:title indexSection:indexPath.section];
     }
 }
 

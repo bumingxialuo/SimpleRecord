@@ -10,4 +10,8 @@
 
 @interface TableDataSource : NSObject
 
+- (NSMutableArray *)createTableViewSectionOneDataSource ;
+
+- (NSMutableArray *)createTableViewSectionTwoDataSource ;
+
 @end

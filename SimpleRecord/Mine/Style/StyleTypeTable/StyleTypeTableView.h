@@ -10,14 +10,12 @@
 
 @protocol StyleTypeTableViewDelegate<NSObject>
 
-- (void)didselectStyleTypeTableViewCellForIndepath:(NSIndexPath *)indexPath;
+- (void)didselectStyleTypeTableViewCellWithTitle:(NSString *)title indexSection:(NSInteger)section;
 
 @end
 
 @interface StyleTypeTableView : UITableView
 - (void)updataColor;
 @property(nonatomic, weak) id<StyleTypeTableViewDelegate> tableViewDelegate;
-
-
 
 @end

@@ -85,20 +85,22 @@
 
 
 - (void)setUpColorInstanceData {
-    if (_style == SRColorStyleTheme) {
-        [AppSkinColorManger sharedInstance].themeColor = _saveColor;
-    }
-    else if (_style == SRColorStyleSecond) {
-        [AppSkinColorManger sharedInstance].secondColor = _saveColor;
-    }
-    else if (_style == SRColorStyleThird) {
-        [AppSkinColorManger sharedInstance].thirdColor = _saveColor;
-    }
-    else if (_style == SRColorStyleBackground) {
-        [AppSkinColorManger sharedInstance].backgroundColor = _saveColor;
-    }
-    else if (_style == SRColorStyleAnimation) {
-        [AppSkinColorManger sharedInstance].animationOneColor = _saveColor;
+    if (_saveColor) {
+        if (_style == SRColorStyleTheme) {
+            [AppSkinColorManger sharedInstance].themeColor = _saveColor;
+        }
+        else if (_style == SRColorStyleSecond) {
+            [AppSkinColorManger sharedInstance].secondColor = _saveColor;
+        }
+        else if (_style == SRColorStyleThird) {
+            [AppSkinColorManger sharedInstance].thirdColor = _saveColor;
+        }
+        else if (_style == SRColorStyleBackground) {
+            [AppSkinColorManger sharedInstance].backgroundColor = _saveColor;
+        }
+        else if (_style == SRColorStyleAnimation) {
+            [AppSkinColorManger sharedInstance].animationOneColor = _saveColor;
+        }
     }
 }
 

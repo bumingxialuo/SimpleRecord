@@ -52,5 +52,6 @@
     [[HHRouter shared] map:SR_Mine_ChangeStyle toControllerClass:NSClassFromString(@"ChageAppStyleViewController")];
     [[HHRouter shared] map:SR_Mine_AccountManager toControllerClass:NSClassFromString(@"AccountManagerViewController")];
     [[HHRouter shared] map:SR_Mine_ChangeStyle_ColorSlider(@":title") toControllerClass:NSClassFromString(@"ChangeAppStyleDetailViewController")];
+    [[HHRouter shared] map:SR_Mine_ChangeStyle_PageStyle(@":title") toControllerClass:NSClassFromString(@"ChangeAppFunctionViewController")];
 }
 @end
