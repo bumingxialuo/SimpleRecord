@@ -18,4 +18,6 @@
 - (void)updataColor;
 @property(nonatomic, weak) id<StyleTypeTableViewDelegate> tableViewDelegate;
 
+
+
 @end

@@ -96,11 +96,7 @@
 }
 
 - (void)createTableFootView {
-//    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTHOFSCREEN, 80)];
-//    footView.backgroundColor = [AppSkinColorManger sharedInstance].backgroundColor;
-//    UILabel *tipL = [[UILabel alloc] init];
-//    tipL.numberOfLines = 0;
-//    tipL.text = @"点击";
+
 }
 
 #pragma mark - UITableViewDelegate And UITableViewDataSource

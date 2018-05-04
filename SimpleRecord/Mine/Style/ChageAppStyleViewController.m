@@ -16,7 +16,8 @@
 
 @interface ChageAppStyleViewController ()<StyleTypeTableViewDelegate>
 {
-    NSArray *_titleArray;
+    NSArray *_sectionOneArray;
+    NSArray *_sectionTwoArray;
 }
 @property(nonatomic, strong) StyleTypeTableView *tableView;
 @end
@@ -40,7 +41,8 @@
 }
 
 - (void)setUpdata {
-    _titleArray = @[@"主题色",@"第一辅色",@"第二辅色",@"背景色",@"动画色"];
+    _sectionOneArray = @[@"主题色",@"第一辅色",@"第二辅色",@"背景色",@"动画色"];
+    _sectionTwoArray = @[@"文章开关",@"文章方案",@"日记开关",@"日记方案",@"我的方案"];
 }
 
 - (void)createRightButton {
@@ -77,11 +79,11 @@
 #pragma mark - StyleTypeTableViewDelegate
 - (void)didselectStyleTypeTableViewCellForIndepath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_ChangeStyle_ColorSlider(_titleArray[indexPath.row])];
+        UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_ChangeStyle_ColorSlider(_sectionOneArray[indexPath.row])];
         [self.navigationController pushViewController:vc animated:YES];
-        
     } else {
-        
+        UIViewController *vc = [[HHRouter shared] matchController:SR_Mine_ChangeStyle_PageStyle(_sectionTwoArray[indexPath.row])];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
